@@ -4,12 +4,13 @@
  * Detects state drift (unexpected page, modal, redirect) and produces
  * a constrained action plan to get the test flow back on track.
  *
+ * Supports: OpenAI, Google Gemini, Groq (via AI_PROVIDER env var).
  * See design doc § 8.5 – FlowRecoveryAgent, § 11.2 – Flow-Level Healing.
  */
 
 const fs = require('fs');
 const path = require('path');
-const OpenAI = require('openai');
+const { createAIClient } = require('./ai-client');
 const frameworkConfig = require('../../config/framework.config');
 const FlowMemoryStore = require('../memory/flow-memory-store');
 const DomSnapshotTool = require('../tools/dom-snapshot-tool');
@@ -35,12 +36,8 @@ class FlowRecoveryAgent {
     this.domTool = new DomSnapshotTool(opts.page);
     this.axTool = new AccessibilityTreeTool(opts.page);
 
-    this.openai = new OpenAI({
-      apiKey: frameworkConfig.openai.apiKey,
-      timeout: frameworkConfig.openai.requestTimeoutMs,
-    });
-
-    this.model = frameworkConfig.openai.flowModel;
+    // Unified AI client – works with OpenAI, Google, or Groq
+    this.aiClient = createAIClient('flow');
   }
 
   /**
@@ -90,19 +87,8 @@ class FlowRecoveryAgent {
     const userPrompt = this._buildPrompt(ctx, domExcerpt, axTreeExcerpt);
 
     try {
-      const completion = await this.openai.chat.completions.create({
-        model: this.model,
-        max_tokens: frameworkConfig.openai.maxTokens,
-        temperature: 0.2,
-        response_format: { type: 'json_object' },
-        messages: [
-          { role: 'system', content: SYSTEM_PROMPT },
-          { role: 'user', content: userPrompt },
-        ],
-      });
-
-      const raw = completion.choices[0]?.message?.content;
-      const plan = JSON.parse(raw);
+      const response = await this.aiClient.chat(SYSTEM_PROMPT, userPrompt);
+      const plan = JSON.parse(response.content);
 
       // Validate actions are in the allowlist
       const policyConfig = require('../../config/policy.config');
@@ -115,11 +101,11 @@ class FlowRecoveryAgent {
         confidence: plan.confidence || 0,
         actions: validActions || [],
         expectedStateAfterPlan: plan.expectedStateAfterPlan || '',
-        source: 'openai',
-        tokensUsed: completion.usage?.total_tokens || 0,
+        source: response.provider || 'ai',
+        tokensUsed: response.tokensUsed || 0,
       };
     } catch (err) {
-      console.error('[FlowRecoveryAgent] OpenAI call failed:', err.message);
+      console.error(`[FlowRecoveryAgent] AI call failed:`, err.message);
       return {
         planId: `flow-recover-error-${Date.now()}`,
         confidence: 0,

@@ -497,9 +497,10 @@ class TestOrchestrator {
 
   /**
    * Perform a raw Playwright action.
+   * Supports both CSS selectors and Playwright getBy* syntax from AI agents.
    */
   async _performAction(action, selector, value, timeout) {
-    const locator = this.page.locator(selector);
+    const locator = this._resolveLocator(selector);
 
     switch (action) {
       case 'click':
@@ -517,6 +518,67 @@ class TestOrchestrator {
       default:
         throw new Error(`Unknown action: ${action}`);
     }
+  }
+
+  /**
+   * Resolve a selector string into a Playwright Locator.
+   * Handles CSS selectors, getByRole, getByText, getByLabel, getByPlaceholder, etc.
+   *
+   * @param {string} selector
+   * @returns {import('@playwright/test').Locator}
+   */
+  _resolveLocator(selector) {
+    if (!selector || typeof selector !== 'string') {
+      return this.page.locator(selector);
+    }
+
+    // Handle getByRole('role', { name: 'xxx' }) with optional .nth(n)
+    const roleMatch = selector.match(
+      /^getByRole\(['"](\w+)['"]\s*(?:,\s*\{\s*name:\s*['"](.+?)['"]\s*\})?\)(?:\.nth\((\d+)\))?$/
+    );
+    if (roleMatch) {
+      const [, role, name, nth] = roleMatch;
+      let loc = name
+        ? this.page.getByRole(role, { name })
+        : this.page.getByRole(role);
+      if (nth !== undefined) loc = loc.nth(parseInt(nth, 10));
+      return loc;
+    }
+
+    // Handle getByText('xxx')
+    const textMatch = selector.match(/^getByText\(['"](.+?)['"]\)(?:\.nth\((\d+)\))?$/);
+    if (textMatch) {
+      let loc = this.page.getByText(textMatch[1]);
+      if (textMatch[2] !== undefined) loc = loc.nth(parseInt(textMatch[2], 10));
+      return loc;
+    }
+
+    // Handle getByLabel('xxx')
+    const labelMatch = selector.match(/^getByLabel\(['"](.+?)['"]\)(?:\.nth\((\d+)\))?$/);
+    if (labelMatch) {
+      let loc = this.page.getByLabel(labelMatch[1]);
+      if (labelMatch[2] !== undefined) loc = loc.nth(parseInt(labelMatch[2], 10));
+      return loc;
+    }
+
+    // Handle getByPlaceholder('xxx')
+    const placeholderMatch = selector.match(/^getByPlaceholder\(['"](.+?)['"]\)(?:\.nth\((\d+)\))?$/);
+    if (placeholderMatch) {
+      let loc = this.page.getByPlaceholder(placeholderMatch[1]);
+      if (placeholderMatch[2] !== undefined) loc = loc.nth(parseInt(placeholderMatch[2], 10));
+      return loc;
+    }
+
+    // Handle getByTestId('xxx')
+    const testIdMatch = selector.match(/^getByTestId\(['"](.+?)['"]\)(?:\.nth\((\d+)\))?$/);
+    if (testIdMatch) {
+      let loc = this.page.getByTestId(testIdMatch[1]);
+      if (testIdMatch[2] !== undefined) loc = loc.nth(parseInt(testIdMatch[2], 10));
+      return loc;
+    }
+
+    // Default: treat as CSS selector
+    return this.page.locator(selector);
   }
 
   // ═══════════════════════════════════════════════════════════════════════

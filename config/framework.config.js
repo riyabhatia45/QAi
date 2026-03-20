@@ -3,23 +3,58 @@
  *
  * Values can be overridden via environment variables.
  * See design doc § 15 – CI/CD Integration Model for mode details.
+ *
+ * AI Provider support:
+ *   AI_PROVIDER=openai  → Uses OpenAI SDK (default)
+ *   AI_PROVIDER=google  → Uses Google Generative AI SDK
+ *   AI_PROVIDER=groq    → Uses OpenAI SDK with Groq base URL
  */
 
 const path = require('path');
 require('dotenv').config({ path: path.resolve(__dirname, '..', '.env') });
 
 const frameworkConfig = {
-  // ─── OpenAI ────────────────────────────────────────────────────────────
+  // ─── AI Provider ──────────────────────────────────────────────────────
+  ai: {
+    /** 'openai' | 'google' | 'groq' – which AI provider to use */
+    provider: process.env.AI_PROVIDER || 'openai',
+
+    /** Model for selector recovery (lower-cost, faster) */
+    selectorModel: process.env.AI_SELECTOR_MODEL
+      || (process.env.AI_PROVIDER === 'google' ? 'gemini-2.0-flash' :
+         process.env.AI_PROVIDER === 'groq' ? 'llama-3.3-70b-versatile' :
+         'gpt-4o-mini'),
+
+    /** Model for flow recovery (stronger reasoning) */
+    flowModel: process.env.AI_FLOW_MODEL
+      || (process.env.AI_PROVIDER === 'google' ? 'gemini-2.0-flash' :
+         process.env.AI_PROVIDER === 'groq' ? 'llama-3.3-70b-versatile' :
+         'gpt-4o'),
+
+    /** Max tokens per request */
+    maxTokens: parseInt(process.env.AI_MAX_TOKENS || '2048', 10),
+    /** Timeout in ms */
+    requestTimeoutMs: parseInt(process.env.AI_TIMEOUT_MS || '30000', 10),
+
+    // ── Provider-specific credentials ──────────────────────────────────
+    openai: {
+      apiKey: process.env.OPENAI_API_KEY || '',
+    },
+    google: {
+      apiKey: process.env.GOOGLE_API_KEY || '',
+    },
+    groq: {
+      apiKey: process.env.GROQ_API_KEY || '',
+    },
+  },
+
+  // ─── Legacy aliases (backward-compatible) ─────────────────────────────
   openai: {
     apiKey: process.env.OPENAI_API_KEY || '',
-    /** Lower-cost model for simple selector retries */
-    selectorModel: process.env.OPENAI_SELECTOR_MODEL || 'gpt-4o-mini',
-    /** Stronger model for flow recovery reasoning */
-    flowModel: process.env.OPENAI_FLOW_MODEL || 'gpt-4o',
-    /** Max tokens per request */
-    maxTokens: parseInt(process.env.OPENAI_MAX_TOKENS || '2048', 10),
-    /** Timeout in ms */
-    requestTimeoutMs: parseInt(process.env.OPENAI_TIMEOUT_MS || '30000', 10),
+    selectorModel: process.env.AI_SELECTOR_MODEL || process.env.OPENAI_SELECTOR_MODEL || 'gpt-4o-mini',
+    flowModel: process.env.AI_FLOW_MODEL || process.env.OPENAI_FLOW_MODEL || 'gpt-4o',
+    maxTokens: parseInt(process.env.AI_MAX_TOKENS || process.env.OPENAI_MAX_TOKENS || '2048', 10),
+    requestTimeoutMs: parseInt(process.env.AI_TIMEOUT_MS || process.env.OPENAI_TIMEOUT_MS || '30000', 10),
   },
 
   // ─── Execution ────────────────────────────────────────────────────────
