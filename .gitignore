@@ -1,0 +1,12 @@
+node_modules/
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
+.env
+*.log
+
+# Healing artifacts (keep in CI but not in repo)
+test-results/healing-artifacts/
+test-results/selector-memory.json
+test-results/flow-memory.json

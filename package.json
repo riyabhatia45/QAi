@@ -1,0 +1,33 @@
+{
+  "name": "riya_ai",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx playwright test",
+    "test:headed": "npx playwright test --headed",
+    "test:strict": "cross-env HEAL_MODE=strict npx playwright test",
+    "test:adaptive": "cross-env HEAL_MODE=adaptive npx playwright test",
+    "test:login": "npx playwright test tests/e2e/login.spec.js --headed",
+    "test:checkout": "npx playwright test tests/e2e/checkout.spec.js --headed",
+    "report": "npx playwright show-report"
+  },
+  "keywords": [
+    "playwright",
+    "agentic",
+    "self-healing",
+    "test-automation"
+  ],
+  "author": "Riya",
+  "license": "ISC",
+  "description": "Agentic Playwright Framework with AI-powered self-healing selectors and flow recovery",
+  "devDependencies": {
+    "@playwright/test": "^1.58.2",
+    "@types/node": "^25.5.0"
+  },
+  "dependencies": {
+    "cross-env": "^7.0.3",
+    "dotenv": "^17.3.1",
+    "openai": "^4.73.0",
+    "uuid": "^11.1.0"
+  }
+}
