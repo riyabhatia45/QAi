@@ -1,0 +1,244 @@
+﻿[dotenv@17.3.1] injecting env (7) from .env -- tip: ≡ƒöÉ prevent committing .env to code: https://dotenvx.com/precommit
+
+Running 8 tests using 1 worker
+
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ΓÜÖ∩╕Å  load multiple .env files with { path: ['.env.local', '.env'] }
+[AIClient] Using OpenAI (gpt-4o)
+[AIClient] Using OpenAI (gpt-4o)
+node.exe : (node:10636) 
+[DEP0040] 
+DeprecationWarning: The 
+`punycode` module is 
+deprecated. Please use a 
+userland alternative instead.
+At C:\Program 
+Files\nodejs\npx.ps1:29 
+char:3
++   & $NODE_EXE $NPX_CLI_JS 
+$args
++   
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo           
+   : NotSpecified: ((node:1  
+  0636) [D...native instea   
+ d.:String) [], RemoteExc    
+eption
+    + FullyQualifiedErrorId  
+   : NativeCommandError
+ 
+(Use `node 
+--trace-deprecation ...` to 
+show where the warning was 
+created)
+Γ£à Successful login test passed
+[HealingReportWriter] Reports written to C:\Users\LENOVO\OneDrive\Documents\Riya_ai\test-results\healing-artifacts\login-form-001_2026-03-29T13-00-22-975Z
+  Γ£ô  1 [chromium] ΓÇ║ tests\e2e\login-form.spec.js:34:3 ΓÇ║ Nexus Login Form ΓÇô Self-Healing Tests ΓÇ║ should log in successfully with valid credentials (3.9s)
+[AIClient] Using OpenAI (gpt-4o)
+[AIClient] Using OpenAI (gpt-4o)
+Γ£à Invalid credentials error test passed
+[HealingReportWriter] Reports written to C:\Users\LENOVO\OneDrive\Documents\Riya_ai\test-results\healing-artifacts\login-form-002_2026-03-29T13-00-25-623Z
+  Γ£ô  2 [chromium] ΓÇ║ tests\e2e\login-form.spec.js:79:3 ΓÇ║ Nexus Login Form ΓÇô Self-Healing Tests ΓÇ║ should show error banner for invalid credentials (2.6s)
+[AIClient] Using OpenAI (gpt-4o)
+[AIClient] Using OpenAI (gpt-4o)
+Γ£à Empty field validation test passed
+[HealingReportWriter] Reports written to C:\Users\LENOVO\OneDrive\Documents\Riya_ai\test-results\healing-artifacts\login-form-003_2026-03-29T13-00-27-102Z
+  Γ£ô  3 [chromium] ΓÇ║ tests\e2e\login-form.spec.js:117:3 ΓÇ║ Nexus Login Form ΓÇô Self-Healing Tests ΓÇ║ should validate empty fields (1.5s)
+[AIClient] Using OpenAI (gpt-4o)
+[AIClient] Using OpenAI (gpt-4o)
+Γ£à Password toggle test passed
+[HealingReportWriter] Reports written to C:\Users\LENOVO\OneDrive\Documents\Riya_ai\test-results\healing-artifacts\login-form-004_2026-03-29T13-00-28-216Z
+  Γ£ô  4 [chromium] ΓÇ║ tests\e2e\login-form.spec.js:147:3 ΓÇ║ Nexus Login Form ΓÇô Self-Healing Tests ΓÇ║ should toggle password visibility (1.1s)
+[AIClient] Using OpenAI (gpt-4o)
+[AIClient] Using OpenAI (gpt-4o)
+Γ£à Login ΓåÆ Logout flow test passed
+[HealingReportWriter] Reports written to C:\Users\LENOVO\OneDrive\Documents\Riya_ai\test-results\healing-artifacts\login-form-005_2026-03-29T13-00-31-927Z
+  Γ£ô  5 [chromium] ΓÇ║ tests\e2e\login-form.spec.js:180:3 ΓÇ║ Nexus Login Form ΓÇô Self-Healing Tests ΓÇ║ should complete login then logout (3.7s)
+[AIClient] Using OpenAI (gpt-4o)
+[AIClient] Using OpenAI (gpt-4o)
+[TestOrchestrator] Step 
+failed: fill "[data-testid="e
+mail-input-v3"]" ΓÇô 
+locator.fill: Timeout 
+10000ms exceeded.
+Call log:
+[2m  - waiting for locator('
+[data-testid="email-input-v3"
+]')[22m
+
+[SelectorRecoveryAgent] AI 
+call failed: 429 You 
+exceeded your current quota, 
+please check your plan and 
+billing details. For more 
+information on this error, 
+read the docs: https://platfo
+rm.openai.com/docs/guides/err
+or-codes/api-errors.
+[TestOrchestrator] Step 
+FAILED (policy: fail): Low 
+confidence (0.00) ΓÇô 
+requires human review
+[HealingReportWriter] Reports written to C:\Users\LENOVO\OneDrive\Documents\Riya_ai\test-results\healing-artifacts\login-form-006-heal_2026-03-29T13-00-45-975Z
+  Γ£ÿ  6 [chromium] ΓÇ║ tests\e2e\login-form.spec.js:226:3 ΓÇ║ Nexus Login Form ΓÇô Self-Healing Tests ΓÇ║ should heal when email input selector is wrong (14.0s)
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ΓÜÖ∩╕Å  specify custom .env file path with { path: '/custom/path/.env' }
+[AIClient] Using OpenAI (gpt-4o)
+[AIClient] Using OpenAI (gpt-4o)
+(node:31656) [DEP0040] 
+DeprecationWarning: The 
+`punycode` module is 
+deprecated. Please use a 
+userland alternative instead.
+(Use `node 
+--trace-deprecation ...` to 
+show where the warning was 
+created)
+[TestOrchestrator] Step 
+failed: click "[data-testid="
+submit-login-btn"]" ΓÇô 
+locator.click: Timeout 
+10000ms exceeded.
+Call log:
+[2m  - waiting for locator('
+[data-testid="submit-login-bt
+n"]')[22m
+
+[SelectorRecoveryAgent] AI 
+call failed: 429 You 
+exceeded your current quota, 
+please check your plan and 
+billing details. For more 
+information on this error, 
+read the docs: https://platfo
+rm.openai.com/docs/guides/err
+or-codes/api-errors.
+[TestOrchestrator] Step 
+FAILED (policy: fail): Low 
+confidence (0.00) ΓÇô 
+requires human review
+[HealingReportWriter] Reports written to C:\Users\LENOVO\OneDrive\Documents\Riya_ai\test-results\healing-artifacts\login-form-007-heal_2026-03-29T13-01-01-443Z
+  Γ£ÿ  7 [chromium] ΓÇ║ tests\e2e\login-form.spec.js:263:3 ΓÇ║ Nexus Login Form ΓÇô Self-Healing Tests ΓÇ║ should heal when login button selector is wrong (14.1s)
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ≡ƒñû agentic secret storage: https://dotenvx.com/as2
+[AIClient] Using OpenAI (gpt-4o)
+[AIClient] Using OpenAI (gpt-4o)
+(node:30420) [DEP0040] 
+DeprecationWarning: The 
+`punycode` module is 
+deprecated. Please use a 
+userland alternative instead.
+(Use `node 
+--trace-deprecation ...` to 
+show where the warning was 
+created)
+[TestOrchestrator] Step 
+failed: fill "[name="user-pas
+sword-field"]" ΓÇô 
+locator.fill: Timeout 
+10000ms exceeded.
+Call log:
+[2m  - waiting for locator('
+[name="user-password-field"]'
+)[22m
+
+[SelectorRecoveryAgent] AI 
+call failed: 429 You 
+exceeded your current quota, 
+please check your plan and 
+billing details. For more 
+information on this error, 
+read the docs: https://platfo
+rm.openai.com/docs/guides/err
+or-codes/api-errors.
+[TestOrchestrator] Step 
+FAILED (policy: fail): Low 
+confidence (0.00) ΓÇô 
+requires human review
+[HealingReportWriter] Reports written to C:\Users\LENOVO\OneDrive\Documents\Riya_ai\test-results\healing-artifacts\login-form-008-heal_2026-03-29T13-01-17-522Z
+  Γ£ÿ  8 [chromium] ΓÇ║ tests\e2e\login-form.spec.js:298:3 ΓÇ║ Nexus Login Form ΓÇô Self-Healing Tests ΓÇ║ should heal multiple wrong selectors in sequence (14.5s)
+
+
+  1) [chromium] ΓÇ║ tests\e2e\login-form.spec.js:226:3 ΓÇ║ Nexus Login Form ΓÇô Self-Healing Tests ΓÇ║ should heal when email input selector is wrong 
+
+    TimeoutError: locator.fill: Timeout 10000ms exceeded.
+    Call log:
+    [2m  - waiting for locator('[data-testid="email-input-v3"]')[22m
+
+
+       at ..\src\core\test-orchestrator.js:510
+
+      508 |         break;
+      509 |       case 'fill':
+    > 510 |         await locator.fill(value, { timeout });
+          |                       ^
+      511 |         break;
+      512 |       case 'select':
+      513 |         await locator.selectOption(value, { timeout });
+        at TestOrchestrator._performAction (C:\Users\LENOVO\OneDrive\Documents\Riya_ai\src\core\test-orchestrator.js:510:23)
+        at TestOrchestrator._executeWithHealing (C:\Users\LENOVO\OneDrive\Documents\Riya_ai\src\core\test-orchestrator.js:252:18)
+        at TestOrchestrator.fill (C:\Users\LENOVO\OneDrive\Documents\Riya_ai\src\core\test-orchestrator.js:117:17)
+        at C:\Users\LENOVO\OneDrive\Documents\Riya_ai\tests\e2e\login-form.spec.js:234:26
+
+    attachment #1: screenshot (image/png) ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ
+    ..\..\..\AppData\Local\Temp\riya-ai-test-results\e2e-login-form-Nexus-Login-47ce5-ail-input-selector-is-wrong-chromium\test-failed-1.png
+    ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ
+
+    Error Context: ..\..\..\AppData\Local\Temp\riya-ai-test-results\e2e-login-form-Nexus-Login-47ce5-ail-input-selector-is-wrong-chromium\error-context.md
+
+  2) [chromium] ΓÇ║ tests\e2e\login-form.spec.js:263:3 ΓÇ║ Nexus Login Form ΓÇô Self-Healing Tests ΓÇ║ should heal when login button selector is wrong 
+
+    TimeoutError: locator.click: Timeout 10000ms exceeded.
+    Call log:
+    [2m  - waiting for locator('[data-testid="submit-login-btn"]')[22m
+
+
+       at ..\src\core\test-orchestrator.js:507
+
+      505 |     switch (action) {
+      506 |       case 'click':
+    > 507 |         await locator.click({ timeout });
+          |                       ^
+      508 |         break;
+      509 |       case 'fill':
+      510 |         await locator.fill(value, { timeout });
+        at TestOrchestrator._performAction (C:\Users\LENOVO\OneDrive\Documents\Riya_ai\src\core\test-orchestrator.js:507:23)
+        at TestOrchestrator._executeWithHealing (C:\Users\LENOVO\OneDrive\Documents\Riya_ai\src\core\test-orchestrator.js:252:18)
+        at TestOrchestrator.click (C:\Users\LENOVO\OneDrive\Documents\Riya_ai\src\core\test-orchestrator.js:107:17)
+        at C:\Users\LENOVO\OneDrive\Documents\Riya_ai\tests\e2e\login-form.spec.js:279:26
+
+    attachment #1: screenshot (image/png) ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ
+    ..\..\..\AppData\Local\Temp\riya-ai-test-results\e2e-login-form-Nexus-Login-547ea-in-button-selector-is-wrong-chromium\test-failed-1.png
+    ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ
+
+    Error Context: ..\..\..\AppData\Local\Temp\riya-ai-test-results\e2e-login-form-Nexus-Login-547ea-in-button-selector-is-wrong-chromium\error-context.md
+
+  3) [chromium] ΓÇ║ tests\e2e\login-form.spec.js:298:3 ΓÇ║ Nexus Login Form ΓÇô Self-Healing Tests ΓÇ║ should heal multiple wrong selectors in sequence 
+
+    TimeoutError: locator.fill: Timeout 10000ms exceeded.
+    Call log:
+    [2m  - waiting for locator('[name="user-password-field"]')[22m
+
+
+       at ..\src\core\test-orchestrator.js:510
+
+      508 |         break;
+      509 |       case 'fill':
+    > 510 |         await locator.fill(value, { timeout });
+          |                       ^
+      511 |         break;
+      512 |       case 'select':
+      513 |         await locator.selectOption(value, { timeout });
+        at TestOrchestrator._performAction (C:\Users\LENOVO\OneDrive\Documents\Riya_ai\src\core\test-orchestrator.js:510:23)
+        at TestOrchestrator._executeWithHealing (C:\Users\LENOVO\OneDrive\Documents\Riya_ai\src\core\test-orchestrator.js:252:18)
+        at TestOrchestrator.fill (C:\Users\LENOVO\OneDrive\Documents\Riya_ai\src\core\test-orchestrator.js:117:17)
+        at C:\Users\LENOVO\OneDrive\Documents\Riya_ai\tests\e2e\login-form.spec.js:310:26
+
+    attachment #1: screenshot (image/png) ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ
+    ..\..\..\AppData\Local\Temp\riya-ai-test-results\e2e-login-form-Nexus-Login-7d8a3-wrong-selectors-in-sequence-chromium\test-failed-1.png
+    ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ
+
+    Error Context: ..\..\..\AppData\Local\Temp\riya-ai-test-results\e2e-login-form-Nexus-Login-7d8a3-wrong-selectors-in-sequence-chromium\error-context.md
+
+  3 failed
+    [chromium] ΓÇ║ tests\e2e\login-form.spec.js:226:3 ΓÇ║ Nexus Login Form ΓÇô Self-Healing Tests ΓÇ║ should heal when email input selector is wrong 
+    [chromium] ΓÇ║ tests\e2e\login-form.spec.js:263:3 ΓÇ║ Nexus Login Form ΓÇô Self-Healing Tests ΓÇ║ should heal when login button selector is wrong 
+    [chromium] ΓÇ║ tests\e2e\login-form.spec.js:298:3 ΓÇ║ Nexus Login Form ΓÇô Self-Healing Tests ΓÇ║ should heal multiple wrong selectors in sequence 
+  5 passed (1.0m)

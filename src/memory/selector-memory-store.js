@@ -70,6 +70,7 @@ class SelectorMemoryStore {
     } else {
       this._store[key].push({
         selector: candidate.selector,
+        originalSelector: ctx.originalSelector, // Save for sync-to-source
         strategy: candidate.strategy,
         confidence: candidate.confidence,
         score: candidate.confidence,

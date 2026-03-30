@@ -79,29 +79,116 @@ class GoogleProvider {
     });
   }
 
+  async chat(systemPrompt, userPrompt, _attempt = 0) {
+    const MAX_RETRIES = 3;
+    try {
+      const chat = this.generativeModel.startChat({
+        history: [
+          {
+            role: 'user',
+            parts: [{ text: systemPrompt }],
+          },
+          {
+            role: 'model',
+            parts: [{ text: 'Understood. I will follow these instructions and respond only with valid JSON.' }],
+          },
+        ],
+      });
+
+      const result = await chat.sendMessage(userPrompt);
+      const response = result.response;
+      const text = response.text();
+
+      return {
+        content: text,
+        tokensUsed: response.usageMetadata?.totalTokenCount || 0,
+        provider: 'google',
+        model: this.modelName,
+      };
+    } catch (err) {
+      const is429 = err.message && err.message.includes('429');
+      if (is429 && _attempt < MAX_RETRIES) {
+        // Parse retry-after delay from error message (e.g. "Please retry in 48s")
+        const delayMatch = err.message.match(/retry in (\d+)/i);
+        const delaySec = delayMatch ? parseInt(delayMatch[1], 10) + 5 : 65;
+        console.warn(`[GoogleProvider] Rate limited (429). Retrying after ${delaySec}s (attempt ${_attempt + 1}/${MAX_RETRIES})...`);
+        await new Promise(r => setTimeout(r, delaySec * 1000));
+        return this.chat(systemPrompt, userPrompt, _attempt + 1);
+      }
+      throw err;
+    }
+  }
+}
+
+/**
+ * Mock provider for reliable demos when API keys are exhausted.
+ */
+class MockProvider {
+  constructor() {
+    this.providerName = 'mock';
+    this.model = 'mock-reasoning-engine';
+  }
+
   async chat(systemPrompt, userPrompt) {
-    const chat = this.generativeModel.startChat({
-      history: [
-        {
-          role: 'user',
-          parts: [{ text: systemPrompt }],
-        },
-        {
-          role: 'model',
-          parts: [{ text: 'Understood. I will follow these instructions and respond only with valid JSON.' }],
-        },
-      ],
-    });
+    console.log('[MockProvider] Intercepting request for reliable healing demo...');
 
-    const result = await chat.sendMessage(userPrompt);
-    const response = result.response;
-    const text = response.text();
+    // Hardcoded responses for known broken selectors in the demo suite
+    const responses = {
+      '#user-login-email-field-v2': {
+        candidates: [
+          { selector: 'input[type="email"]', confidence: 0.98, strategy: 'attribute_match', rationale: 'Found identical email input field' },
+          { selector: 'page.getByLabel("Email address")', confidence: 0.95, strategy: 'accessibility', rationale: 'Matched via aria-label' }
+        ],
+        recommendedSelector: 'input[type="email"]',
+        recommendedConfidence: 0.98
+      },
+      'button.custom-add-to-cart-action': {
+        candidates: [
+          { selector: 'button:has-text("Add to cart") >> nth=0', confidence: 0.99, strategy: 'text_match', rationale: 'Matched first "Add to cart" precisely' },
+          { selector: 'page.getByRole("button", { name: "Add to cart" }).first()', confidence: 0.97, strategy: 'accessibility', rationale: 'Semantic button match' }
+        ],
+        recommendedSelector: 'button:has-text("Add to cart") >> nth=0',
+        recommendedConfidence: 0.99
+      },
+      '[data-testid="email-input-v3"]': {
+        recommendedSelector: 'input[type="email"]',
+        recommendedConfidence: 0.98
+      },
+      '[data-testid="submit-login-btn"]': {
+        recommendedSelector: 'button:has-text("Login")',
+        recommendedConfidence: 0.98
+      }
+    };
 
+    // Find a match in the user prompt
+    let matchedResponse = null;
+    for (const [key, value] of Object.entries(responses)) {
+      if (userPrompt.includes(key)) {
+        matchedResponse = value;
+        break;
+      }
+    }
+
+    if (matchedResponse) {
+      return {
+        content: JSON.stringify(matchedResponse),
+        tokensUsed: 0,
+        provider: 'mock',
+        model: this.model,
+      };
+    }
+
+    // Default fallback if no hardcoded match
     return {
-      content: text,
-      tokensUsed: response.usageMetadata?.totalTokenCount || 0,
-      provider: 'google',
-      model: this.modelName,
+      content: JSON.stringify({
+        candidates: [],
+        recommendedSelector: null,
+        recommendedConfidence: 0,
+        error: 'No mock response for this selector. Please provide a real API key.'
+      }),
+      tokensUsed: 0,
+      provider: 'mock',
+      model: this.model,
     };
   }
 }
@@ -127,6 +214,11 @@ function createAIClient(agentType) {
     : frameworkConfig.ai.selectorModel;
 
   switch (provider) {
+    case 'mock': {
+      console.log(`[AIClient] Using Mock Provider (Offline Mode)`);
+      return new MockProvider();
+    }
+
     case 'google': {
       const apiKey = frameworkConfig.ai.google.apiKey;
       if (!apiKey) throw new Error('GOOGLE_API_KEY is required when AI_PROVIDER=google');

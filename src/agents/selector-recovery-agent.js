@@ -161,8 +161,9 @@ class SelectorRecoveryAgent {
    */
   async _selectorExists(selector) {
     try {
-      if (selector.startsWith('getBy') || selector.startsWith('page.')) {
-        const expr = selector.startsWith('page.') ? selector.replace(/^page\./, '') : selector;
+      const trimmed = selector.trim();
+      if (trimmed.startsWith('getBy') || trimmed.startsWith('page.')) {
+        const expr = trimmed.startsWith('page.') ? trimmed.replace(/^page\./, '') : trimmed;
         const fn = new Function('page', `"use strict"; return page.${expr};`);
         const locator = fn(this.page);
         if (locator && typeof locator.count === 'function') {
@@ -171,11 +172,11 @@ class SelectorRecoveryAgent {
         }
         return false;
       }
-      const count = await this.page.locator(selector).count();
+      const count = await this.page.locator(trimmed).count();
       return count > 0;
     } catch {
-      // Return true to avoid discarding valid locators we couldn't parse
-      return true;
+      // Return false if locator evaluation fails or element not found
+      return false;
     }
   }
 }

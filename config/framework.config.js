@@ -92,7 +92,7 @@ const frameworkConfig = {
     /** Sensitive attribute names to redact from DOM excerpts */
     redactAttributes: ['password', 'token', 'secret', 'ssn', 'credit-card', 'cc-number'],
     /** Max DOM characters to send to the model */
-    maxDomExcerptLength: parseInt(process.env.MAX_DOM_EXCERPT || '4000', 10),
+    maxDomExcerptLength: parseInt(process.env.MAX_DOM_EXCERPT || '1000', 10),
   },
 };
 
