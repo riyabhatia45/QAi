@@ -39,6 +39,12 @@ class TestOrchestrator {
     this.page = page;
     this.testId = testId;
     this._stepCounter = 0;
+    this.healingEnabled =
+      opts.healingEnabled !== undefined
+        ? !!opts.healingEnabled
+        : opts.enableHealing !== undefined
+          ? !!opts.enableHealing
+          : true;
 
     // ── Core components ─────────────────────────────────────────────
     this.policyEngine = new PolicyEngine();
@@ -49,14 +55,8 @@ class TestOrchestrator {
     this.flowMemory = opts.flowMemory || new FlowMemoryStore();
 
     // ── Agents ──────────────────────────────────────────────────────
-    this.selectorAgent = new SelectorRecoveryAgent({
-      page,
-      memoryStore: this.selectorMemory,
-    });
-    this.flowAgent = new FlowRecoveryAgent({
-      page,
-      memoryStore: this.flowMemory,
-    });
+    this.selectorAgent = null;
+    this.flowAgent = null;
 
     // ── Tools ───────────────────────────────────────────────────────
     this.domTool = new DomSnapshotTool(page);
@@ -152,6 +152,9 @@ class TestOrchestrator {
       this.runContext.recordStep({ stepId, action: 'waitForURL', selector: String(urlPattern), result: 'pass' });
     } catch (err) {
       this.runContext.recordStep({ stepId, action: 'waitForURL', selector: String(urlPattern), result: 'fail' });
+      if (!this.healingEnabled) {
+        throw err;
+      }
       // URL mismatch could indicate flow drift
       await this._attemptFlowRecovery(stepId, {
         expectedState: `Expected URL matching: ${urlPattern}`,
@@ -285,6 +288,11 @@ class TestOrchestrator {
         `[TestOrchestrator] Step failed: ${action} "${selector}" – ${originalError.message}`
       );
 
+      if (!this.healingEnabled) {
+        this.runContext.recordStep({ stepId, action, selector, result: 'fail' });
+        throw originalError;
+      }
+
       eventBus.publish(
         createHealingEvent({
           type: 'step_failed',
@@ -327,7 +335,7 @@ class TestOrchestrator {
 
       // ── Step 4: Invoke Selector Recovery Agent ────────────────────
       this.runContext.selectorRecoveryAttempts++;
-      const recoveryResult = await this.selectorAgent.recover(failedCtx);
+      const recoveryResult = await this._getSelectorAgent().recover(failedCtx);
 
       // ── Step 5: Policy decision ───────────────────────────────────
       const decision = this.policyEngine.evaluateSelectorRecovery(
@@ -351,7 +359,7 @@ class TestOrchestrator {
         const bigDom = await this.domTool.capture({ maxLength: 8000 });
         failedCtx.domExcerpt = bigDom;
         this.runContext.selectorRecoveryAttempts++;
-        const retryResult = await this.selectorAgent.recover(failedCtx);
+        const retryResult = await this._getSelectorAgent().recover(failedCtx);
         const retryDecision = this.policyEngine.evaluateSelectorRecovery(
           retryResult,
           this.runContext
@@ -470,7 +478,7 @@ class TestOrchestrator {
       .getRecentSteps()
       .map((s) => `${s.action} ${s.selector} → ${s.result}`);
 
-    const plan = await this.flowAgent.recover({
+    const plan = await this._getFlowAgent().recover({
       testId: this.testId,
       expectedState: ctx.expectedState,
       observedState: ctx.observedState,
@@ -651,6 +659,26 @@ class TestOrchestrator {
   // ═══════════════════════════════════════════════════════════════════════
   //  HELPERS
   // ═══════════════════════════════════════════════════════════════════════
+
+  _getSelectorAgent() {
+    if (!this.selectorAgent) {
+      this.selectorAgent = new SelectorRecoveryAgent({
+        page: this.page,
+        memoryStore: this.selectorMemory,
+      });
+    }
+    return this.selectorAgent;
+  }
+
+  _getFlowAgent() {
+    if (!this.flowAgent) {
+      this.flowAgent = new FlowRecoveryAgent({
+        page: this.page,
+        memoryStore: this.flowMemory,
+      });
+    }
+    return this.flowAgent;
+  }
 
   _nextStepId(action) {
     this._stepCounter++;

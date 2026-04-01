@@ -22,7 +22,7 @@ const REAL_SEL = {
   passwordInput: 'input[type="password"]',
   signInButton: 'button.rw-btn-primary:has-text("Sign in")',
   productsLink: 'a[href="/app/products"]',
-  addToCartBtn: 'button.rw-btn-primary >> nth=0', // First product's add to cart
+  addToCartBtn: 'button.rw-btn-primary:has-text("Add to cart"):not([disabled]) >> nth=0', // First enabled add to cart button
   cartLink: 'a[href="/app/cart"]',
   checkoutBtn: 'button.rw-btn-primary:has-text("Checkout")',
   payButton: 'button.rw-btn-primary:has-text("Pay")',
@@ -36,7 +36,9 @@ test.describe('Retail Website - Complete Flow with Self-Healing', () => {
   test('✅ Baseline: Complete Flow (correct selectors)', async ({ page }) => {
     test.setTimeout(120000);
 
-    const orchestrator = new TestOrchestrator(page, 'retail-flow-baseline');
+    const orchestrator = new TestOrchestrator(page, 'retail-flow-baseline', {
+      healingEnabled: false,
+    });
 
     try {
       // 1. Navigate to Dashboard (will redirect to login)
@@ -54,13 +56,14 @@ test.describe('Retail Website - Complete Flow with Self-Healing', () => {
       await orchestrator.click(REAL_SEL.signInButton, {
         description: 'Sign in button',
       });
+      await orchestrator.waitForURL(/\/dashboard/);
 
       // 3. Navigate to Products
       console.log('[Baseline] Step 3: Navigating to Products...');
       await orchestrator.click(REAL_SEL.productsLink, {
         description: 'Products navigation link in sidebar',
       });
-      await orchestrator.waitForURL(/\/products/, { timeout: 15000 });
+      await orchestrator.waitForURL(/\/products/);
 
       // 4. Add item to cart
       console.log('[Baseline] Step 4: Adding product to cart...');
@@ -73,14 +76,14 @@ test.describe('Retail Website - Complete Flow with Self-Healing', () => {
       await orchestrator.click(REAL_SEL.cartLink, {
         description: 'Cart navigation link in sidebar',
       });
-      await orchestrator.waitForURL(/\/cart/, { timeout: 15000 });
+      await orchestrator.waitForURL(/\/cart/);
 
       // 6. Proceed to Checkout
       console.log('[Baseline] Step 6: Clicking Checkout...');
       await orchestrator.click(REAL_SEL.checkoutBtn, {
         description: 'Checkout button on cart page',
       });
-      await orchestrator.waitForURL(/\/checkout/, { timeout: 15000 });
+      await orchestrator.waitForURL(/\/checkout/);
 
       // 7. Place Order (Pay)
       console.log('[Baseline] Step 7: Clicking Pay button...');
@@ -129,7 +132,7 @@ test.describe('Retail Website - Complete Flow with Self-Healing', () => {
       await orchestrator.click('a.nav-link-products-v2', {
         description: 'Products navigation link in sidebar',
       });
-      await orchestrator.waitForURL(/\/products/, { timeout: 15000 });
+      await orchestrator.waitForURL(/\/products/);
 
       // 4. Add item to cart (BROKEN ADD TO CART SELECTOR)
       console.log('Step 4: Adding product to cart (simulating broken button selector)...');
@@ -142,14 +145,14 @@ test.describe('Retail Website - Complete Flow with Self-Healing', () => {
       await orchestrator.click(REAL_SEL.cartLink, {
         description: 'Cart navigation link in sidebar',
       });
-      await orchestrator.waitForURL(/\/cart/, { timeout: 15000 });
+      await orchestrator.waitForURL(/\/cart/);
 
       // 6. Proceed to Checkout (BROKEN CHECKOUT SELECTOR)
       console.log('Step 6: Clicking Checkout (simulating broken checkout selector)...');
       await orchestrator.click('button.proceed-to-checkout-v3', {
         description: 'Checkout button on cart page',
       });
-      await orchestrator.waitForURL(/\/checkout/, { timeout: 15000 });
+      await orchestrator.waitForURL(/\/checkout/);
 
       // 7. Place Order (Pay)
       console.log('Step 7: Clicking Pay button...');

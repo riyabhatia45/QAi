@@ -1,0 +1,107 @@
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  enable debug logging with { debug: true }
+
+Running 4 tests using 1 worker
+
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚡️ secrets for agents: https://dotenvx.com/as2
+  x  1 [chromium] › tests\e2e\data-driven-healing.spec.js:7:5 › Data-driven self-healing scenarios › heals scenario: Broken email input selector (186ms)
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🔐 prevent building .env in docker: https://dotenvx.com/prebuild
+  x  2 [chromium] › tests\e2e\data-driven-healing.spec.js:7:5 › Data-driven self-healing scenarios › heals scenario: Broken login button selector (140ms)
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🛡️ auth for agents: https://vestauth.com
+  x  3 [chromium] › tests\e2e\data-driven-healing.spec.js:7:5 › Data-driven self-healing scenarios › heals scenario: Broken password and login button selectors (156ms)
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🤖 agentic secret storage: https://dotenvx.com/as2
+  x  4 [chromium] › tests\e2e\data-driven-healing.spec.js:7:5 › Data-driven self-healing scenarios › heals scenario: Broken email and add to cart selectors (138ms)
+
+
+  1) [chromium] › tests\e2e\data-driven-healing.spec.js:7:5 › Data-driven self-healing scenarios › heals scenario: Broken email input selector 
+
+    Error: OPENAI_API_KEY is required when AI_PROVIDER=openai
+
+       at ..\src\agents\ai-client.js:245
+
+      243 |     default: {
+      244 |       const apiKey = frameworkConfig.ai.openai.apiKey;
+    > 245 |       if (!apiKey) throw new Error('OPENAI_API_KEY is required when AI_PROVIDER=openai');
+          |                          ^
+      246 |       console.log(`[AIClient] Using OpenAI (${model})`);
+      247 |       return new OpenAIProvider({
+      248 |         apiKey,
+        at createAIClient (C:\Users\Riya Bhatia\selfHealingFrameworkRRP\src\agents\ai-client.js:245:26)
+        at SelectorRecoveryAgent (C:\Users\Riya Bhatia\selfHealingFrameworkRRP\src\agents\selector-recovery-agent.js:39:21)
+        at TestOrchestrator (C:\Users\Riya Bhatia\selfHealingFrameworkRRP\src\core\test-orchestrator.js:52:26)
+        at C:\Users\Riya Bhatia\selfHealingFrameworkRRP\tests\e2e\data-driven-healing.spec.js:10:28
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ..\..\RIYABH~1\AppData\Local\Temp\riya-ai-test-results\e2e-data-driven-healing-Da-fb4cc-Broken-email-input-selector-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2) [chromium] › tests\e2e\data-driven-healing.spec.js:7:5 › Data-driven self-healing scenarios › heals scenario: Broken login button selector 
+
+    Error: OPENAI_API_KEY is required when AI_PROVIDER=openai
+
+       at ..\src\agents\ai-client.js:245
+
+      243 |     default: {
+      244 |       const apiKey = frameworkConfig.ai.openai.apiKey;
+    > 245 |       if (!apiKey) throw new Error('OPENAI_API_KEY is required when AI_PROVIDER=openai');
+          |                          ^
+      246 |       console.log(`[AIClient] Using OpenAI (${model})`);
+      247 |       return new OpenAIProvider({
+      248 |         apiKey,
+        at createAIClient (C:\Users\Riya Bhatia\selfHealingFrameworkRRP\src\agents\ai-client.js:245:26)
+        at SelectorRecoveryAgent (C:\Users\Riya Bhatia\selfHealingFrameworkRRP\src\agents\selector-recovery-agent.js:39:21)
+        at TestOrchestrator (C:\Users\Riya Bhatia\selfHealingFrameworkRRP\src\core\test-orchestrator.js:52:26)
+        at C:\Users\Riya Bhatia\selfHealingFrameworkRRP\tests\e2e\data-driven-healing.spec.js:10:28
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ..\..\RIYABH~1\AppData\Local\Temp\riya-ai-test-results\e2e-data-driven-healing-Da-f0baa-roken-login-button-selector-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  3) [chromium] › tests\e2e\data-driven-healing.spec.js:7:5 › Data-driven self-healing scenarios › heals scenario: Broken password and login button selectors 
+
+    Error: OPENAI_API_KEY is required when AI_PROVIDER=openai
+
+       at ..\src\agents\ai-client.js:245
+
+      243 |     default: {
+      244 |       const apiKey = frameworkConfig.ai.openai.apiKey;
+    > 245 |       if (!apiKey) throw new Error('OPENAI_API_KEY is required when AI_PROVIDER=openai');
+          |                          ^
+      246 |       console.log(`[AIClient] Using OpenAI (${model})`);
+      247 |       return new OpenAIProvider({
+      248 |         apiKey,
+        at createAIClient (C:\Users\Riya Bhatia\selfHealingFrameworkRRP\src\agents\ai-client.js:245:26)
+        at SelectorRecoveryAgent (C:\Users\Riya Bhatia\selfHealingFrameworkRRP\src\agents\selector-recovery-agent.js:39:21)
+        at TestOrchestrator (C:\Users\Riya Bhatia\selfHealingFrameworkRRP\src\core\test-orchestrator.js:52:26)
+        at C:\Users\Riya Bhatia\selfHealingFrameworkRRP\tests\e2e\data-driven-healing.spec.js:10:28
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ..\..\RIYABH~1\AppData\Local\Temp\riya-ai-test-results\e2e-data-driven-healing-Da-d793c--and-login-button-selectors-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  4) [chromium] › tests\e2e\data-driven-healing.spec.js:7:5 › Data-driven self-healing scenarios › heals scenario: Broken email and add to cart selectors 
+
+    Error: OPENAI_API_KEY is required when AI_PROVIDER=openai
+
+       at ..\src\agents\ai-client.js:245
+
+      243 |     default: {
+      244 |       const apiKey = frameworkConfig.ai.openai.apiKey;
+    > 245 |       if (!apiKey) throw new Error('OPENAI_API_KEY is required when AI_PROVIDER=openai');
+          |                          ^
+      246 |       console.log(`[AIClient] Using OpenAI (${model})`);
+      247 |       return new OpenAIProvider({
+      248 |         apiKey,
+        at createAIClient (C:\Users\Riya Bhatia\selfHealingFrameworkRRP\src\agents\ai-client.js:245:26)
+        at SelectorRecoveryAgent (C:\Users\Riya Bhatia\selfHealingFrameworkRRP\src\agents\selector-recovery-agent.js:39:21)
+        at TestOrchestrator (C:\Users\Riya Bhatia\selfHealingFrameworkRRP\src\core\test-orchestrator.js:52:26)
+        at C:\Users\Riya Bhatia\selfHealingFrameworkRRP\tests\e2e\data-driven-healing.spec.js:10:28
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ..\..\RIYABH~1\AppData\Local\Temp\riya-ai-test-results\e2e-data-driven-healing-Da-e1c8f-l-and-add-to-cart-selectors-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  4 failed
+    [chromium] › tests\e2e\data-driven-healing.spec.js:7:5 › Data-driven self-healing scenarios › heals scenario: Broken email input selector 
+    [chromium] › tests\e2e\data-driven-healing.spec.js:7:5 › Data-driven self-healing scenarios › heals scenario: Broken login button selector 
+    [chromium] › tests\e2e\data-driven-healing.spec.js:7:5 › Data-driven self-healing scenarios › heals scenario: Broken password and login button selectors 
+    [chromium] › tests\e2e\data-driven-healing.spec.js:7:5 › Data-driven self-healing scenarios › heals scenario: Broken email and add to cart selectors 
