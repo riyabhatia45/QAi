@@ -119,7 +119,12 @@ const MIME = { '.html': 'text/html', '.js': 'application/javascript', '.css': 't
 function serveStatic(res, filePath) {
   const ext = path.extname(filePath);
   if (fs.existsSync(filePath)) {
-    res.writeHead(200, { 'Content-Type': MIME[ext] || 'text/plain' });
+    res.writeHead(200, {
+      'Content-Type': MIME[ext] || 'text/plain',
+      'Cache-Control': 'no-store, no-cache, must-revalidate, proxy-revalidate',
+      'Pragma': 'no-cache',
+      'Expires': '0'
+    });
     fs.createReadStream(filePath).pipe(res);
   } else { res.writeHead(404); res.end('Not found'); }
 }

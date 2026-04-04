@@ -30,9 +30,9 @@ body{font-family:'Sora',sans-serif;color:var(--ink);background:radial-gradient(1
 .run-card{border:1px solid var(--line);border-radius:10px;background:rgba(255,255,255,.86);padding:.7rem .76rem;margin-bottom:.55rem;cursor:pointer;transition:transform .14s,border-color .14s}.run-card:hover{transform:translateY(-1px);border-color:var(--line2)}.run-card.active{border-color:rgba(197,82,46,.46);box-shadow:inset 0 0 0 1px rgba(197,82,46,.28)}.run-name{font-size:.71rem;font-family:var(--mono);color:var(--brand2)}.run-meta{font-size:.67rem;color:var(--muted);margin-top:.24rem}.run-pills{display:flex;flex-wrap:wrap;gap:.3rem;margin-top:.45rem}.pill{font-size:.62rem;border-radius:999px;padding:.15rem .42rem;border:1px solid;font-family:var(--mono)}.pill.ok{color:var(--ok);border-color:rgba(31,138,77,.35);background:rgba(31,138,77,.09)}.pill.info{color:var(--brand2);border-color:rgba(0,79,90,.35);background:rgba(0,79,90,.1)}.pill.warn{color:#6a2e8f;border-color:rgba(106,46,143,.35);background:rgba(106,46,143,.1)}.pill.bad{color:var(--bad);border-color:rgba(185,61,51,.35);background:rgba(185,61,51,.1)}
 .timeline{position:relative}.timeline:before{content:'';position:absolute;top:0;bottom:0;left:14px;width:1px;background:rgba(0,0,0,.16)}.tl-item{display:grid;grid-template-columns:28px 1fr;gap:.54rem;padding:.42rem 0}.tl-dot{width:9px;height:9px;border-radius:50%;margin:3px auto;z-index:1}.tl-dot.ok{background:var(--ok);box-shadow:0 0 0 4px rgba(31,138,77,.15)}.tl-dot.bad{background:var(--bad);box-shadow:0 0 0 4px rgba(185,61,51,.15)}.tl-dot.info{background:var(--brand2);box-shadow:0 0 0 4px rgba(0,79,90,.14)}.tl-type{font-size:.73rem;font-weight:700}.tl-type.ok{color:var(--ok)}.tl-type.bad{color:var(--bad)}.tl-type.info{color:var(--brand2)}.tl-meta{margin-top:.15rem;font-size:.65rem;color:var(--muted)}.tl-sub{margin-top:.4rem;font-family:var(--mono);font-size:.64rem;background:rgba(255,255,255,.78);border:1px dashed rgba(0,0,0,.13);border-radius:8px;padding:.34rem .45rem}.tl-sub .old{color:var(--bad);text-decoration:line-through}.tl-sub .new{color:var(--ok);margin-top:.2rem}
 .mtable{width:100%;border-collapse:collapse;font-size:.73rem}.mtable th{position:sticky;top:0;background:#faf8f3;z-index:1;text-align:left;color:var(--muted);font-size:.62rem;text-transform:uppercase;letter-spacing:.08em;padding:.55rem;border-bottom:1px solid var(--line)}.mtable td{padding:.6rem .55rem;border-bottom:1px solid rgba(0,0,0,.08);vertical-align:top}.mtable tr:hover td{background:rgba(255,255,255,.82)}.mtag{display:inline-block;border-radius:6px;border:1px solid rgba(0,0,0,.18);background:rgba(255,255,255,.85);padding:.16rem .34rem;font-family:var(--mono);font-size:.67rem;max-width:360px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.mtag.bad{border-color:rgba(185,61,51,.3);background:rgba(185,61,51,.08);color:var(--bad)}.mtag.ok{border-color:rgba(31,138,77,.35);background:rgba(31,138,77,.1);color:var(--ok)}.cbar-wrap-2{margin-top:.28rem;width:100%;height:4px;border-radius:999px;background:rgba(0,0,0,.1);overflow:hidden}.cbar-2{height:100%;border-radius:inherit;background:linear-gradient(90deg,#1f8a4d,#0f7080)}
-.chart-wrap{height:190px;position:relative}canvas{width:100%!important}#toasts{position:fixed;right:1rem;bottom:1rem;display:flex;flex-direction:column;gap:.5rem;align-items:flex-end;z-index:50}.toast{border-radius:10px;border:1px solid var(--line);background:rgba(255,255,255,.94);color:var(--ink);padding:.55rem .72rem;font-size:.76rem;box-shadow:0 9px 24px rgba(0,0,0,.11)}.toast.ok{border-left:3px solid var(--ok)}.toast.info{border-left:3px solid var(--brand2)}
+.chart-meta{display:flex;justify-content:space-between;gap:.75rem;flex-wrap:wrap;margin-bottom:.6rem}.chart-note{font-size:.68rem;color:var(--muted)}.chart-legend{display:flex;gap:.55rem;flex-wrap:wrap}.legend-item{display:inline-flex;align-items:center;gap:.35rem;font-size:.67rem;color:var(--muted);border:1px solid var(--line);background:rgba(255,255,255,.82);border-radius:999px;padding:.22rem .48rem}.legend-swatch{width:10px;height:10px;border-radius:999px;display:inline-block}.legend-swatch.ok{background:linear-gradient(180deg,#219050,#127a80)}.legend-swatch.bad{background:linear-gradient(180deg,#ce6045,#a84334)}.chart-wrap{height:320px;position:relative}canvas{width:100%!important;height:100%!important;display:block}#toasts{position:fixed;right:1rem;bottom:1rem;display:flex;flex-direction:column;gap:.5rem;align-items:flex-end;z-index:50}.toast{border-radius:10px;border:1px solid var(--line);background:rgba(255,255,255,.94);color:var(--ink);padding:.55rem .72rem;font-size:.76rem;box-shadow:0 9px 24px rgba(0,0,0,.11)}.toast.ok{border-left:3px solid var(--ok)}.toast.info{border-left:3px solid var(--brand2)}
 @media(max-width:1020px){.hero{grid-template-columns:1fr}.hero-metrics{justify-content:flex-start}.row{grid-template-columns:1fr}}
-@media(max-width:760px){.page{width:96vw;margin:.65rem auto 1rem}.topbar{padding:.8rem}.title{font-size:.93rem}.chip{font-size:.64rem}.kpi-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.kpi-value{font-size:1.4rem}.commit{grid-template-columns:58px 1fr}.cdate{grid-column:2}.chart-wrap{height:170px}}
+@media(max-width:760px){.page{width:96vw;margin:.65rem auto 1rem}.topbar{padding:.8rem}.title{font-size:.93rem}.chip{font-size:.64rem}.kpi-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.kpi-value{font-size:1.4rem}.commit{grid-template-columns:58px 1fr}.cdate{grid-column:2}.chart-meta{flex-direction:column}.chart-wrap{height:240px}}
 </style>
 </head>
 <body>
@@ -82,7 +82,7 @@ body{font-family:'Sora',sans-serif;color:var(--ink);background:radial-gradient(1
         <div class="kpi"><div class="kpi-label">Heal Success Rate</div><div class="kpi-value" id="k-rate">-</div><div class="kpi-sub">successful recovery ratio</div></div>
       </div>
 
-      <div class="row full"><div class="panel"><div class="ph"><span class="ph-title">Healing Activity (latest 14 runs)</span></div><div class="pb"><div class="chart-wrap"><canvas id="chart-bar"></canvas></div></div></div></div>
+      <div class="row full"><div class="panel"><div class="ph"><span class="ph-title">Healing Activity (latest 14 runs)</span></div><div class="pb"><div class="chart-meta"><div class="chart-note">X-axis: run start time. Y-axis: heals applied in that run.</div><div class="chart-legend"><span class="legend-item"><span class="legend-swatch ok"></span>heals without failures</span><span class="legend-item"><span class="legend-swatch bad"></span>run also had failures</span></div></div><div class="chart-wrap"><canvas id="chart-bar" aria-label="Healing activity chart"></canvas></div></div></div></div>
       <div class="row">
         <div class="panel"><div class="ph"><span class="ph-title">Live Event Stream</span></div><div class="pb" style="max-height:320px;overflow-y:auto" id="o-stream"><div class="empty">Waiting for test activity...</div></div></div>
         <div class="panel"><div class="ph"><span class="ph-title">Latest Commits</span><span class="badge" id="o-commit-count">0</span></div><div class="pb" id="o-commits"><div class="sk"></div><div class="sk" style="width:72%;margin-top:8px"></div></div></div>
@@ -119,23 +119,68 @@ body{font-family:'Sora',sans-serif;color:var(--ink);background:radial-gradient(1
 <div id="toasts"></div>
 
 <script>
-const S={stats:{},commits:[],status:{},contributors:[],runs:[],memory:{},stream:[],selectedRun:null};
+const S={stats:{},commits:[],status:{},contributors:[],runs:[],memory:{},stream:[],selectedRun:null,chartMessage:''};
 const esc=s=>String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
 const ago=d=>{if(!d)return'';const s=Math.floor((Date.now()-new Date(d))/1000);if(s<60)return s+'s ago';if(s<3600)return Math.floor(s/60)+'m ago';if(s<86400)return Math.floor(s/3600)+'h ago';return Math.floor(s/86400)+'d ago'};
 const fmtDur=ms=>{if(!ms)return'-';const s=Math.floor(ms/1000);if(s<60)return s+'s';return Math.floor(s/60)+'m '+(s%60)+'s'};
 function setUpd(t){document.getElementById('upd').textContent=t;document.getElementById('hero-updated').textContent=t}
 function toast(msg,kind='info'){const el=document.createElement('div');el.className=`toast ${kind}`;el.textContent=msg;document.getElementById('toasts').appendChild(el);setTimeout(()=>el.remove(),4000)}
+const requiresDashboardServer=()=>location.protocol==='file:';
+function showDashboardDataError(message){
+  S.chartMessage=message;
+  renderBarChart();
+  document.getElementById('o-stream').innerHTML=`<div class="empty">${esc(message)}</div>`;
+  document.getElementById('o-commits').innerHTML=`<div class="empty">${esc(message)}</div>`;
+  if(!S.runs.length){
+    document.getElementById('h-runs').innerHTML=`<div class="empty">${esc(message)}</div>`;
+    document.getElementById('h-events').innerHTML=`<div class="empty">${esc(message)}</div>`;
+  }
+}
+async function fetchJSON(url){
+  const res=await fetch(url,{cache:'no-store'});
+  if(!res.ok)throw new Error(`Request failed for ${url}: ${res.status}`);
+  return res.json();
+}
 
 document.querySelectorAll('.tab-btn').forEach(btn=>btn.addEventListener('click',()=>{document.querySelectorAll('.tab-btn').forEach(x=>x.classList.remove('active'));document.querySelectorAll('.tab-panel').forEach(x=>x.classList.remove('active'));btn.classList.add('active');document.getElementById('panel-'+btn.dataset.tab)?.classList.add('active')}));
 
-function connectSSE(){const es=new EventSource('/events');es.addEventListener('connected',()=>setUpd('connected'));es.addEventListener('git_update',e=>{const d=JSON.parse(e.data||'{}');toast(d.latest?.subject?`New commit: ${d.latest.subject.slice(0,70)}`:'Git update received','info');fetchAll()});es.addEventListener('healing_update',()=>{toast('New healing run detected','ok');fetchAll()});es.onerror=()=>{setUpd('reconnecting...');setTimeout(connectSSE,6000)}}
+function connectSSE(){if(requiresDashboardServer()){setUpd('server required');return}const es=new EventSource('/events');es.addEventListener('connected',()=>setUpd('connected'));es.addEventListener('git_update',e=>{const d=JSON.parse(e.data||'{}');toast(d.latest?.subject?`New commit: ${d.latest.subject.slice(0,70)}`:'Git update received','info');fetchAll()});es.addEventListener('healing_update',()=>{toast('New healing run detected','ok');fetchAll()});es.onerror=()=>{setUpd('reconnecting...');setTimeout(connectSSE,6000)}}
 
-async function fetchAll(){setUpd('refreshing...');await Promise.all([
-fetch('/api/stats',{cache:'no-store'}).then(r=>r.json()).then(d=>{S.stats=d;renderStats()}),
-fetch('/api/git',{cache:'no-store'}).then(r=>r.json()).then(d=>{S.commits=d.commits||[];S.status=d.status||{};S.contributors=d.contributors||[];renderGit()}),
-fetch('/api/healing',{cache:'no-store'}).then(r=>r.json()).then(d=>{S.runs=d.runs||[];renderHealing();renderBarChart();if(S.selectedRun===null&&S.runs.length)selectRun(0)}),
-fetch('/api/memory',{cache:'no-store'}).then(r=>r.json()).then(d=>{S.memory=d||{};renderMemory()})
-]);setUpd('updated '+new Date().toLocaleTimeString())}
+async function fetchAll(){
+  if(requiresDashboardServer()){
+    const msg='Run `npm run dashboard` and open http://localhost:4000 to load healing activity.';
+    showDashboardDataError(msg);
+    setUpd('server required');
+    return;
+  }
+  setUpd('refreshing...');
+  try{
+    const [stats,git,healing,memory]=await Promise.all([
+      fetchJSON('/api/stats'),
+      fetchJSON('/api/git'),
+      fetchJSON('/api/healing'),
+      fetchJSON('/api/memory')
+    ]);
+    S.stats=stats||{};
+    S.commits=git?.commits||[];
+    S.status=git?.status||{};
+    S.contributors=git?.contributors||[];
+    S.runs=healing?.runs||[];
+    S.memory=memory||{};
+    S.chartMessage='';
+    renderStats();
+    renderGit();
+    renderHealing();
+    renderBarChart();
+    renderMemory();
+    if(S.selectedRun===null&&S.runs.length)selectRun(0);
+    setUpd('updated '+new Date().toLocaleTimeString());
+  }catch(err){
+    console.error(err);
+    showDashboardDataError('Unable to load dashboard data. Refresh after the dashboard server is running.');
+    setUpd('load failed');
+  }
+}
 
 function renderStats(){const s=S.stats||{};const set=(id,v)=>{const e=document.getElementById(id);if(e)e.textContent=v??'-'};set('k-runs',s.totalRuns??0);set('k-sh',s.totalSelectorHeals??0);set('k-fh',s.totalFlowHeals??0);set('k-ts',`${s.estimatedTimeSaved||'0'}h`);set('k-fail',s.totalFailures??0);set('k-rate',`${s.healSuccessRate||'0'}%`);const branch=s.gitBranch||'unknown';document.getElementById('branch-tag').textContent=`branch: ${branch}`;document.getElementById('hero-branch').textContent=branch;document.getElementById('hero-commits').textContent=String(S.commits.length||0)}
 
@@ -150,7 +195,7 @@ function renderMemory(){const entries=Object.entries(S.memory||{});document.getE
 
 function pushStream(evt){if(!evt)return;S.stream.unshift(evt);if(S.stream.length>30)S.stream.pop();const el=document.getElementById('o-stream');el.innerHTML='<div class="timeline">'+S.stream.slice(0,16).map(e=>{const healed=e.type?.includes('applied');const failed=e.type?.includes('failed')||e.type?.includes('rejected');const cls=healed?'ok':(failed?'bad':'info');return `<div class="tl-item"><div><div class="tl-dot ${cls}"></div></div><div><div class="tl-type ${cls}">${esc((e.type||'').replace(/_/g,' ').toUpperCase())}</div><div class="tl-meta">${esc(e.testId||'System')} | ${e.timestamp?new Date(e.timestamp).toLocaleTimeString():''}</div></div></div>`}).join('')+'</div>'}
 
-function renderBarChart(){const canvas=document.getElementById('chart-bar');if(!canvas)return;const ctx=canvas.getContext('2d');const ratio=window.devicePixelRatio||1;canvas.width=Math.max(1,Math.floor(canvas.offsetWidth*ratio));canvas.height=Math.max(1,Math.floor(canvas.offsetHeight*ratio));ctx.setTransform(ratio,0,0,ratio,0,0);const W=canvas.offsetWidth,H=canvas.offsetHeight,pad={t:16,r:18,b:36,l:34};ctx.clearRect(0,0,W,H);const runs=S.runs.slice(0,14).reverse();if(!runs.length){ctx.fillStyle='#6b6257';ctx.font='12px Sora';ctx.textAlign='center';ctx.fillText('No data yet',W/2,H/2);return}const vals=runs.map(r=>(r.selectorHeals||0)+(r.flowHeals||0));const maxV=Math.max(...vals,1),plotW=W-pad.l-pad.r,plotH=H-pad.t-pad.b,step=plotW/runs.length,barW=Math.min(30,step*.58);ctx.strokeStyle='rgba(0,0,0,.1)';ctx.lineWidth=1;[.25,.5,.75,1].forEach(f=>{const y=pad.t+plotH*(1-f);ctx.beginPath();ctx.moveTo(pad.l,y);ctx.lineTo(pad.l+plotW,y);ctx.stroke();ctx.fillStyle='#6b6257';ctx.font='10px Sora';ctx.textAlign='right';ctx.fillText(String(Math.round(maxV*f)),pad.l-5,y+3)});runs.forEach((run,i)=>{const v=vals[i],bh=Math.max(3,plotH*(v/maxV)),x=pad.l+i*step+step/2-barW/2,y=pad.t+plotH-bh;const g=ctx.createLinearGradient(0,y,0,y+bh);if((run.failures||0)>0){g.addColorStop(0,'#ce6045');g.addColorStop(1,'#a84334')}else{g.addColorStop(0,'#219050');g.addColorStop(1,'#127a80')}ctx.fillStyle=g;if(ctx.roundRect){ctx.beginPath();ctx.roundRect(x,y,barW,bh,[6,6,0,0]);ctx.fill()}else{ctx.fillRect(x,y,barW,bh)}const lbl=new Date(run.runStartedAt||0).toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'});ctx.fillStyle='#6b6257';ctx.font='9px IBM Plex Mono';ctx.textAlign='center';ctx.fillText(lbl,x+barW/2,pad.t+plotH+16)})}
+function renderBarChart(){const canvas=document.getElementById('chart-bar');if(!canvas)return;const ctx=canvas.getContext('2d');if(!ctx)return;const ratio=window.devicePixelRatio||1;canvas.width=Math.max(1,Math.floor(canvas.offsetWidth*ratio));canvas.height=Math.max(1,Math.floor(canvas.offsetHeight*ratio));ctx.setTransform(ratio,0,0,ratio,0,0);const W=canvas.offsetWidth,H=canvas.offsetHeight,pad={t:18,r:20,b:54,l:56};ctx.clearRect(0,0,W,H);const plotW=W-pad.l-pad.r,plotH=H-pad.t-pad.b;const drawCenteredMessage=(title,sub)=>{ctx.fillStyle='#6b6257';ctx.textAlign='center';ctx.font='600 12px Sora';ctx.fillText(title,W/2,Math.max(52,H/2-10));if(sub){ctx.font='11px Sora';ctx.fillText(sub,W/2,Math.max(72,H/2+10))}};if(S.chartMessage){drawCenteredMessage('Healing activity unavailable',S.chartMessage);return}const runs=S.runs.slice(0,14).reverse();if(!runs.length){drawCenteredMessage('No data yet','Healing runs will appear here once artifacts are available.');return}const vals=runs.map(r=>(r.selectorHeals||0)+(r.flowHeals||0));const maxV=Math.max(...vals,1),step=plotW/runs.length,barW=Math.min(34,Math.max(12,step*.52));ctx.strokeStyle='rgba(0,0,0,.1)';ctx.lineWidth=1;ctx.beginPath();ctx.moveTo(pad.l,pad.t);ctx.lineTo(pad.l,pad.t+plotH);ctx.lineTo(pad.l+plotW,pad.t+plotH);ctx.stroke();[0,.25,.5,.75,1].forEach(f=>{const y=pad.t+plotH*(1-f);ctx.strokeStyle=f===0?'rgba(0,0,0,.14)':'rgba(0,0,0,.08)';ctx.beginPath();ctx.moveTo(pad.l,y);ctx.lineTo(pad.l+plotW,y);ctx.stroke();ctx.fillStyle='#6b6257';ctx.font='10px Sora';ctx.textAlign='right';ctx.fillText(String(Math.round(maxV*f)),pad.l-8,y+3)});ctx.save();ctx.translate(15,pad.t+plotH/2);ctx.rotate(-Math.PI/2);ctx.fillStyle='#6b6257';ctx.font='600 10px Sora';ctx.textAlign='center';ctx.fillText('Heals per run',0,0);ctx.restore();ctx.fillStyle='#6b6257';ctx.font='600 10px Sora';ctx.textAlign='center';ctx.fillText('Run start time',pad.l+plotW/2,H-10);runs.forEach((run,i)=>{const v=vals[i],bh=Math.max(v>0?6:3,plotH*(v/maxV)),x=pad.l+i*step+step/2-barW/2,y=pad.t+plotH-bh;const g=ctx.createLinearGradient(0,y,0,y+bh);if((run.failures||0)>0){g.addColorStop(0,'#ce6045');g.addColorStop(1,'#a84334')}else{g.addColorStop(0,'#219050');g.addColorStop(1,'#127a80')}ctx.fillStyle=g;if(ctx.roundRect){ctx.beginPath();ctx.roundRect(x,y,barW,bh,[6,6,0,0]);ctx.fill()}else{ctx.fillRect(x,y,barW,bh)}if(v>0){ctx.fillStyle='#151310';ctx.font='600 10px IBM Plex Mono';ctx.textAlign='center';ctx.fillText(String(v),x+barW/2,y-6)}const dt=run.runStartedAt?new Date(run.runStartedAt):null;const lbl=dt&&!Number.isNaN(dt.getTime())?dt.toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'}):'--';ctx.fillStyle='#6b6257';ctx.font='9px IBM Plex Mono';ctx.textAlign='center';if(runs.length<=8||i%2===0||step>48)ctx.fillText(lbl,x+barW/2,pad.t+plotH+16)})}
 
 window.addEventListener('DOMContentLoaded',()=>{connectSSE();fetchAll();setInterval(fetchAll,10000);window.addEventListener('resize',renderBarChart)});
 </script>
