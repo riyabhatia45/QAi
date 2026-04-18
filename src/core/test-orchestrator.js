@@ -11,6 +11,7 @@
  *   const orchestrator = new TestOrchestrator(page, 'login-001');
  *   await orchestrator.click('#submit-btn', { description: 'Submit login form' });
  *   await orchestrator.fill('#email', 'user@example.com', { description: 'Email field' });
+ * 
  */
 
 const frameworkConfig = require('../../config/framework.config');
@@ -88,7 +89,7 @@ class TestOrchestrator {
         waitUntil: 'domcontentloaded',
       });
       // Wait a moment for dynamic content to render
-      await this.page.waitForLoadState('networkidle').catch(() => {});
+      await this.page.waitForLoadState('networkidle').catch(() => { });
       this.runContext.recordUrl(url);
       this.runContext.recordStep({ stepId, action: 'goto', selector: url, result: 'pass' });
     } catch (err) {
@@ -438,19 +439,19 @@ class TestOrchestrator {
 
       try {
         await this._performAction(action, candidate.selector, value, timeout);
-      eventBus.publish(
-        createHealingEvent({
-          type: 'selector_recovery_applied',
-          testId: this.testId,
-          stepId,
-          payload: {
-            originalSelector: failedCtx.originalSelector,
-            healedSelector: candidate.selector,
-            confidence: candidateConfidence,
-            source: recoveryResult.source,
-          },
-        })
-      );
+        eventBus.publish(
+          createHealingEvent({
+            type: 'selector_recovery_applied',
+            testId: this.testId,
+            stepId,
+            payload: {
+              originalSelector: failedCtx.originalSelector,
+              healedSelector: candidate.selector,
+              confidence: candidateConfidence,
+              source: recoveryResult.source,
+            },
+          })
+        );
 
         this.selectorMemory.record(failedCtx, {
           selector: candidate.selector,
@@ -692,7 +693,7 @@ class TestOrchestrator {
           // apply new styles
           node.style.outline = '4px solid #00FF00';
           node.style.boxShadow = '0 0 15px #00FF00';
-          
+
           const toast = document.createElement('div');
           toast.id = 'demo-toast-overlay';
           toast.innerHTML = msg;
@@ -710,14 +711,14 @@ class TestOrchestrator {
           document.body.appendChild(toast);
 
           setTimeout(() => {
-             // cleanup
-             node.style.outline = node.dataset.oldOutline;
-             node.style.boxShadow = node.dataset.oldBoxShadow;
-             const el = document.getElementById('demo-toast-overlay');
-             if (el) el.remove();
+            // cleanup
+            node.style.outline = node.dataset.oldOutline;
+            node.style.boxShadow = node.dataset.oldBoxShadow;
+            const el = document.getElementById('demo-toast-overlay');
+            if (el) el.remove();
           }, 4000);
-        }, message).catch(() => {});
-        await this.page.waitForTimeout(3000); 
+        }, message).catch(() => { });
+        await this.page.waitForTimeout(3000);
       } else {
         // Just show toast
         await this.page.evaluate((msg) => {
@@ -739,10 +740,10 @@ class TestOrchestrator {
           document.body.appendChild(toast);
 
           setTimeout(() => {
-             const el = document.getElementById('demo-toast-overlay-error');
-             if (el) el.remove();
+            const el = document.getElementById('demo-toast-overlay-error');
+            if (el) el.remove();
           }, 4000);
-        }, message).catch(() => {});
+        }, message).catch(() => { });
         await this.page.waitForTimeout(3000);
       }
     } catch (e) {
