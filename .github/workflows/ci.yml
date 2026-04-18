@@ -1,4 +1,4 @@
-name: 🧪 CI — Self-Healing Test Suite
+name: CI Self-Healing Test Suite
 
 on:
   push:
@@ -8,9 +8,9 @@ on:
   workflow_dispatch:
     inputs:
       heal_mode:
-        description: 'Healing mode (strict | adaptive)'
+        description: "Healing mode (strict | adaptive)"
         required: false
-        default: 'adaptive'
+        default: "adaptive"
         type: choice
         options: [strict, adaptive]
 
@@ -18,16 +18,18 @@ concurrency:
   group: ci-${{ github.ref }}
   cancel-in-progress: true
 
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
 env:
   HEAL_MODE: ${{ github.event.inputs.heal_mode || 'adaptive' }}
-  NODE_VERSION: '20'
+  NODE_VERSION: "20"
 
 jobs:
-  # ─────────────────────────────────────────────────────────
-  # JOB 1: Install & Cache Dependencies
-  # ─────────────────────────────────────────────────────────
   setup:
-    name: 📦 Install Dependencies
+    name: Install Dependencies
     runs-on: ubuntu-latest
     outputs:
       cache-hit: ${{ steps.cache.outputs.cache-hit }}
@@ -56,11 +58,8 @@ jobs:
       - name: Install Playwright browsers
         run: npx playwright install chromium --with-deps
 
-  # ─────────────────────────────────────────────────────────
-  # JOB 2: Lint & Static Checks
-  # ─────────────────────────────────────────────────────────
   lint:
-    name: 🔍 Lint & Validate
+    name: Lint and Validate
     runs-on: ubuntu-latest
     needs: setup
     steps:
@@ -77,11 +76,11 @@ jobs:
       - name: Install if cache missed
         run: npm ci --prefer-offline
       - name: Check package.json is valid
-        run: node -e "require('./package.json'); console.log('✅ package.json OK')"
+        run: node -e "require('./package.json'); console.log('package.json OK')"
       - name: Validate framework config
-        run: node -e "require('./config/framework.config'); console.log('✅ framework.config OK')"
+        run: node -e "require('./config/framework.config'); console.log('framework.config OK')"
       - name: Validate policy config
-        run: node -e "require('./config/policy.config'); console.log('✅ policy.config OK')"
+        run: node -e "require('./config/policy.config'); console.log('policy.config OK')"
       - name: Validate core modules load
         run: |
           node -e "
@@ -91,14 +90,11 @@ jobs:
             require('./src/memory/run-context-store');
             require('./src/memory/selector-memory-store');
             require('./src/memory/flow-memory-store');
-            console.log('✅ All core modules OK');
+            console.log('All core modules OK');
           "
 
-  # ─────────────────────────────────────────────────────────
-  # JOB 3a: Data-Driven Healing Tests
-  # ─────────────────────────────────────────────────────────
   test-data-healing:
-    name: 🩹 Data-Driven Healing
+    name: Data-Driven Healing
     runs-on: ubuntu-latest
     needs: [setup, lint]
     env:
@@ -106,7 +102,7 @@ jobs:
       GOOGLE_API_KEY: ${{ secrets.GOOGLE_API_KEY }}
       AI_SELECTOR_MODEL: gemini-2.0-flash-lite
       AI_FLOW_MODEL: gemini-2.0-flash-lite
-      CAPTURE_SCREENSHOTS: 'true'
+      CAPTURE_SCREENSHOTS: "true"
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -136,11 +132,8 @@ jobs:
           retention-days: 14
           if-no-files-found: warn
 
-  # ─────────────────────────────────────────────────────────
-  # JOB 3b: Login Form Healing Tests
-  # ─────────────────────────────────────────────────────────
   test-login-healing:
-    name: 🔐 Login Form Healing
+    name: Login Form Healing
     runs-on: ubuntu-latest
     needs: [setup, lint]
     env:
@@ -175,11 +168,8 @@ jobs:
           retention-days: 14
           if-no-files-found: warn
 
-  # ─────────────────────────────────────────────────────────
-  # JOB 3c: Retail Role Flow Tests
-  # ─────────────────────────────────────────────────────────
   test-retail:
-    name: 🛒 Retail Role Flows
+    name: Retail Role Flows
     runs-on: ubuntu-latest
     needs: [setup, lint]
     env:
@@ -203,7 +193,7 @@ jobs:
       - name: Install Playwright browsers
         run: npx playwright install chromium --with-deps
       - name: Run retail flow tests
-        run: npx playwright test tests/e2e/retail-role-flows.spec.js --reporter=json,list
+        run: npm run test:retail -- --reporter=json,list
         continue-on-error: true
       - name: Upload artifacts
         if: always()
@@ -214,13 +204,42 @@ jobs:
           retention-days: 14
           if-no-files-found: warn
 
-  # ─────────────────────────────────────────────────────────
-  # JOB 4: Aggregate Report
-  # ─────────────────────────────────────────────────────────
-  report:
-    name: 📊 Healing Report Summary
+  test-fixture:
+    name: Local Fixture Coverage
     runs-on: ubuntu-latest
-    needs: [test-data-healing, test-login-healing, test-retail]
+    needs: [setup, lint]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: npm
+      - name: Restore node_modules cache
+        uses: actions/cache@v4
+        with:
+          path: node_modules
+          key: node-${{ runner.os }}-${{ hashFiles('package-lock.json') }}
+      - name: Install if cache missed
+        run: npm ci --prefer-offline
+      - name: Install Playwright browsers
+        run: npx playwright install chromium --with-deps
+      - name: Run local fixture tests
+        run: npx playwright test tests/e2e/local-login-fixture.spec.js --reporter=line
+      - name: Upload fixture artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: healing-fixture-${{ github.run_number }}
+          path: |
+            test-results/healing-artifacts/
+            test-results/selector-memory.json
+          retention-days: 14
+          if-no-files-found: warn
+
+  report:
+    name: Healing Report Summary
+    runs-on: ubuntu-latest
+    needs: [test-data-healing, test-login-healing, test-retail, test-fixture]
     if: always()
     steps:
       - uses: actions/checkout@v4
@@ -246,19 +265,25 @@ jobs:
                 if (fs.statSync(fp).isDirectory()) walk(fp);
                 else if (f === 'healing-report.json') {
                   try {
-                    const d = JSON.parse(fs.readFileSync(fp,'utf8'));
+                    const d = JSON.parse(fs.readFileSync(fp, 'utf8'));
                     totalRuns++;
-                    heals += (d.events||[]).filter(e=>e.type==='selector_recovery_applied').length;
-                    flows += (d.events||[]).filter(e=>e.type==='flow_recovery_applied').length;
-                    failures += (d.events||[]).filter(e=>e.type==='step_failed').length;
-                  } catch(_) {}
+                    heals += (d.events || []).filter(e => e.type === 'selector_recovery_applied').length;
+                    flows += (d.events || []).filter(e => e.type === 'flow_recovery_applied').length;
+                    failures += (d.events || []).filter(e => e.type === 'step_failed').length;
+                  } catch (_) {}
                 }
               }
             };
             walk(base);
-            const summary = { totalRuns, selectorHeals: heals, flowHeals: flows, failures, timeSavedHours: ((heals*0.5)+(flows*1.5)).toFixed(1), healRate: (((heals+flows)/Math.max(heals+flows+failures,1))*100).toFixed(1) };
+            const summary = {
+              totalRuns,
+              selectorHeals: heals,
+              flowHeals: flows,
+              failures,
+              timeSavedHours: ((heals * 0.5) + (flows * 1.5)).toFixed(1),
+              healRate: (((heals + flows) / Math.max(heals + flows + failures, 1)) * 100).toFixed(1),
+            };
             fs.writeFileSync('ci-summary.json', JSON.stringify(summary, null, 2));
-            console.log('CI Pipeline Summary:');
             console.log(JSON.stringify(summary, null, 2));
           "
       - name: Upload CI summary
@@ -267,15 +292,25 @@ jobs:
           name: ci-summary-${{ github.run_number }}
           path: ci-summary.json
           retention-days: 30
+      - name: Generate static dashboard data
+        run: node src/tools/generate-dashboard-data.js --artifacts-root all-healing-artifacts --output dashboard/public/data
+      - name: Upload dashboard bundle
+        uses: actions/upload-artifact@v4
+        with:
+          name: dashboard-static-${{ github.run_number }}
+          path: |
+            dashboard/public
+            ci-summary.json
+          retention-days: 30
       - name: Post summary to job
         run: |
           if [ -f ci-summary.json ]; then
-            echo "## 🩹 Self-Healing CI Summary" >> $GITHUB_STEP_SUMMARY
+            echo "## Self-Healing CI Summary" >> $GITHUB_STEP_SUMMARY
             echo "" >> $GITHUB_STEP_SUMMARY
             echo "| Metric | Value |" >> $GITHUB_STEP_SUMMARY
             echo "|--------|-------|" >> $GITHUB_STEP_SUMMARY
             node -e "
-              const d = JSON.parse(require('fs').readFileSync('ci-summary.json','utf8'));
+              const d = JSON.parse(require('fs').readFileSync('ci-summary.json', 'utf8'));
               console.log('| Total Healing Runs | ' + d.totalRuns + ' |');
               console.log('| Selector Heals | ' + d.selectorHeals + ' |');
               console.log('| Flow Recoveries | ' + d.flowHeals + ' |');
@@ -284,3 +319,14 @@ jobs:
               console.log('| Heal Success Rate | ' + d.healRate + '% |');
             " >> $GITHUB_STEP_SUMMARY
           fi
+      - name: Setup GitHub Pages
+        if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+        uses: actions/configure-pages@v5
+      - name: Upload GitHub Pages artifact
+        if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: dashboard/public
+      - name: Deploy to GitHub Pages
+        if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+        uses: actions/deploy-pages@v4

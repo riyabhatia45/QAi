@@ -1,24 +1,17 @@
-const { test, expect } = require('@playwright/test');
+const { test } = require('@playwright/test');
 const TestOrchestrator = require('../../src/core/test-orchestrator');
-const scenarios = require('../test-data/retail-role-flows.json');
+const scenarios = require('../test-data/retail-flow-coverage.json');
 const { runRetailStep, slugify } = require('./retail-scenario-runner');
-const STEP_DELAY_MS = Number(process.env.RETAIL_STEP_DELAY_MS || 0);
 
-test.describe('Retail website role flows', () => {
+test.describe('Retail website flow coverage', () => {
   for (const scenario of scenarios) {
     test(scenario.name, async ({ page }) => {
       test.setTimeout(scenario.timeoutMs || 120000);
       const orchestrator = new TestOrchestrator(page, scenario.testId || slugify(scenario.name));
-      const scenarioName = scenario.name;
 
       try {
-        for (let index = 0; index < scenario.steps.length; index++) {
-          const step = scenario.steps[index];
+        for (const step of scenario.steps) {
           await runRetailStep(page, orchestrator, step);
-
-          if (STEP_DELAY_MS > 0) {
-            await page.waitForTimeout(STEP_DELAY_MS);
-          }
         }
       } finally {
         await orchestrator.finalize();
@@ -26,4 +19,3 @@ test.describe('Retail website role flows', () => {
     });
   }
 });
-

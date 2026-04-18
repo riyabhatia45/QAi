@@ -12,12 +12,14 @@
     "test:login-form": "npx playwright test tests/e2e/login-form.spec.js --headed",
     "test:data-healing": "npx playwright test tests/e2e/data-driven-healing.spec.js",
     "test:showcase": "npx playwright test tests/e2e/showcase-scenarios.spec.js --headed",
-    "test:retail": "npx playwright test tests/e2e/retail-role-flows.spec.js",
-    "test:retail:headed": "npx playwright test tests/e2e/retail-flow-healing.spec.js --headed",
-    "test:retail:record": "cross-env RETAIL_STEP_DELAY_MS=1500 npx playwright test tests/e2e/retail-role-flows.spec.js --headed",
+    "test:retail": "npx playwright test tests/e2e/retail-role-flows.spec.js tests/e2e/retail-flow-coverage.spec.js tests/e2e/retail-flow-healing.spec.js",
+    "test:retail:headed": "npx playwright test tests/e2e/retail-role-flows.spec.js tests/e2e/retail-flow-coverage.spec.js tests/e2e/retail-flow-healing.spec.js --headed",
+    "test:retail:record": "cross-env RETAIL_STEP_DELAY_MS=1500 npx playwright test tests/e2e/retail-role-flows.spec.js tests/e2e/retail-flow-coverage.spec.js tests/e2e/retail-flow-healing.spec.js --headed",
+    "test:fixture": "npx playwright test tests/e2e/local-login-fixture.spec.js",
     "report": "npx playwright show-report",
     "sync-heals": "node src/tools/sync-to-source.js",
-    "dashboard": "node dashboard/server.js"
+    "dashboard": "node dashboard/server.js",
+    "dashboard:data": "node src/tools/generate-dashboard-data.js"
   },
   "keywords": [
     "playwright",

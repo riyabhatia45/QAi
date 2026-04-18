@@ -1,0 +1,499 @@
+[
+  {
+    "name": "customer can log in and land on the dashboard",
+    "testId": "retail-customer-smoke-001",
+    "timeoutMs": 120000,
+    "steps": [
+      { "action": "goto", "target": "https://retail-website-two.vercel.app/login" },
+      { "action": "assertVisible", "target": "getByText('Sign in to your workspace')" },
+      { "action": "fill", "target": "getByLabel('Email')", "value": "test@demo.com", "description": "Customer email input" },
+      { "action": "fill", "target": "getByLabel('Password')", "value": "password123", "description": "Customer password input" },
+      { "action": "click", "target": "getByRole('button', { name: /^Sign in$/i })", "description": "Sign in button" },
+      { "action": "waitForURL", "target": "https://retail-website-two.vercel.app/app/dashboard" },
+      { "action": "assertVisible", "target": "getByText('test@demo.com · customer')" },
+      { "action": "assertVisible", "target": "getByRole('heading', { name: /^Dashboard$/ })" }
+    ]
+  },
+  {
+    "name": "customer can open the products page from the dashboard",
+    "testId": "retail-customer-smoke-002",
+    "timeoutMs": 120000,
+    "steps": [
+      { "action": "goto", "target": "https://retail-website-two.vercel.app/login" },
+      { "action": "fill", "target": "getByLabel('Email')", "value": "test@demo.com", "description": "Customer email input" },
+      { "action": "fill", "target": "getByLabel('Password')", "value": "password123", "description": "Customer password input" },
+      { "action": "click", "target": "getByRole('button', { name: /^Sign in$/i })", "description": "Sign in button" },
+      { "action": "waitForURL", "target": "https://retail-website-two.vercel.app/app/dashboard" },
+      { "action": "click", "target": "getByRole('link', { name: /^Products$/ })", "description": "Products link" },
+      { "action": "waitForURL", "target": "https://retail-website-two.vercel.app/app/products" },
+      { "action": "assertVisible", "target": "getByRole('heading', { name: /^Products$/ })" },
+      { "action": "assertVisible", "target": "getByText('Classic Backpack')" }
+    ]
+  },
+  {
+    "name": "customer can open the cart page after login",
+    "testId": "retail-customer-smoke-003",
+    "timeoutMs": 120000,
+    "steps": [
+      { "action": "goto", "target": "https://retail-website-two.vercel.app/login" },
+      { "action": "fill", "target": "getByLabel('Email')", "value": "test@demo.com", "description": "Customer email input" },
+      { "action": "fill", "target": "getByLabel('Password')", "value": "password123", "description": "Customer password input" },
+      { "action": "click", "target": "getByRole('button', { name: /^Sign in$/i })", "description": "Sign in button" },
+      { "action": "waitForURL", "target": "https://retail-website-two.vercel.app/app/dashboard" },
+      { "action": "click", "target": "getByRole('link', { name: /^Cart$/ })", "description": "Cart link" },
+      { "action": "waitForURL", "target": "https://retail-website-two.vercel.app/app/cart" },
+      { "action": "assertVisible", "target": "getByRole('heading', { name: /^Your cart$/ })" }
+    ]
+  },
+  {
+    "name": "customer can open the settings page after login",
+    "testId": "retail-customer-smoke-004",
+    "timeoutMs": 120000,
+    "steps": [
+      { "action": "goto", "target": "https://retail-website-two.vercel.app/login" },
+      { "action": "fill", "target": "getByLabel('Email')", "value": "test@demo.com", "description": "Customer email input" },
+      { "action": "fill", "target": "getByLabel('Password')", "value": "password123", "description": "Customer password input" },
+      { "action": "click", "target": "getByRole('button', { name: /^Sign in$/i })", "description": "Sign in button" },
+      { "action": "waitForURL", "target": "https://retail-website-two.vercel.app/app/dashboard" },
+      { "action": "click", "target": "getByRole('link', { name: /^Settings$/ })", "description": "Settings link" },
+      { "action": "waitForURL", "target": "https://retail-website-two.vercel.app/app/settings" },
+      { "action": "assertVisible", "target": "getByRole('heading', { name: /^Settings$/ })" },
+      { "action": "assertVisible", "target": "getByLabel(/Enable Testing Mode/i)" }
+    ]
+  },
+  {
+    "name": "customer can start from the protected dashboard route and then sign in",
+    "testId": "retail-customer-smoke-005",
+    "timeoutMs": 120000,
+    "steps": [
+      { "action": "goto", "target": "https://retail-website-two.vercel.app/app/dashboard" },
+      { "action": "assertVisible", "target": "getByText('Sign in to your workspace')" },
+      { "action": "fill", "target": "getByLabel('Email')", "value": "test@demo.com", "description": "Customer email input" },
+      { "action": "fill", "target": "getByLabel('Password')", "value": "password123", "description": "Customer password input" },
+      { "action": "click", "target": "getByRole('button', { name: /^Sign in$/i })", "description": "Sign in button" },
+      { "action": "waitForURL", "target": "https://retail-website-two.vercel.app/app/dashboard" },
+      { "action": "assertVisible", "target": "getByRole('heading', { name: /^Dashboard$/ })" }
+    ]
+  },
+  {
+    "name": "customer can start from the protected products route and then sign in",
+    "testId": "retail-customer-smoke-006",
+    "timeoutMs": 120000,
+    "steps": [
+      { "action": "goto", "target": "https://retail-website-two.vercel.app/app/products" },
+      { "action": "assertVisible", "target": "getByText('Sign in to your workspace')" },
+      { "action": "fill", "target": "getByLabel('Email')", "value": "test@demo.com", "description": "Customer email input" },
+      { "action": "fill", "target": "getByLabel('Password')", "value": "password123", "description": "Customer password input" },
+      { "action": "click", "target": "getByRole('button', { name: /^Sign in$/i })", "description": "Sign in button" },
+      { "action": "waitForURL", "target": "https://retail-website-two.vercel.app/app/products" },
+      { "action": "assertVisible", "target": "getByRole('heading', { name: /^Products$/ })" }
+    ]
+  },
+  {
+    "name": "customer can move from dashboard to products and back to dashboard",
+    "testId": "retail-customer-smoke-007",
+    "timeoutMs": 120000,
+    "steps": [
+      { "action": "goto", "target": "https://retail-website-two.vercel.app/login" },
+      { "action": "fill", "target": "getByLabel('Email')", "value": "test@demo.com", "description": "Customer email input" },
+      { "action": "fill", "target": "getByLabel('Password')", "value": "password123", "description": "Customer password input" },
+      { "action": "click", "target": "getByRole('button', { name: /^Sign in$/i })", "description": "Sign in button" },
+      { "action": "waitForURL", "target": "https://retail-website-two.vercel.app/app/dashboard" },
+      { "action": "click", "target": "getByRole('link', { name: /^Products$/ })", "description": "Products link" },
+      { "action": "waitForURL", "target": "https://retail-website-two.vercel.app/app/products" },
+      { "action": "click", "target": "getByRole('link', { name: /^Dashboard$/ })", "description": "Dashboard link" },
+      { "action": "waitForURL", "target": "https://retail-website-two.vercel.app/app/dashboard" },
+      { "action": "assertVisible", "target": "getByText('test@demo.com · customer')" }
+    ]
+  },
+  {
+    "name": "customer sees product search and at least one catalog tile",
+    "testId": "retail-customer-smoke-008",
+    "timeoutMs": 120000,
+    "steps": [
+      { "action": "goto", "target": "https://retail-website-two.vercel.app/login" },
+      { "action": "fill", "target": "getByLabel('Email')", "value": "test@demo.com", "description": "Customer email input" },
+      { "action": "fill", "target": "getByLabel('Password')", "value": "password123", "description": "Customer password input" },
+      { "action": "click", "target": "getByRole('button', { name: /^Sign in$/i })", "description": "Sign in button" },
+      { "action": "waitForURL", "target": "https://retail-website-two.vercel.app/app/dashboard" },
+      { "action": "click", "target": "getByRole('link', { name: /^Products$/ })", "description": "Products link" },
+      { "action": "waitForURL", "target": "https://retail-website-two.vercel.app/app/products" },
+      { "action": "assertVisible", "target": "page.locator('input.rw-input[class*=\"q-\"]')" },
+      { "action": "assertVisible", "target": "page.locator('button:enabled').filter({ hasText: /^Add to cart$/ }).first()" }
+    ]
+  },
+  {
+    "name": "customer can add one item and see the cart badge update",
+    "testId": "retail-customer-smoke-009",
+    "timeoutMs": 120000,
+    "steps": [
+      { "action": "goto", "target": "https://retail-website-two.vercel.app/login" },
+      { "action": "fill", "target": "getByLabel('Email')", "value": "test@demo.com", "description": "Customer email input" },
+      { "action": "fill", "target": "getByLabel('Password')", "value": "password123", "description": "Customer password input" },
+      { "action": "click", "target": "getByRole('button', { name: /^Sign in$/i })", "description": "Sign in button" },
+      { "action": "waitForURL", "target": "https://retail-website-two.vercel.app/app/dashboard" },
+      { "action": "click", "target": "getByRole('link', { name: /^Products$/ })", "description": "Products link" },
+      { "action": "waitForURL", "target": "https://retail-website-two.vercel.app/app/products" },
+      { "action": "click", "target": "page.locator('button:enabled').filter({ hasText: /^Add to cart$/ }).first()", "description": "First add to cart button" },
+      { "action": "assertText", "target": "getByRole('button', { name: /^Cart \\d+$/ })", "value": "Cart 1" }
+    ]
+  },
+  {
+    "name": "customer can add one item and see remove in the cart",
+    "testId": "retail-customer-smoke-010",
+    "timeoutMs": 120000,
+    "steps": [
+      { "action": "goto", "target": "https://retail-website-two.vercel.app/login" },
+      { "action": "fill", "target": "getByLabel('Email')", "value": "test@demo.com", "description": "Customer email input" },
+      { "action": "fill", "target": "getByLabel('Password')", "value": "password123", "description": "Customer password input" },
+      { "action": "click", "target": "getByRole('button', { name: /^Sign in$/i })", "description": "Sign in button" },
+      { "action": "waitForURL", "target": "https://retail-website-two.vercel.app/app/dashboard" },
+      { "action": "click", "target": "getByRole('link', { name: /^Products$/ })", "description": "Products link" },
+      { "action": "waitForURL", "target": "https://retail-website-two.vercel.app/app/products" },
+      { "action": "click", "target": "page.locator('button:enabled').filter({ hasText: /^Add to cart$/ }).first()", "description": "First add to cart button" },
+      { "action": "click", "target": "getByRole('link', { name: /^Cart$/ })", "description": "Cart link" },
+      { "action": "waitForURL", "target": "https://retail-website-two.vercel.app/app/cart" },
+      { "action": "assertVisible", "target": "getByRole('button', { name: /^Remove$/ })" }
+    ]
+  },
+  {
+    "name": "customer can complete checkout from a single item cart",
+    "testId": "retail-customer-smoke-011",
+    "timeoutMs": 180000,
+    "steps": [
+      { "action": "goto", "target": "https://retail-website-two.vercel.app/login" },
+      { "action": "fill", "target": "getByLabel('Email')", "value": "test@demo.com", "description": "Customer email input" },
+      { "action": "fill", "target": "getByLabel('Password')", "value": "password123", "description": "Customer password input" },
+      { "action": "click", "target": "getByRole('button', { name: /^Sign in$/i })", "description": "Sign in button" },
+      { "action": "waitForURL", "target": "https://retail-website-two.vercel.app/app/dashboard" },
+      { "action": "click", "target": "getByRole('link', { name: /^Products$/ })", "description": "Products link" },
+      { "action": "waitForURL", "target": "https://retail-website-two.vercel.app/app/products" },
+      { "action": "click", "target": "page.locator('button:enabled').filter({ hasText: /^Add to cart$/ }).first()", "description": "First add to cart button" },
+      { "action": "click", "target": "getByRole('link', { name: /^Cart$/ })", "description": "Cart link" },
+      { "action": "waitForURL", "target": "https://retail-website-two.vercel.app/app/cart" },
+      { "action": "click", "target": "getByRole('button', { name: /^Checkout$/ })", "description": "Checkout button" },
+      { "action": "waitForURL", "target": "https://retail-website-two.vercel.app/app/checkout" },
+      { "action": "fill", "target": "getByLabel('Full name')", "value": "Retail Customer", "description": "Full name input" },
+      { "action": "fill", "target": "getByLabel('Address')", "value": "123 Demo Street", "description": "Address input" },
+      { "action": "fill", "target": "getByLabel('City')", "value": "Kolkata", "description": "City input" },
+      { "action": "fill", "target": "getByLabel('Postal')", "value": "700001", "description": "Postal input" },
+      { "action": "click", "target": "page.locator('button').filter({ hasText: /^Pay (US)?\\$/ }).first()", "description": "Pay button" },
+      { "action": "assertVisible", "target": "getByText(/Order .* confirmed\\./)" }
+    ]
+  },
+  {
+    "name": "customer can enable testing mode and keep the toggle visible",
+    "testId": "retail-customer-smoke-012",
+    "timeoutMs": 120000,
+    "steps": [
+      { "action": "goto", "target": "https://retail-website-two.vercel.app/login" },
+      { "action": "fill", "target": "getByLabel('Email')", "value": "test@demo.com", "description": "Customer email input" },
+      { "action": "fill", "target": "getByLabel('Password')", "value": "password123", "description": "Customer password input" },
+      { "action": "click", "target": "getByRole('button', { name: /^Sign in$/i })", "description": "Sign in button" },
+      { "action": "waitForURL", "target": "https://retail-website-two.vercel.app/app/dashboard" },
+      { "action": "click", "target": "getByRole('link', { name: /^Settings$/ })", "description": "Settings link" },
+      { "action": "waitForURL", "target": "https://retail-website-two.vercel.app/app/settings" },
+      { "action": "check", "target": "getByLabel(/Enable Testing Mode/i)" },
+      { "action": "assertVisible", "target": "getByLabel(/Enable Testing Mode/i)" }
+    ]
+  },
+  {
+    "name": "customer can enable testing mode and still add an item to the cart",
+    "testId": "retail-customer-smoke-013",
+    "timeoutMs": 150000,
+    "steps": [
+      { "action": "goto", "target": "https://retail-website-two.vercel.app/login" },
+      { "action": "fill", "target": "getByLabel('Email')", "value": "test@demo.com", "description": "Customer email input" },
+      { "action": "fill", "target": "getByLabel('Password')", "value": "password123", "description": "Customer password input" },
+      { "action": "click", "target": "getByRole('button', { name: /^Sign in$/i })", "description": "Sign in button" },
+      { "action": "waitForURL", "target": "https://retail-website-two.vercel.app/app/dashboard" },
+      { "action": "click", "target": "getByRole('link', { name: /^Settings$/ })", "description": "Settings link" },
+      { "action": "waitForURL", "target": "https://retail-website-two.vercel.app/app/settings" },
+      { "action": "check", "target": "getByLabel(/Enable Testing Mode/i)" },
+      { "action": "click", "target": "getByRole('link', { name: /^Products$/ })", "description": "Products link" },
+      { "action": "waitForURL", "target": "https://retail-website-two.vercel.app/app/products" },
+      { "action": "click", "target": "page.locator('button:enabled').filter({ hasText: /^Add to cart$/ }).first()", "description": "First add to cart button" },
+      { "action": "assertText", "target": "getByRole('button', { name: /^Cart \\d+$/ })", "value": "Cart 1" }
+    ]
+  },
+  {
+    "name": "customer can enable testing mode and still complete checkout",
+    "testId": "retail-customer-smoke-014",
+    "timeoutMs": 180000,
+    "steps": [
+      { "action": "goto", "target": "https://retail-website-two.vercel.app/login" },
+      { "action": "fill", "target": "getByLabel('Email')", "value": "test@demo.com", "description": "Customer email input" },
+      { "action": "fill", "target": "getByLabel('Password')", "value": "password123", "description": "Customer password input" },
+      { "action": "click", "target": "getByRole('button', { name: /^Sign in$/i })", "description": "Sign in button" },
+      { "action": "waitForURL", "target": "https://retail-website-two.vercel.app/app/dashboard" },
+      { "action": "click", "target": "getByRole('link', { name: /^Settings$/ })", "description": "Settings link" },
+      { "action": "waitForURL", "target": "https://retail-website-two.vercel.app/app/settings" },
+      { "action": "check", "target": "getByLabel(/Enable Testing Mode/i)" },
+      { "action": "click", "target": "getByRole('link', { name: /^Products$/ })", "description": "Products link" },
+      { "action": "waitForURL", "target": "https://retail-website-two.vercel.app/app/products" },
+      { "action": "click", "target": "page.locator('button:enabled').filter({ hasText: /^Add to cart$/ }).first()", "description": "First add to cart button" },
+      { "action": "click", "target": "getByRole('link', { name: /^Cart$/ })", "description": "Cart link" },
+      { "action": "waitForURL", "target": "https://retail-website-two.vercel.app/app/cart" },
+      { "action": "click", "target": "getByRole('button', { name: /^Checkout$/ })", "description": "Checkout button" },
+      { "action": "waitForURL", "target": "https://retail-website-two.vercel.app/app/checkout" },
+      { "action": "fill", "target": "getByLabel('Full name')", "value": "Testing Customer", "description": "Full name input" },
+      { "action": "fill", "target": "getByLabel('Address')", "value": "123 Demo Street", "description": "Address input" },
+      { "action": "fill", "target": "getByLabel('City')", "value": "Kolkata", "description": "City input" },
+      { "action": "fill", "target": "getByLabel('Postal')", "value": "700001", "description": "Postal input" },
+      { "action": "click", "target": "page.locator('button').filter({ hasText: /^Pay (US)?\\$/ }).first()", "description": "Pay button" },
+      { "action": "assertVisible", "target": "getByText(/Order .* confirmed\\./)" }
+    ]
+  },
+  {
+    "name": "customer sees checkout call to action after adding an item",
+    "testId": "retail-customer-smoke-015",
+    "timeoutMs": 120000,
+    "steps": [
+      { "action": "goto", "target": "https://retail-website-two.vercel.app/login" },
+      { "action": "fill", "target": "getByLabel('Email')", "value": "test@demo.com", "description": "Customer email input" },
+      { "action": "fill", "target": "getByLabel('Password')", "value": "password123", "description": "Customer password input" },
+      { "action": "click", "target": "getByRole('button', { name: /^Sign in$/i })", "description": "Sign in button" },
+      { "action": "waitForURL", "target": "https://retail-website-two.vercel.app/app/dashboard" },
+      { "action": "click", "target": "getByRole('link', { name: /^Products$/ })", "description": "Products link" },
+      { "action": "waitForURL", "target": "https://retail-website-two.vercel.app/app/products" },
+      { "action": "click", "target": "page.locator('button:enabled').filter({ hasText: /^Add to cart$/ }).first()", "description": "First add to cart button" },
+      { "action": "click", "target": "getByRole('link', { name: /^Cart$/ })", "description": "Cart link" },
+      { "action": "waitForURL", "target": "https://retail-website-two.vercel.app/app/cart" },
+      { "action": "assertVisible", "target": "getByRole('button', { name: /^Checkout$/ })" }
+    ]
+  },
+  {
+    "name": "admin can log in and land on the dashboard",
+    "testId": "retail-admin-smoke-016",
+    "timeoutMs": 120000,
+    "steps": [
+      { "action": "goto", "target": "https://retail-website-two.vercel.app/login" },
+      { "action": "assertVisible", "target": "getByText('Sign in to your workspace')" },
+      { "action": "fill", "target": "getByLabel('Email')", "value": "admin@demo.com", "description": "Admin email input" },
+      { "action": "fill", "target": "getByLabel('Password')", "value": "admin123", "description": "Admin password input" },
+      { "action": "click", "target": "getByRole('button', { name: /^Sign in$/i })", "description": "Sign in button" },
+      { "action": "waitForURL", "target": "https://retail-website-two.vercel.app/app/dashboard" },
+      { "action": "assertVisible", "target": "getByText('admin@demo.com · admin')" },
+      { "action": "assertVisible", "target": "getByRole('heading', { name: /^Dashboard$/ })" }
+    ]
+  },
+  {
+    "name": "admin can open the operations page from the dashboard",
+    "testId": "retail-admin-smoke-017",
+    "timeoutMs": 120000,
+    "steps": [
+      { "action": "goto", "target": "https://retail-website-two.vercel.app/login" },
+      { "action": "fill", "target": "getByLabel('Email')", "value": "admin@demo.com", "description": "Admin email input" },
+      { "action": "fill", "target": "getByLabel('Password')", "value": "admin123", "description": "Admin password input" },
+      { "action": "click", "target": "getByRole('button', { name: /^Sign in$/i })", "description": "Sign in button" },
+      { "action": "waitForURL", "target": "https://retail-website-two.vercel.app/app/dashboard" },
+      { "action": "click", "target": "getByRole('link', { name: /^Admin$/ })", "description": "Admin link" },
+      { "action": "waitForURL", "target": "https://retail-website-two.vercel.app/app/admin" },
+      { "action": "assertVisible", "target": "getByRole('heading', { name: /^Operations$/ })" },
+      { "action": "assertVisible", "target": "getByRole('button', { name: /^Add to catalog$/ })" }
+    ]
+  },
+  {
+    "name": "admin can open the products page after login",
+    "testId": "retail-admin-smoke-018",
+    "timeoutMs": 120000,
+    "steps": [
+      { "action": "goto", "target": "https://retail-website-two.vercel.app/login" },
+      { "action": "fill", "target": "getByLabel('Email')", "value": "admin@demo.com", "description": "Admin email input" },
+      { "action": "fill", "target": "getByLabel('Password')", "value": "admin123", "description": "Admin password input" },
+      { "action": "click", "target": "getByRole('button', { name: /^Sign in$/i })", "description": "Sign in button" },
+      { "action": "waitForURL", "target": "https://retail-website-two.vercel.app/app/dashboard" },
+      { "action": "click", "target": "getByRole('link', { name: /^Products$/ })", "description": "Products link" },
+      { "action": "waitForURL", "target": "https://retail-website-two.vercel.app/app/products" },
+      { "action": "assertVisible", "target": "getByRole('heading', { name: /^Products$/ })" },
+      { "action": "assertVisible", "target": "getByText('Classic Backpack')" }
+    ]
+  },
+  {
+    "name": "admin can add one item and see the cart badge update",
+    "testId": "retail-admin-smoke-019",
+    "timeoutMs": 120000,
+    "steps": [
+      { "action": "goto", "target": "https://retail-website-two.vercel.app/login" },
+      { "action": "fill", "target": "getByLabel('Email')", "value": "admin@demo.com", "description": "Admin email input" },
+      { "action": "fill", "target": "getByLabel('Password')", "value": "admin123", "description": "Admin password input" },
+      { "action": "click", "target": "getByRole('button', { name: /^Sign in$/i })", "description": "Sign in button" },
+      { "action": "waitForURL", "target": "https://retail-website-two.vercel.app/app/dashboard" },
+      { "action": "click", "target": "getByRole('link', { name: /^Products$/ })", "description": "Products link" },
+      { "action": "waitForURL", "target": "https://retail-website-two.vercel.app/app/products" },
+      { "action": "click", "target": "page.locator('button:enabled').filter({ hasText: /^Add to cart$/ }).first()", "description": "First add to cart button" },
+      { "action": "assertText", "target": "getByRole('button', { name: /^Cart \\d+$/ })", "value": "Cart 1" }
+    ]
+  },
+  {
+    "name": "admin can add one item and see remove in the cart",
+    "testId": "retail-admin-smoke-020",
+    "timeoutMs": 120000,
+    "steps": [
+      { "action": "goto", "target": "https://retail-website-two.vercel.app/login" },
+      { "action": "fill", "target": "getByLabel('Email')", "value": "admin@demo.com", "description": "Admin email input" },
+      { "action": "fill", "target": "getByLabel('Password')", "value": "admin123", "description": "Admin password input" },
+      { "action": "click", "target": "getByRole('button', { name: /^Sign in$/i })", "description": "Sign in button" },
+      { "action": "waitForURL", "target": "https://retail-website-two.vercel.app/app/dashboard" },
+      { "action": "click", "target": "getByRole('link', { name: /^Products$/ })", "description": "Products link" },
+      { "action": "waitForURL", "target": "https://retail-website-two.vercel.app/app/products" },
+      { "action": "click", "target": "page.locator('button:enabled').filter({ hasText: /^Add to cart$/ }).first()", "description": "First add to cart button" },
+      { "action": "click", "target": "getByRole('link', { name: /^Cart$/ })", "description": "Cart link" },
+      { "action": "waitForURL", "target": "https://retail-website-two.vercel.app/app/cart" },
+      { "action": "assertVisible", "target": "getByRole('button', { name: /^Remove$/ })" }
+    ]
+  },
+  {
+    "name": "admin can move from dashboard to admin and back to dashboard",
+    "testId": "retail-admin-smoke-021",
+    "timeoutMs": 120000,
+    "steps": [
+      { "action": "goto", "target": "https://retail-website-two.vercel.app/login" },
+      { "action": "fill", "target": "getByLabel('Email')", "value": "admin@demo.com", "description": "Admin email input" },
+      { "action": "fill", "target": "getByLabel('Password')", "value": "admin123", "description": "Admin password input" },
+      { "action": "click", "target": "getByRole('button', { name: /^Sign in$/i })", "description": "Sign in button" },
+      { "action": "waitForURL", "target": "https://retail-website-two.vercel.app/app/dashboard" },
+      { "action": "click", "target": "getByRole('link', { name: /^Admin$/ })", "description": "Admin link" },
+      { "action": "waitForURL", "target": "https://retail-website-two.vercel.app/app/admin" },
+      { "action": "click", "target": "getByRole('link', { name: /^Dashboard$/ })", "description": "Dashboard link" },
+      { "action": "waitForURL", "target": "https://retail-website-two.vercel.app/app/dashboard" },
+      { "action": "assertVisible", "target": "getByText('admin@demo.com · admin')" }
+    ]
+  },
+  {
+    "name": "admin can start from the protected admin route and then sign in",
+    "testId": "retail-admin-smoke-022",
+    "timeoutMs": 120000,
+    "steps": [
+      { "action": "goto", "target": "https://retail-website-two.vercel.app/app/admin" },
+      { "action": "assertVisible", "target": "getByText('Sign in to your workspace')" },
+      { "action": "fill", "target": "getByLabel('Email')", "value": "admin@demo.com", "description": "Admin email input" },
+      { "action": "fill", "target": "getByLabel('Password')", "value": "admin123", "description": "Admin password input" },
+      { "action": "click", "target": "getByRole('button', { name: /^Sign in$/i })", "description": "Sign in button" },
+      { "action": "waitForURL", "target": "https://retail-website-two.vercel.app/app/admin" },
+      { "action": "assertVisible", "target": "getByRole('heading', { name: /^Operations$/ })" }
+    ]
+  },
+  {
+    "name": "admin can start from the protected products route and then sign in",
+    "testId": "retail-admin-smoke-023",
+    "timeoutMs": 120000,
+    "steps": [
+      { "action": "goto", "target": "https://retail-website-two.vercel.app/app/products" },
+      { "action": "assertVisible", "target": "getByText('Sign in to your workspace')" },
+      { "action": "fill", "target": "getByLabel('Email')", "value": "admin@demo.com", "description": "Admin email input" },
+      { "action": "fill", "target": "getByLabel('Password')", "value": "admin123", "description": "Admin password input" },
+      { "action": "click", "target": "getByRole('button', { name: /^Sign in$/i })", "description": "Sign in button" },
+      { "action": "waitForURL", "target": "https://retail-website-two.vercel.app/app/products" },
+      { "action": "assertVisible", "target": "getByRole('heading', { name: /^Products$/ })" }
+    ]
+  },
+  {
+    "name": "admin sees operations tools after navigating from dashboard",
+    "testId": "retail-admin-smoke-024",
+    "timeoutMs": 120000,
+    "steps": [
+      { "action": "goto", "target": "https://retail-website-two.vercel.app/login" },
+      { "action": "fill", "target": "getByLabel('Email')", "value": "admin@demo.com", "description": "Admin email input" },
+      { "action": "fill", "target": "getByLabel('Password')", "value": "admin123", "description": "Admin password input" },
+      { "action": "click", "target": "getByRole('button', { name: /^Sign in$/i })", "description": "Sign in button" },
+      { "action": "waitForURL", "target": "https://retail-website-two.vercel.app/app/dashboard" },
+      { "action": "click", "target": "getByRole('link', { name: /^Admin$/ })", "description": "Admin link" },
+      { "action": "waitForURL", "target": "https://retail-website-two.vercel.app/app/admin" },
+      { "action": "assertVisible", "target": "getByRole('heading', { name: /^Operations$/ })" },
+      { "action": "assertVisible", "target": "getByRole('button', { name: /^Add to catalog$/ })" }
+    ]
+  },
+  {
+    "name": "customer can heal a broken email selector on sign in",
+    "testId": "retail-healing-025",
+    "timeoutMs": 180000,
+    "steps": [
+      { "action": "goto", "target": "https://retail-website-two.vercel.app/login" },
+      { "action": "fill", "target": "#user-login-email-v2-broken", "value": "test@demo.com", "description": "Email address input field" },
+      { "action": "fill", "target": "getByLabel('Password')", "value": "password123", "description": "Password input field" },
+      { "action": "click", "target": "getByRole('button', { name: /^Sign in$/i })", "description": "Sign in button" },
+      { "action": "waitForURL", "target": "https://retail-website-two.vercel.app/app/dashboard" },
+      { "action": "assertVisible", "target": "getByText('test@demo.com · customer')" }
+    ]
+  },
+  {
+    "name": "customer can heal a broken products navigation selector",
+    "testId": "retail-healing-026",
+    "timeoutMs": 180000,
+    "steps": [
+      { "action": "goto", "target": "https://retail-website-two.vercel.app/login" },
+      { "action": "fill", "target": "getByLabel('Email')", "value": "test@demo.com", "description": "Customer email input" },
+      { "action": "fill", "target": "getByLabel('Password')", "value": "password123", "description": "Customer password input" },
+      { "action": "click", "target": "getByRole('button', { name: /^Sign in$/i })", "description": "Sign in button" },
+      { "action": "waitForURL", "target": "https://retail-website-two.vercel.app/app/dashboard" },
+      { "action": "click", "target": "a.nav-link-products-v2", "description": "Products navigation link in sidebar" },
+      { "action": "waitForURL", "target": "https://retail-website-two.vercel.app/app/products" },
+      { "action": "assertVisible", "target": "getByRole('heading', { name: /^Products$/ })" }
+    ]
+  },
+  {
+    "name": "customer can heal a broken add to cart selector",
+    "testId": "retail-healing-027",
+    "timeoutMs": 180000,
+    "steps": [
+      { "action": "goto", "target": "https://retail-website-two.vercel.app/login" },
+      { "action": "fill", "target": "getByLabel('Email')", "value": "test@demo.com", "description": "Customer email input" },
+      { "action": "fill", "target": "getByLabel('Password')", "value": "password123", "description": "Customer password input" },
+      { "action": "click", "target": "getByRole('button', { name: /^Sign in$/i })", "description": "Sign in button" },
+      { "action": "waitForURL", "target": "https://retail-website-two.vercel.app/app/dashboard" },
+      { "action": "click", "target": "getByRole('link', { name: /^Products$/ })", "description": "Products link" },
+      { "action": "waitForURL", "target": "https://retail-website-two.vercel.app/app/products" },
+      { "action": "click", "target": "button.add-to-cart-action-btn-broken", "description": "Add to cart button for the first product" },
+      { "action": "assertText", "target": "getByRole('button', { name: /^Cart \\d+$/ })", "value": "Cart 1" }
+    ]
+  },
+  {
+    "name": "customer can heal a broken checkout selector",
+    "testId": "retail-healing-028",
+    "timeoutMs": 180000,
+    "steps": [
+      { "action": "goto", "target": "https://retail-website-two.vercel.app/login" },
+      { "action": "fill", "target": "getByLabel('Email')", "value": "test@demo.com", "description": "Customer email input" },
+      { "action": "fill", "target": "getByLabel('Password')", "value": "password123", "description": "Customer password input" },
+      { "action": "click", "target": "getByRole('button', { name: /^Sign in$/i })", "description": "Sign in button" },
+      { "action": "waitForURL", "target": "https://retail-website-two.vercel.app/app/dashboard" },
+      { "action": "click", "target": "getByRole('link', { name: /^Products$/ })", "description": "Products link" },
+      { "action": "waitForURL", "target": "https://retail-website-two.vercel.app/app/products" },
+      { "action": "click", "target": "page.locator('button:enabled').filter({ hasText: /^Add to cart$/ }).first()", "description": "First add to cart button" },
+      { "action": "click", "target": "getByRole('link', { name: /^Cart$/ })", "description": "Cart link" },
+      { "action": "waitForURL", "target": "https://retail-website-two.vercel.app/app/cart" },
+      { "action": "click", "target": "button.proceed-to-checkout-v3", "description": "Checkout button on cart page" },
+      { "action": "waitForURL", "target": "https://retail-website-two.vercel.app/app/checkout" },
+      { "action": "assertVisible", "target": "getByRole('heading', { name: /^Checkout$/ })" }
+    ]
+  },
+  {
+    "name": "admin can heal a broken admin navigation selector",
+    "testId": "retail-healing-029",
+    "timeoutMs": 180000,
+    "steps": [
+      { "action": "goto", "target": "https://retail-website-two.vercel.app/login" },
+      { "action": "fill", "target": "getByLabel('Email')", "value": "admin@demo.com", "description": "Admin email input" },
+      { "action": "fill", "target": "getByLabel('Password')", "value": "admin123", "description": "Admin password input" },
+      { "action": "click", "target": "getByRole('button', { name: /^Sign in$/i })", "description": "Sign in button" },
+      { "action": "waitForURL", "target": "https://retail-website-two.vercel.app/app/dashboard" },
+      { "action": "click", "target": "a.nav-link-admin-v2", "description": "Admin navigation link in the sidebar" },
+      { "action": "waitForURL", "target": "https://retail-website-two.vercel.app/app/admin" },
+      { "action": "assertVisible", "target": "getByRole('heading', { name: /^Operations$/ })" }
+    ]
+  },
+  {
+    "name": "admin can heal a broken sign in button selector",
+    "testId": "retail-healing-030",
+    "timeoutMs": 180000,
+    "steps": [
+      { "action": "goto", "target": "https://retail-website-two.vercel.app/login" },
+      { "action": "fill", "target": "getByLabel('Email')", "value": "admin@demo.com", "description": "Admin email input" },
+      { "action": "fill", "target": "getByLabel('Password')", "value": "admin123", "description": "Admin password input" },
+      { "action": "click", "target": "button.sign-in-primary-v2", "description": "Sign in button on the login form" },
+      { "action": "waitForURL", "target": "https://retail-website-two.vercel.app/app/dashboard" },
+      { "action": "assertVisible", "target": "getByText('admin@demo.com · admin')" }
+    ]
+  }
+]

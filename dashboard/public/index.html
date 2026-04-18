@@ -126,6 +126,7 @@ const fmtDur=ms=>{if(!ms)return'-';const s=Math.floor(ms/1000);if(s<60)return s+
 function setUpd(t){document.getElementById('upd').textContent=t;document.getElementById('hero-updated').textContent=t}
 function toast(msg,kind='info'){const el=document.createElement('div');el.className=`toast ${kind}`;el.textContent=msg;document.getElementById('toasts').appendChild(el);setTimeout(()=>el.remove(),4000)}
 const requiresDashboardServer=()=>location.protocol==='file:';
+const getStaticDataUrl=()=>new URL('./data/dashboard-data.json', window.location.href).toString();
 function showDashboardDataError(message){
   S.chartMessage=message;
   renderBarChart();
@@ -144,7 +145,33 @@ async function fetchJSON(url){
 
 document.querySelectorAll('.tab-btn').forEach(btn=>btn.addEventListener('click',()=>{document.querySelectorAll('.tab-btn').forEach(x=>x.classList.remove('active'));document.querySelectorAll('.tab-panel').forEach(x=>x.classList.remove('active'));btn.classList.add('active');document.getElementById('panel-'+btn.dataset.tab)?.classList.add('active')}));
 
-function connectSSE(){if(requiresDashboardServer()){setUpd('server required');return}const es=new EventSource('/events');es.addEventListener('connected',()=>setUpd('connected'));es.addEventListener('git_update',e=>{const d=JSON.parse(e.data||'{}');toast(d.latest?.subject?`New commit: ${d.latest.subject.slice(0,70)}`:'Git update received','info');fetchAll()});es.addEventListener('healing_update',()=>{toast('New healing run detected','ok');fetchAll()});es.onerror=()=>{setUpd('reconnecting...');setTimeout(connectSSE,6000)}}
+function hydrateFromStaticData(data){
+  S.stats=data?.stats||{};
+  S.commits=data?.commits||[];
+  S.status=data?.status||{};
+  S.contributors=data?.contributors||[];
+  S.runs=data?.runs||[];
+  S.memory=data?.memory||{};
+  S.chartMessage='';
+  renderStats();
+  renderGit();
+  renderHealing();
+  renderBarChart();
+  renderMemory();
+  if(S.selectedRun===null&&S.runs.length)selectRun(0);
+}
+
+function connectSSE(){
+  if(requiresDashboardServer()){
+    setUpd('server required');
+    return;
+  }
+  const es=new EventSource('/events');
+  es.addEventListener('connected',()=>setUpd('connected'));
+  es.addEventListener('git_update',e=>{const d=JSON.parse(e.data||'{}');toast(d.latest?.subject?`New commit: ${d.latest.subject.slice(0,70)}`:'Git update received','info');fetchAll()});
+  es.addEventListener('healing_update',()=>{toast('New healing run detected','ok');fetchAll()});
+  es.onerror=()=>{es.close();setUpd('static mode');};
+}
 
 async function fetchAll(){
   if(requiresDashboardServer()){
@@ -161,24 +188,26 @@ async function fetchAll(){
       fetchJSON('/api/healing'),
       fetchJSON('/api/memory')
     ]);
-    S.stats=stats||{};
-    S.commits=git?.commits||[];
-    S.status=git?.status||{};
-    S.contributors=git?.contributors||[];
-    S.runs=healing?.runs||[];
-    S.memory=memory||{};
-    S.chartMessage='';
-    renderStats();
-    renderGit();
-    renderHealing();
-    renderBarChart();
-    renderMemory();
-    if(S.selectedRun===null&&S.runs.length)selectRun(0);
-    setUpd('updated '+new Date().toLocaleTimeString());
+    hydrateFromStaticData({
+      stats,
+      commits:git?.commits||[],
+      status:git?.status||{},
+      contributors:git?.contributors||[],
+      runs:healing?.runs||[],
+      memory
+    });
+    setUpd('live '+new Date().toLocaleTimeString());
   }catch(err){
-    console.error(err);
-    showDashboardDataError('Unable to load dashboard data. Refresh after the dashboard server is running.');
-    setUpd('load failed');
+    try{
+      const staticData=await fetchJSON(getStaticDataUrl());
+      hydrateFromStaticData(staticData);
+      setUpd('pages '+new Date().toLocaleTimeString());
+    }catch(staticErr){
+      console.error(err);
+      console.error(staticErr);
+      showDashboardDataError('Unable to load dashboard data. Start the dashboard server locally or publish static dashboard data from CI.');
+      setUpd('load failed');
+    }
   }
 }
 

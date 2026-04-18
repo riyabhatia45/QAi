@@ -83,6 +83,7 @@ npm test
 npm run test:login
 npm run test:checkout
 npm run test:login-form
+npm run test:fixture
 
 # Showcase scenarios (specifically designed to trigger self-healing)
 npm run test:showcase
@@ -102,6 +103,11 @@ npm run test:showcase
 After running tests, you can view the standard Playwright report:
 ```bash
 npm run report
+```
+
+To regenerate the static dashboard payload that GitHub Pages reads:
+```bash
+npm run dashboard:data
 ```
 
 ### Sync Heals to Source Code
@@ -130,6 +136,8 @@ When a test heals, artifacts are generated in the `test-results/healing-artifact
 - **`before_heal.png`**: Screenshot of the page at the moment of failure.
 - **`after_heal.png`**: Screenshot illustrating the successful recovery.
 - **`healing-report.json`**: Technical details of the healing event for integration purposes.
+
+CI converts these artifacts into `dashboard/public/data/dashboard-data.json` and publishes the dashboard on GitHub Pages for runs on `main`.
 
 ---
 

@@ -10,3 +10,5 @@ node_modules/
 test-results/healing-artifacts/
 test-results/selector-memory.json
 test-results/flow-memory.json
+dashboard/public/data/*.json
+!dashboard/public/data/.gitkeep
