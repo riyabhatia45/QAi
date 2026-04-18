@@ -1,0 +1,2063 @@
+{
+  "generatedAt": "2026-04-18T17:47:20.101Z",
+  "mode": "adaptive",
+  "workflow": {
+    "name": "CI Self-Healing Test Suite",
+    "runNumber": "5",
+    "runId": "24610138625",
+    "event": "push",
+    "repository": "riyabhatia45/QAi",
+    "branch": "main",
+    "sha": "2852636b903902e5072730a82f969a45f4fd4aa9",
+    "serverUrl": "https://github.com"
+  },
+  "stats": {
+    "totalRuns": 35,
+    "totalSelectorHeals": 11,
+    "totalFlowHeals": 0,
+    "totalFailures": 11,
+    "totalTestsCompleted": 35,
+    "estimatedTimeSaved": "5.5",
+    "healSuccessRate": "50.0",
+    "gitBranch": "main"
+  },
+  "commits": [
+    {
+      "hash": "2852636b903902e5072730a82f969a45f4fd4aa9",
+      "author": "riyabhatia45",
+      "email": "",
+      "date": "2026-04-18T17:47:20.101Z",
+      "subject": "push run #5",
+      "refs": "main"
+    }
+  ],
+  "status": {
+    "branch": "main",
+    "changedFiles": [],
+    "diffStats": {
+      "added": 0,
+      "deleted": 0,
+      "files": 0
+    }
+  },
+  "contributors": [
+    {
+      "commits": 1,
+      "name": "riyabhatia45",
+      "email": ""
+    }
+  ],
+  "runs": [
+    {
+      "runId": "retail-testing-mode-healing-001_2026-04-18T17-47-05-883Z",
+      "runStartedAt": "2026-04-18T17:47:02.377Z",
+      "runFinishedAt": "2026-04-18T17:47:05.883Z",
+      "totalEvents": 1,
+      "selectorHeals": 0,
+      "flowHeals": 0,
+      "failures": 0,
+      "healRejections": 0,
+      "testsCompleted": 1,
+      "testId": "retail-testing-mode-healing-001",
+      "totalSteps": 30,
+      "totalSelectorRecoveries": 0,
+      "totalFlowRecoveries": 0,
+      "urlsVisited": [
+        "https://retail-website-two.vercel.app/login",
+        "https://retail-website-two.vercel.app/app/dashboard",
+        "https://retail-website-two.vercel.app/app/settings",
+        "https://retail-website-two.vercel.app/app/dashboard",
+        "https://retail-website-two.vercel.app/app/products",
+        "https://retail-website-two.vercel.app/app/cart",
+        "https://retail-website-two.vercel.app/app/checkout"
+      ],
+      "events": [
+        {
+          "type": "test_completed",
+          "testId": "retail-testing-mode-healing-001",
+          "stepId": null,
+          "payload": {
+            "testId": "retail-testing-mode-healing-001",
+            "startedAt": "2026-04-18T17:47:02.376Z",
+            "totalSteps": 30,
+            "totalSelectorRecoveries": 0,
+            "totalFlowRecoveries": 0,
+            "urlsVisited": [
+              "https://retail-website-two.vercel.app/login",
+              "https://retail-website-two.vercel.app/app/dashboard",
+              "https://retail-website-two.vercel.app/app/settings",
+              "https://retail-website-two.vercel.app/app/dashboard",
+              "https://retail-website-two.vercel.app/app/products",
+              "https://retail-website-two.vercel.app/app/cart",
+              "https://retail-website-two.vercel.app/app/checkout"
+            ],
+            "healingDecisions": []
+          },
+          "timestamp": "2026-04-18T17:47:05.883Z"
+        }
+      ],
+      "durationMs": 3506
+    },
+    {
+      "runId": "retail-admin-healing-001_2026-04-18T17-47-02-278Z",
+      "runStartedAt": "2026-04-18T17:46:59.625Z",
+      "runFinishedAt": "2026-04-18T17:47:02.278Z",
+      "totalEvents": 1,
+      "selectorHeals": 0,
+      "flowHeals": 0,
+      "failures": 0,
+      "healRejections": 0,
+      "testsCompleted": 1,
+      "testId": "retail-admin-healing-001",
+      "totalSteps": 25,
+      "totalSelectorRecoveries": 0,
+      "totalFlowRecoveries": 0,
+      "urlsVisited": [
+        "https://retail-website-two.vercel.app/login",
+        "https://retail-website-two.vercel.app/app/dashboard",
+        "https://retail-website-two.vercel.app/app/admin",
+        "https://retail-website-two.vercel.app/app/products",
+        "https://retail-website-two.vercel.app/app/cart",
+        "https://retail-website-two.vercel.app/app/dashboard"
+      ],
+      "events": [
+        {
+          "type": "test_completed",
+          "testId": "retail-admin-healing-001",
+          "stepId": null,
+          "payload": {
+            "testId": "retail-admin-healing-001",
+            "startedAt": "2026-04-18T17:46:59.625Z",
+            "totalSteps": 25,
+            "totalSelectorRecoveries": 0,
+            "totalFlowRecoveries": 0,
+            "urlsVisited": [
+              "https://retail-website-two.vercel.app/login",
+              "https://retail-website-two.vercel.app/app/dashboard",
+              "https://retail-website-two.vercel.app/app/admin",
+              "https://retail-website-two.vercel.app/app/products",
+              "https://retail-website-two.vercel.app/app/cart",
+              "https://retail-website-two.vercel.app/app/dashboard"
+            ],
+            "healingDecisions": []
+          },
+          "timestamp": "2026-04-18T17:47:02.278Z"
+        }
+      ],
+      "durationMs": 2653
+    },
+    {
+      "runId": "retail-customer-healing-001_2026-04-18T17-46-59-529Z",
+      "runStartedAt": "2026-04-18T17:46:54.216Z",
+      "runFinishedAt": "2026-04-18T17:46:59.530Z",
+      "totalEvents": 1,
+      "selectorHeals": 0,
+      "flowHeals": 0,
+      "failures": 0,
+      "healRejections": 0,
+      "testsCompleted": 1,
+      "testId": "retail-customer-healing-001",
+      "totalSteps": 33,
+      "totalSelectorRecoveries": 0,
+      "totalFlowRecoveries": 0,
+      "urlsVisited": [
+        "https://retail-website-two.vercel.app/login",
+        "https://retail-website-two.vercel.app/app/dashboard",
+        "https://retail-website-two.vercel.app/app/products",
+        "https://retail-website-two.vercel.app/app/cart",
+        "https://retail-website-two.vercel.app/app/checkout",
+        "https://retail-website-two.vercel.app/app/dashboard"
+      ],
+      "events": [
+        {
+          "type": "test_completed",
+          "testId": "retail-customer-healing-001",
+          "stepId": null,
+          "payload": {
+            "testId": "retail-customer-healing-001",
+            "startedAt": "2026-04-18T17:46:54.216Z",
+            "totalSteps": 33,
+            "totalSelectorRecoveries": 0,
+            "totalFlowRecoveries": 0,
+            "urlsVisited": [
+              "https://retail-website-two.vercel.app/login",
+              "https://retail-website-two.vercel.app/app/dashboard",
+              "https://retail-website-two.vercel.app/app/products",
+              "https://retail-website-two.vercel.app/app/cart",
+              "https://retail-website-two.vercel.app/app/checkout",
+              "https://retail-website-two.vercel.app/app/dashboard"
+            ],
+            "healingDecisions": []
+          },
+          "timestamp": "2026-04-18T17:46:59.529Z"
+        }
+      ],
+      "durationMs": 5314
+    },
+    {
+      "runId": "retail-flow-heal_2026-04-18T17-46-54-116Z",
+      "runStartedAt": "2026-04-18T17:44:46.833Z",
+      "runFinishedAt": "2026-04-18T17:46:54.116Z",
+      "totalEvents": 13,
+      "selectorHeals": 4,
+      "flowHeals": 0,
+      "failures": 4,
+      "healRejections": 0,
+      "testsCompleted": 1,
+      "testId": "retail-flow-heal",
+      "totalSteps": 12,
+      "totalSelectorRecoveries": 4,
+      "totalFlowRecoveries": 0,
+      "urlsVisited": [
+        "https://retail-website-two.vercel.app/app/dashboard",
+        "https://retail-website-two.vercel.app/login",
+        "https://retail-website-two.vercel.app/app/products",
+        "https://retail-website-two.vercel.app/app/cart",
+        "https://retail-website-two.vercel.app/app/checkout"
+      ],
+      "events": [
+        {
+          "type": "step_failed",
+          "testId": "retail-flow-heal",
+          "stepId": "retail-flow-heal-step-2-fill",
+          "payload": {
+            "action": "fill",
+            "selector": "#user-login-email-v2-broken",
+            "error": "locator.fill: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('#user-login-email-v2-broken')\u001b[22m\n"
+          },
+          "timestamp": "2026-04-18T17:45:18.931Z"
+        },
+        {
+          "type": "selector_recovery_invoked",
+          "testId": "retail-flow-heal",
+          "stepId": "retail-flow-heal-step-2-fill",
+          "payload": {
+            "action": "fill",
+            "originalSelector": "#user-login-email-v2-broken",
+            "error": "locator.fill: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('#user-login-email-v2-broken')\u001b[22m\n"
+          },
+          "timestamp": "2026-04-18T17:45:18.983Z"
+        },
+        {
+          "type": "selector_recovery_applied",
+          "testId": "retail-flow-heal",
+          "stepId": "retail-flow-heal-step-2-fill",
+          "payload": {
+            "originalSelector": "#user-login-email-v2-broken",
+            "healedSelector": "internal:label=\"Email\"i",
+            "confidence": 0.95,
+            "source": "memory"
+          },
+          "timestamp": "2026-04-18T17:45:18.996Z"
+        },
+        {
+          "type": "step_failed",
+          "testId": "retail-flow-heal",
+          "stepId": "retail-flow-heal-step-5-click",
+          "payload": {
+            "action": "click",
+            "selector": "a.nav-link-products-v2",
+            "error": "locator.click: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('a.nav-link-products-v2')\u001b[22m\n"
+          },
+          "timestamp": "2026-04-18T17:45:50.595Z"
+        },
+        {
+          "type": "selector_recovery_invoked",
+          "testId": "retail-flow-heal",
+          "stepId": "retail-flow-heal-step-5-click",
+          "payload": {
+            "action": "click",
+            "originalSelector": "a.nav-link-products-v2",
+            "error": "locator.click: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('a.nav-link-products-v2')\u001b[22m\n"
+          },
+          "timestamp": "2026-04-18T17:45:50.641Z"
+        },
+        {
+          "type": "selector_recovery_applied",
+          "testId": "retail-flow-heal",
+          "stepId": "retail-flow-heal-step-5-click",
+          "payload": {
+            "originalSelector": "a.nav-link-products-v2",
+            "healedSelector": "role=link[name='Products']",
+            "confidence": 0.95,
+            "source": "memory"
+          },
+          "timestamp": "2026-04-18T17:45:50.666Z"
+        },
+        {
+          "type": "step_failed",
+          "testId": "retail-flow-heal",
+          "stepId": "retail-flow-heal-step-7-click",
+          "payload": {
+            "action": "click",
+            "selector": "button.add-to-cart-action-btn-broken",
+            "error": "locator.click: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('button.add-to-cart-action-btn-broken')\u001b[22m\n"
+          },
+          "timestamp": "2026-04-18T17:46:22.226Z"
+        },
+        {
+          "type": "selector_recovery_invoked",
+          "testId": "retail-flow-heal",
+          "stepId": "retail-flow-heal-step-7-click",
+          "payload": {
+            "action": "click",
+            "originalSelector": "button.add-to-cart-action-btn-broken",
+            "error": "locator.click: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('button.add-to-cart-action-btn-broken')\u001b[22m\n"
+          },
+          "timestamp": "2026-04-18T17:46:22.299Z"
+        },
+        {
+          "type": "selector_recovery_applied",
+          "testId": "retail-flow-heal",
+          "stepId": "retail-flow-heal-step-7-click",
+          "payload": {
+            "originalSelector": "button.add-to-cart-action-btn-broken",
+            "healedSelector": "role=button[name=\"Add to cart\"] >> nth=0",
+            "confidence": 0.95,
+            "source": "memory"
+          },
+          "timestamp": "2026-04-18T17:46:22.333Z"
+        },
+        {
+          "type": "step_failed",
+          "testId": "retail-flow-heal",
+          "stepId": "retail-flow-heal-step-10-click",
+          "payload": {
+            "action": "click",
+            "selector": "button.proceed-to-checkout-v3",
+            "error": "locator.click: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('button.proceed-to-checkout-v3')\u001b[22m\n"
+          },
+          "timestamp": "2026-04-18T17:46:53.940Z"
+        },
+        {
+          "type": "selector_recovery_invoked",
+          "testId": "retail-flow-heal",
+          "stepId": "retail-flow-heal-step-10-click",
+          "payload": {
+            "action": "click",
+            "originalSelector": "button.proceed-to-checkout-v3",
+            "error": "locator.click: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('button.proceed-to-checkout-v3')\u001b[22m\n"
+          },
+          "timestamp": "2026-04-18T17:46:54.000Z"
+        },
+        {
+          "type": "selector_recovery_applied",
+          "testId": "retail-flow-heal",
+          "stepId": "retail-flow-heal-step-10-click",
+          "payload": {
+            "originalSelector": "button.proceed-to-checkout-v3",
+            "healedSelector": "role=button[name=\"Checkout\"]",
+            "confidence": 0.95,
+            "source": "memory"
+          },
+          "timestamp": "2026-04-18T17:46:54.031Z"
+        },
+        {
+          "type": "test_completed",
+          "testId": "retail-flow-heal",
+          "stepId": null,
+          "payload": {
+            "testId": "retail-flow-heal",
+            "startedAt": "2026-04-18T17:44:46.833Z",
+            "totalSteps": 12,
+            "totalSelectorRecoveries": 4,
+            "totalFlowRecoveries": 0,
+            "urlsVisited": [
+              "https://retail-website-two.vercel.app/app/dashboard",
+              "https://retail-website-two.vercel.app/login",
+              "https://retail-website-two.vercel.app/app/products",
+              "https://retail-website-two.vercel.app/app/cart",
+              "https://retail-website-two.vercel.app/app/checkout"
+            ],
+            "healingDecisions": [
+              {
+                "stepId": "retail-flow-heal-step-2-fill",
+                "type": "selector_recovery",
+                "decision": "apply",
+                "reason": "High confidence (1.00) – auto-heal allowed",
+                "confidence": 1,
+                "recommendedSelector": "internal:label=\"Email\"i",
+                "source": "memory",
+                "timestamp": "2026-04-18T17:45:18.988Z"
+              },
+              {
+                "stepId": "retail-flow-heal-step-5-click",
+                "type": "selector_recovery",
+                "decision": "apply",
+                "reason": "High confidence (1.00) – auto-heal allowed",
+                "confidence": 1,
+                "recommendedSelector": "role=link[name='Products']",
+                "source": "memory",
+                "timestamp": "2026-04-18T17:45:50.645Z"
+              },
+              {
+                "stepId": "retail-flow-heal-step-7-click",
+                "type": "selector_recovery",
+                "decision": "apply",
+                "reason": "High confidence (1.00) – auto-heal allowed",
+                "confidence": 1,
+                "recommendedSelector": "role=button[name=\"Add to cart\"] >> nth=0",
+                "source": "memory",
+                "timestamp": "2026-04-18T17:46:22.302Z"
+              },
+              {
+                "stepId": "retail-flow-heal-step-10-click",
+                "type": "selector_recovery",
+                "decision": "apply",
+                "reason": "High confidence (1.00) – auto-heal allowed",
+                "confidence": 1,
+                "recommendedSelector": "role=button[name=\"Checkout\"]",
+                "source": "memory",
+                "timestamp": "2026-04-18T17:46:54.002Z"
+              }
+            ]
+          },
+          "timestamp": "2026-04-18T17:46:54.116Z"
+        }
+      ],
+      "durationMs": 127283
+    },
+    {
+      "runId": "retail-flow-baseline_2026-04-18T17-44-46-738Z",
+      "runStartedAt": "2026-04-18T17:44:44.103Z",
+      "runFinishedAt": "2026-04-18T17:44:46.738Z",
+      "totalEvents": 1,
+      "selectorHeals": 0,
+      "flowHeals": 0,
+      "failures": 0,
+      "healRejections": 0,
+      "testsCompleted": 1,
+      "testId": "retail-flow-baseline",
+      "totalSteps": 13,
+      "totalSelectorRecoveries": 0,
+      "totalFlowRecoveries": 0,
+      "urlsVisited": [
+        "https://retail-website-two.vercel.app/app/dashboard",
+        "https://retail-website-two.vercel.app/login",
+        "https://retail-website-two.vercel.app/app/dashboard",
+        "https://retail-website-two.vercel.app/app/products",
+        "https://retail-website-two.vercel.app/app/cart",
+        "https://retail-website-two.vercel.app/app/checkout"
+      ],
+      "events": [
+        {
+          "type": "test_completed",
+          "testId": "retail-flow-baseline",
+          "stepId": null,
+          "payload": {
+            "testId": "retail-flow-baseline",
+            "startedAt": "2026-04-18T17:44:44.102Z",
+            "totalSteps": 13,
+            "totalSelectorRecoveries": 0,
+            "totalFlowRecoveries": 0,
+            "urlsVisited": [
+              "https://retail-website-two.vercel.app/app/dashboard",
+              "https://retail-website-two.vercel.app/login",
+              "https://retail-website-two.vercel.app/app/dashboard",
+              "https://retail-website-two.vercel.app/app/products",
+              "https://retail-website-two.vercel.app/app/cart",
+              "https://retail-website-two.vercel.app/app/checkout"
+            ],
+            "healingDecisions": []
+          },
+          "timestamp": "2026-04-18T17:44:46.737Z"
+        }
+      ],
+      "durationMs": 2635
+    },
+    {
+      "runId": "retail-healing-030_2026-04-18T17-44-44-009Z",
+      "runStartedAt": "2026-04-18T17:43:45.086Z",
+      "runFinishedAt": "2026-04-18T17:44:44.009Z",
+      "totalEvents": 4,
+      "selectorHeals": 1,
+      "flowHeals": 0,
+      "failures": 1,
+      "healRejections": 0,
+      "testsCompleted": 1,
+      "testId": "retail-healing-030",
+      "totalSteps": 6,
+      "totalSelectorRecoveries": 1,
+      "totalFlowRecoveries": 0,
+      "urlsVisited": [
+        "https://retail-website-two.vercel.app/login",
+        "https://retail-website-two.vercel.app/app/dashboard"
+      ],
+      "events": [
+        {
+          "type": "step_failed",
+          "testId": "retail-healing-030",
+          "stepId": "retail-healing-030-step-4-click",
+          "payload": {
+            "action": "click",
+            "selector": "button.sign-in-primary-v2",
+            "error": "locator.click: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('button.sign-in-primary-v2')\u001b[22m\n"
+          },
+          "timestamp": "2026-04-18T17:44:32.202Z"
+        },
+        {
+          "type": "selector_recovery_invoked",
+          "testId": "retail-healing-030",
+          "stepId": "retail-healing-030-step-4-click",
+          "payload": {
+            "action": "click",
+            "originalSelector": "button.sign-in-primary-v2",
+            "error": "locator.click: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('button.sign-in-primary-v2')\u001b[22m\n"
+          },
+          "timestamp": "2026-04-18T17:44:32.253Z"
+        },
+        {
+          "type": "selector_recovery_applied",
+          "testId": "retail-healing-030",
+          "stepId": "retail-healing-030-step-4-click",
+          "payload": {
+            "originalSelector": "button.sign-in-primary-v2",
+            "healedSelector": "role=button[name=\"Sign in\"]",
+            "confidence": 0.95,
+            "source": "google"
+          },
+          "timestamp": "2026-04-18T17:44:43.141Z"
+        },
+        {
+          "type": "test_completed",
+          "testId": "retail-healing-030",
+          "stepId": null,
+          "payload": {
+            "testId": "retail-healing-030",
+            "startedAt": "2026-04-18T17:43:45.086Z",
+            "totalSteps": 6,
+            "totalSelectorRecoveries": 1,
+            "totalFlowRecoveries": 0,
+            "urlsVisited": [
+              "https://retail-website-two.vercel.app/login",
+              "https://retail-website-two.vercel.app/app/dashboard"
+            ],
+            "healingDecisions": [
+              {
+                "stepId": "retail-healing-030-step-4-click",
+                "type": "selector_recovery",
+                "decision": "apply",
+                "reason": "High confidence (1.00) – auto-heal allowed",
+                "confidence": 1,
+                "recommendedSelector": "role=button[name=\"Sign in\"]",
+                "source": "google",
+                "timestamp": "2026-04-18T17:44:43.121Z"
+              }
+            ]
+          },
+          "timestamp": "2026-04-18T17:44:44.008Z"
+        }
+      ],
+      "durationMs": 58923
+    },
+    {
+      "runId": "retail-healing-029_2026-04-18T17-43-44-981Z",
+      "runStartedAt": "2026-04-18T17:42:53.916Z",
+      "runFinishedAt": "2026-04-18T17:43:44.982Z",
+      "totalEvents": 4,
+      "selectorHeals": 1,
+      "flowHeals": 0,
+      "failures": 1,
+      "healRejections": 0,
+      "testsCompleted": 1,
+      "testId": "retail-healing-029",
+      "totalSteps": 8,
+      "totalSelectorRecoveries": 1,
+      "totalFlowRecoveries": 0,
+      "urlsVisited": [
+        "https://retail-website-two.vercel.app/login",
+        "https://retail-website-two.vercel.app/app/dashboard",
+        "https://retail-website-two.vercel.app/app/admin"
+      ],
+      "events": [
+        {
+          "type": "step_failed",
+          "testId": "retail-healing-029",
+          "stepId": "retail-healing-029-step-6-click",
+          "payload": {
+            "action": "click",
+            "selector": "a.nav-link-admin-v2",
+            "error": "locator.click: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('a.nav-link-admin-v2')\u001b[22m\n"
+          },
+          "timestamp": "2026-04-18T17:43:42.297Z"
+        },
+        {
+          "type": "selector_recovery_invoked",
+          "testId": "retail-healing-029",
+          "stepId": "retail-healing-029-step-6-click",
+          "payload": {
+            "action": "click",
+            "originalSelector": "a.nav-link-admin-v2",
+            "error": "locator.click: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('a.nav-link-admin-v2')\u001b[22m\n"
+          },
+          "timestamp": "2026-04-18T17:43:42.346Z"
+        },
+        {
+          "type": "selector_recovery_applied",
+          "testId": "retail-healing-029",
+          "stepId": "retail-healing-029-step-6-click",
+          "payload": {
+            "originalSelector": "a.nav-link-admin-v2",
+            "healedSelector": "nav[aria-label='Primary'] >> text=Admin",
+            "confidence": 0.95,
+            "source": "google"
+          },
+          "timestamp": "2026-04-18T17:43:44.922Z"
+        },
+        {
+          "type": "test_completed",
+          "testId": "retail-healing-029",
+          "stepId": null,
+          "payload": {
+            "testId": "retail-healing-029",
+            "startedAt": "2026-04-18T17:42:53.915Z",
+            "totalSteps": 8,
+            "totalSelectorRecoveries": 1,
+            "totalFlowRecoveries": 0,
+            "urlsVisited": [
+              "https://retail-website-two.vercel.app/login",
+              "https://retail-website-two.vercel.app/app/dashboard",
+              "https://retail-website-two.vercel.app/app/admin"
+            ],
+            "healingDecisions": [
+              {
+                "stepId": "retail-healing-029-step-6-click",
+                "type": "selector_recovery",
+                "decision": "apply",
+                "reason": "High confidence (1.00) – auto-heal allowed",
+                "confidence": 1,
+                "recommendedSelector": "nav[aria-label='Primary'] >> text=Admin",
+                "source": "google",
+                "timestamp": "2026-04-18T17:43:44.894Z"
+              }
+            ]
+          },
+          "timestamp": "2026-04-18T17:43:44.981Z"
+        }
+      ],
+      "durationMs": 51066
+    },
+    {
+      "runId": "retail-healing-028_2026-04-18T17-42-53-787Z",
+      "runStartedAt": "2026-04-18T17:41:44.219Z",
+      "runFinishedAt": "2026-04-18T17:42:53.787Z",
+      "totalEvents": 4,
+      "selectorHeals": 1,
+      "flowHeals": 0,
+      "failures": 1,
+      "healRejections": 0,
+      "testsCompleted": 1,
+      "testId": "retail-healing-028",
+      "totalSteps": 13,
+      "totalSelectorRecoveries": 1,
+      "totalFlowRecoveries": 0,
+      "urlsVisited": [
+        "https://retail-website-two.vercel.app/login",
+        "https://retail-website-two.vercel.app/app/dashboard",
+        "https://retail-website-two.vercel.app/app/products",
+        "https://retail-website-two.vercel.app/app/cart",
+        "https://retail-website-two.vercel.app/app/checkout"
+      ],
+      "events": [
+        {
+          "type": "step_failed",
+          "testId": "retail-healing-028",
+          "stepId": "retail-healing-028-step-11-click",
+          "payload": {
+            "action": "click",
+            "selector": "button.proceed-to-checkout-v3",
+            "error": "locator.click: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('button.proceed-to-checkout-v3')\u001b[22m\n"
+          },
+          "timestamp": "2026-04-18T17:42:33.069Z"
+        },
+        {
+          "type": "selector_recovery_invoked",
+          "testId": "retail-healing-028",
+          "stepId": "retail-healing-028-step-11-click",
+          "payload": {
+            "action": "click",
+            "originalSelector": "button.proceed-to-checkout-v3",
+            "error": "locator.click: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('button.proceed-to-checkout-v3')\u001b[22m\n"
+          },
+          "timestamp": "2026-04-18T17:42:33.128Z"
+        },
+        {
+          "type": "selector_recovery_applied",
+          "testId": "retail-healing-028",
+          "stepId": "retail-healing-028-step-11-click",
+          "payload": {
+            "originalSelector": "button.proceed-to-checkout-v3",
+            "healedSelector": "role=button[name=\"Checkout\"]",
+            "confidence": 0.95,
+            "source": "google"
+          },
+          "timestamp": "2026-04-18T17:42:53.727Z"
+        },
+        {
+          "type": "test_completed",
+          "testId": "retail-healing-028",
+          "stepId": null,
+          "payload": {
+            "testId": "retail-healing-028",
+            "startedAt": "2026-04-18T17:41:44.219Z",
+            "totalSteps": 13,
+            "totalSelectorRecoveries": 1,
+            "totalFlowRecoveries": 0,
+            "urlsVisited": [
+              "https://retail-website-two.vercel.app/login",
+              "https://retail-website-two.vercel.app/app/dashboard",
+              "https://retail-website-two.vercel.app/app/products",
+              "https://retail-website-two.vercel.app/app/cart",
+              "https://retail-website-two.vercel.app/app/checkout"
+            ],
+            "healingDecisions": [
+              {
+                "stepId": "retail-healing-028-step-11-click",
+                "type": "selector_recovery",
+                "decision": "apply",
+                "reason": "High confidence (1.00) – auto-heal allowed",
+                "confidence": 1,
+                "recommendedSelector": "role=button[name=\"Checkout\"]",
+                "source": "google",
+                "timestamp": "2026-04-18T17:42:53.707Z"
+              }
+            ]
+          },
+          "timestamp": "2026-04-18T17:42:53.787Z"
+        }
+      ],
+      "durationMs": 69568
+    },
+    {
+      "runId": "retail-healing-027_2026-04-18T17-41-44-113Z",
+      "runStartedAt": "2026-04-18T17:40:50.032Z",
+      "runFinishedAt": "2026-04-18T17:41:44.113Z",
+      "totalEvents": 4,
+      "selectorHeals": 1,
+      "flowHeals": 0,
+      "failures": 1,
+      "healRejections": 0,
+      "testsCompleted": 1,
+      "testId": "retail-healing-027",
+      "totalSteps": 8,
+      "totalSelectorRecoveries": 1,
+      "totalFlowRecoveries": 0,
+      "urlsVisited": [
+        "https://retail-website-two.vercel.app/login",
+        "https://retail-website-two.vercel.app/app/dashboard",
+        "https://retail-website-two.vercel.app/app/products"
+      ],
+      "events": [
+        {
+          "type": "step_failed",
+          "testId": "retail-healing-027",
+          "stepId": "retail-healing-027-step-8-click",
+          "payload": {
+            "action": "click",
+            "selector": "button.add-to-cart-action-btn-broken",
+            "error": "locator.click: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('button.add-to-cart-action-btn-broken')\u001b[22m\n"
+          },
+          "timestamp": "2026-04-18T17:41:38.051Z"
+        },
+        {
+          "type": "selector_recovery_invoked",
+          "testId": "retail-healing-027",
+          "stepId": "retail-healing-027-step-8-click",
+          "payload": {
+            "action": "click",
+            "originalSelector": "button.add-to-cart-action-btn-broken",
+            "error": "locator.click: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('button.add-to-cart-action-btn-broken')\u001b[22m\n"
+          },
+          "timestamp": "2026-04-18T17:41:38.129Z"
+        },
+        {
+          "type": "selector_recovery_applied",
+          "testId": "retail-healing-027",
+          "stepId": "retail-healing-027-step-8-click",
+          "payload": {
+            "originalSelector": "button.add-to-cart-action-btn-broken",
+            "healedSelector": "role=button[name=\"Add to cart\"] >> nth=0",
+            "confidence": 0.95,
+            "source": "google"
+          },
+          "timestamp": "2026-04-18T17:41:44.044Z"
+        },
+        {
+          "type": "test_completed",
+          "testId": "retail-healing-027",
+          "stepId": null,
+          "payload": {
+            "testId": "retail-healing-027",
+            "startedAt": "2026-04-18T17:40:50.032Z",
+            "totalSteps": 8,
+            "totalSelectorRecoveries": 1,
+            "totalFlowRecoveries": 0,
+            "urlsVisited": [
+              "https://retail-website-two.vercel.app/login",
+              "https://retail-website-two.vercel.app/app/dashboard",
+              "https://retail-website-two.vercel.app/app/products"
+            ],
+            "healingDecisions": [
+              {
+                "stepId": "retail-healing-027-step-8-click",
+                "type": "selector_recovery",
+                "decision": "apply",
+                "reason": "High confidence (1.00) – auto-heal allowed",
+                "confidence": 1,
+                "recommendedSelector": "role=button[name=\"Add to cart\"] >> nth=0",
+                "source": "google",
+                "timestamp": "2026-04-18T17:41:44.025Z"
+              }
+            ]
+          },
+          "timestamp": "2026-04-18T17:41:44.113Z"
+        }
+      ],
+      "durationMs": 54081
+    },
+    {
+      "runId": "retail-healing-026_2026-04-18T17-40-49-951Z",
+      "runStartedAt": "2026-04-18T17:40:00.210Z",
+      "runFinishedAt": "2026-04-18T17:40:49.951Z",
+      "totalEvents": 4,
+      "selectorHeals": 1,
+      "flowHeals": 0,
+      "failures": 1,
+      "healRejections": 0,
+      "testsCompleted": 1,
+      "testId": "retail-healing-026",
+      "totalSteps": 8,
+      "totalSelectorRecoveries": 1,
+      "totalFlowRecoveries": 0,
+      "urlsVisited": [
+        "https://retail-website-two.vercel.app/login",
+        "https://retail-website-two.vercel.app/app/dashboard",
+        "https://retail-website-two.vercel.app/app/products"
+      ],
+      "events": [
+        {
+          "type": "step_failed",
+          "testId": "retail-healing-026",
+          "stepId": "retail-healing-026-step-6-click",
+          "payload": {
+            "action": "click",
+            "selector": "a.nav-link-products-v2",
+            "error": "locator.click: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('a.nav-link-products-v2')\u001b[22m\n"
+          },
+          "timestamp": "2026-04-18T17:40:48.211Z"
+        },
+        {
+          "type": "selector_recovery_invoked",
+          "testId": "retail-healing-026",
+          "stepId": "retail-healing-026-step-6-click",
+          "payload": {
+            "action": "click",
+            "originalSelector": "a.nav-link-products-v2",
+            "error": "locator.click: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('a.nav-link-products-v2')\u001b[22m\n"
+          },
+          "timestamp": "2026-04-18T17:40:48.261Z"
+        },
+        {
+          "type": "selector_recovery_applied",
+          "testId": "retail-healing-026",
+          "stepId": "retail-healing-026-step-6-click",
+          "payload": {
+            "originalSelector": "a.nav-link-products-v2",
+            "healedSelector": "role=link[name='Products']",
+            "confidence": 0.95,
+            "source": "google"
+          },
+          "timestamp": "2026-04-18T17:40:49.895Z"
+        },
+        {
+          "type": "test_completed",
+          "testId": "retail-healing-026",
+          "stepId": null,
+          "payload": {
+            "testId": "retail-healing-026",
+            "startedAt": "2026-04-18T17:40:00.210Z",
+            "totalSteps": 8,
+            "totalSelectorRecoveries": 1,
+            "totalFlowRecoveries": 0,
+            "urlsVisited": [
+              "https://retail-website-two.vercel.app/login",
+              "https://retail-website-two.vercel.app/app/dashboard",
+              "https://retail-website-two.vercel.app/app/products"
+            ],
+            "healingDecisions": [
+              {
+                "stepId": "retail-healing-026-step-6-click",
+                "type": "selector_recovery",
+                "decision": "apply",
+                "reason": "High confidence (1.00) – auto-heal allowed",
+                "confidence": 1,
+                "recommendedSelector": "role=link[name='Products']",
+                "source": "google",
+                "timestamp": "2026-04-18T17:40:49.880Z"
+              }
+            ]
+          },
+          "timestamp": "2026-04-18T17:40:49.950Z"
+        }
+      ],
+      "durationMs": 49741
+    },
+    {
+      "runId": "retail-healing-025_2026-04-18T17-40-00-110Z",
+      "runStartedAt": "2026-04-18T17:38:53.363Z",
+      "runFinishedAt": "2026-04-18T17:40:00.110Z",
+      "totalEvents": 4,
+      "selectorHeals": 1,
+      "flowHeals": 0,
+      "failures": 1,
+      "healRejections": 0,
+      "testsCompleted": 1,
+      "testId": "retail-healing-025",
+      "totalSteps": 6,
+      "totalSelectorRecoveries": 1,
+      "totalFlowRecoveries": 0,
+      "urlsVisited": [
+        "https://retail-website-two.vercel.app/login",
+        "https://retail-website-two.vercel.app/app/dashboard"
+      ],
+      "events": [
+        {
+          "type": "step_failed",
+          "testId": "retail-healing-025",
+          "stepId": "retail-healing-025-step-2-fill",
+          "payload": {
+            "action": "fill",
+            "selector": "#user-login-email-v2-broken",
+            "error": "locator.fill: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('#user-login-email-v2-broken')\u001b[22m\n"
+          },
+          "timestamp": "2026-04-18T17:39:40.463Z"
+        },
+        {
+          "type": "selector_recovery_invoked",
+          "testId": "retail-healing-025",
+          "stepId": "retail-healing-025-step-2-fill",
+          "payload": {
+            "action": "fill",
+            "originalSelector": "#user-login-email-v2-broken",
+            "error": "locator.fill: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('#user-login-email-v2-broken')\u001b[22m\n"
+          },
+          "timestamp": "2026-04-18T17:39:40.513Z"
+        },
+        {
+          "type": "selector_recovery_applied",
+          "testId": "retail-healing-025",
+          "stepId": "retail-healing-025-step-2-fill",
+          "payload": {
+            "originalSelector": "#user-login-email-v2-broken",
+            "healedSelector": "internal:label=\"Email\"i",
+            "confidence": 0.95,
+            "source": "google"
+          },
+          "timestamp": "2026-04-18T17:39:59.127Z"
+        },
+        {
+          "type": "test_completed",
+          "testId": "retail-healing-025",
+          "stepId": null,
+          "payload": {
+            "testId": "retail-healing-025",
+            "startedAt": "2026-04-18T17:38:53.363Z",
+            "totalSteps": 6,
+            "totalSelectorRecoveries": 1,
+            "totalFlowRecoveries": 0,
+            "urlsVisited": [
+              "https://retail-website-two.vercel.app/login",
+              "https://retail-website-two.vercel.app/app/dashboard"
+            ],
+            "healingDecisions": [
+              {
+                "stepId": "retail-healing-025-step-2-fill",
+                "type": "selector_recovery",
+                "decision": "apply",
+                "reason": "High confidence (0.98) – auto-heal allowed",
+                "confidence": 0.98,
+                "recommendedSelector": "internal:label=\"Email\"i",
+                "source": "google",
+                "timestamp": "2026-04-18T17:39:59.118Z"
+              }
+            ]
+          },
+          "timestamp": "2026-04-18T17:40:00.109Z"
+        }
+      ],
+      "durationMs": 66747
+    },
+    {
+      "runId": "retail-admin-smoke-024_2026-04-18T17-38-53-269Z",
+      "runStartedAt": "2026-04-18T17:38:51.799Z",
+      "runFinishedAt": "2026-04-18T17:38:53.269Z",
+      "totalEvents": 1,
+      "selectorHeals": 0,
+      "flowHeals": 0,
+      "failures": 0,
+      "healRejections": 0,
+      "testsCompleted": 1,
+      "testId": "retail-admin-smoke-024",
+      "totalSteps": 9,
+      "totalSelectorRecoveries": 0,
+      "totalFlowRecoveries": 0,
+      "urlsVisited": [
+        "https://retail-website-two.vercel.app/login",
+        "https://retail-website-two.vercel.app/app/dashboard",
+        "https://retail-website-two.vercel.app/app/admin"
+      ],
+      "events": [
+        {
+          "type": "test_completed",
+          "testId": "retail-admin-smoke-024",
+          "stepId": null,
+          "payload": {
+            "testId": "retail-admin-smoke-024",
+            "startedAt": "2026-04-18T17:38:51.799Z",
+            "totalSteps": 9,
+            "totalSelectorRecoveries": 0,
+            "totalFlowRecoveries": 0,
+            "urlsVisited": [
+              "https://retail-website-two.vercel.app/login",
+              "https://retail-website-two.vercel.app/app/dashboard",
+              "https://retail-website-two.vercel.app/app/admin"
+            ],
+            "healingDecisions": []
+          },
+          "timestamp": "2026-04-18T17:38:53.269Z"
+        }
+      ],
+      "durationMs": 1470
+    },
+    {
+      "runId": "retail-admin-smoke-023_2026-04-18T17-38-51-719Z",
+      "runStartedAt": "2026-04-18T17:38:50.330Z",
+      "runFinishedAt": "2026-04-18T17:38:51.719Z",
+      "totalEvents": 1,
+      "selectorHeals": 0,
+      "flowHeals": 0,
+      "failures": 0,
+      "healRejections": 0,
+      "testsCompleted": 1,
+      "testId": "retail-admin-smoke-023",
+      "totalSteps": 7,
+      "totalSelectorRecoveries": 0,
+      "totalFlowRecoveries": 0,
+      "urlsVisited": [
+        "https://retail-website-two.vercel.app/app/products",
+        "https://retail-website-two.vercel.app/login",
+        "https://retail-website-two.vercel.app/app/products"
+      ],
+      "events": [
+        {
+          "type": "test_completed",
+          "testId": "retail-admin-smoke-023",
+          "stepId": null,
+          "payload": {
+            "testId": "retail-admin-smoke-023",
+            "startedAt": "2026-04-18T17:38:50.329Z",
+            "totalSteps": 7,
+            "totalSelectorRecoveries": 0,
+            "totalFlowRecoveries": 0,
+            "urlsVisited": [
+              "https://retail-website-two.vercel.app/app/products",
+              "https://retail-website-two.vercel.app/login",
+              "https://retail-website-two.vercel.app/app/products"
+            ],
+            "healingDecisions": []
+          },
+          "timestamp": "2026-04-18T17:38:51.718Z"
+        }
+      ],
+      "durationMs": 1389
+    },
+    {
+      "runId": "retail-admin-smoke-022_2026-04-18T17-38-50-220Z",
+      "runStartedAt": "2026-04-18T17:38:48.817Z",
+      "runFinishedAt": "2026-04-18T17:38:50.220Z",
+      "totalEvents": 1,
+      "selectorHeals": 0,
+      "flowHeals": 0,
+      "failures": 0,
+      "healRejections": 0,
+      "testsCompleted": 1,
+      "testId": "retail-admin-smoke-022",
+      "totalSteps": 7,
+      "totalSelectorRecoveries": 0,
+      "totalFlowRecoveries": 0,
+      "urlsVisited": [
+        "https://retail-website-two.vercel.app/app/admin",
+        "https://retail-website-two.vercel.app/login",
+        "https://retail-website-two.vercel.app/app/admin"
+      ],
+      "events": [
+        {
+          "type": "test_completed",
+          "testId": "retail-admin-smoke-022",
+          "stepId": null,
+          "payload": {
+            "testId": "retail-admin-smoke-022",
+            "startedAt": "2026-04-18T17:38:48.817Z",
+            "totalSteps": 7,
+            "totalSelectorRecoveries": 0,
+            "totalFlowRecoveries": 0,
+            "urlsVisited": [
+              "https://retail-website-two.vercel.app/app/admin",
+              "https://retail-website-two.vercel.app/login",
+              "https://retail-website-two.vercel.app/app/admin"
+            ],
+            "healingDecisions": []
+          },
+          "timestamp": "2026-04-18T17:38:50.220Z"
+        }
+      ],
+      "durationMs": 1403
+    },
+    {
+      "runId": "retail-admin-smoke-021_2026-04-18T17-38-48-722Z",
+      "runStartedAt": "2026-04-18T17:38:47.207Z",
+      "runFinishedAt": "2026-04-18T17:38:48.722Z",
+      "totalEvents": 1,
+      "selectorHeals": 0,
+      "flowHeals": 0,
+      "failures": 0,
+      "healRejections": 0,
+      "testsCompleted": 1,
+      "testId": "retail-admin-smoke-021",
+      "totalSteps": 10,
+      "totalSelectorRecoveries": 0,
+      "totalFlowRecoveries": 0,
+      "urlsVisited": [
+        "https://retail-website-two.vercel.app/login",
+        "https://retail-website-two.vercel.app/app/dashboard",
+        "https://retail-website-two.vercel.app/app/admin",
+        "https://retail-website-two.vercel.app/app/dashboard"
+      ],
+      "events": [
+        {
+          "type": "test_completed",
+          "testId": "retail-admin-smoke-021",
+          "stepId": null,
+          "payload": {
+            "testId": "retail-admin-smoke-021",
+            "startedAt": "2026-04-18T17:38:47.207Z",
+            "totalSteps": 10,
+            "totalSelectorRecoveries": 0,
+            "totalFlowRecoveries": 0,
+            "urlsVisited": [
+              "https://retail-website-two.vercel.app/login",
+              "https://retail-website-two.vercel.app/app/dashboard",
+              "https://retail-website-two.vercel.app/app/admin",
+              "https://retail-website-two.vercel.app/app/dashboard"
+            ],
+            "healingDecisions": []
+          },
+          "timestamp": "2026-04-18T17:38:48.721Z"
+        }
+      ],
+      "durationMs": 1515
+    },
+    {
+      "runId": "retail-admin-smoke-020_2026-04-18T17-38-47-116Z",
+      "runStartedAt": "2026-04-18T17:38:44.740Z",
+      "runFinishedAt": "2026-04-18T17:38:47.116Z",
+      "totalEvents": 1,
+      "selectorHeals": 0,
+      "flowHeals": 0,
+      "failures": 0,
+      "healRejections": 0,
+      "testsCompleted": 1,
+      "testId": "retail-admin-smoke-020",
+      "totalSteps": 11,
+      "totalSelectorRecoveries": 0,
+      "totalFlowRecoveries": 0,
+      "urlsVisited": [
+        "https://retail-website-two.vercel.app/login",
+        "https://retail-website-two.vercel.app/app/dashboard",
+        "https://retail-website-two.vercel.app/app/products",
+        "https://retail-website-two.vercel.app/app/cart"
+      ],
+      "events": [
+        {
+          "type": "test_completed",
+          "testId": "retail-admin-smoke-020",
+          "stepId": null,
+          "payload": {
+            "testId": "retail-admin-smoke-020",
+            "startedAt": "2026-04-18T17:38:44.740Z",
+            "totalSteps": 11,
+            "totalSelectorRecoveries": 0,
+            "totalFlowRecoveries": 0,
+            "urlsVisited": [
+              "https://retail-website-two.vercel.app/login",
+              "https://retail-website-two.vercel.app/app/dashboard",
+              "https://retail-website-two.vercel.app/app/products",
+              "https://retail-website-two.vercel.app/app/cart"
+            ],
+            "healingDecisions": []
+          },
+          "timestamp": "2026-04-18T17:38:47.116Z"
+        }
+      ],
+      "durationMs": 2376
+    },
+    {
+      "runId": "retail-admin-smoke-019_2026-04-18T17-38-44-639Z",
+      "runStartedAt": "2026-04-18T17:38:42.379Z",
+      "runFinishedAt": "2026-04-18T17:38:44.639Z",
+      "totalEvents": 1,
+      "selectorHeals": 0,
+      "flowHeals": 0,
+      "failures": 0,
+      "healRejections": 0,
+      "testsCompleted": 1,
+      "testId": "retail-admin-smoke-019",
+      "totalSteps": 8,
+      "totalSelectorRecoveries": 0,
+      "totalFlowRecoveries": 0,
+      "urlsVisited": [
+        "https://retail-website-two.vercel.app/login",
+        "https://retail-website-two.vercel.app/app/dashboard",
+        "https://retail-website-two.vercel.app/app/products"
+      ],
+      "events": [
+        {
+          "type": "test_completed",
+          "testId": "retail-admin-smoke-019",
+          "stepId": null,
+          "payload": {
+            "testId": "retail-admin-smoke-019",
+            "startedAt": "2026-04-18T17:38:42.379Z",
+            "totalSteps": 8,
+            "totalSelectorRecoveries": 0,
+            "totalFlowRecoveries": 0,
+            "urlsVisited": [
+              "https://retail-website-two.vercel.app/login",
+              "https://retail-website-two.vercel.app/app/dashboard",
+              "https://retail-website-two.vercel.app/app/products"
+            ],
+            "healingDecisions": []
+          },
+          "timestamp": "2026-04-18T17:38:44.639Z"
+        }
+      ],
+      "durationMs": 2260
+    },
+    {
+      "runId": "retail-admin-smoke-018_2026-04-18T17-38-42-281Z",
+      "runStartedAt": "2026-04-18T17:38:40.081Z",
+      "runFinishedAt": "2026-04-18T17:38:42.281Z",
+      "totalEvents": 1,
+      "selectorHeals": 0,
+      "flowHeals": 0,
+      "failures": 0,
+      "healRejections": 0,
+      "testsCompleted": 1,
+      "testId": "retail-admin-smoke-018",
+      "totalSteps": 9,
+      "totalSelectorRecoveries": 0,
+      "totalFlowRecoveries": 0,
+      "urlsVisited": [
+        "https://retail-website-two.vercel.app/login",
+        "https://retail-website-two.vercel.app/app/dashboard",
+        "https://retail-website-two.vercel.app/app/products"
+      ],
+      "events": [
+        {
+          "type": "test_completed",
+          "testId": "retail-admin-smoke-018",
+          "stepId": null,
+          "payload": {
+            "testId": "retail-admin-smoke-018",
+            "startedAt": "2026-04-18T17:38:40.080Z",
+            "totalSteps": 9,
+            "totalSelectorRecoveries": 0,
+            "totalFlowRecoveries": 0,
+            "urlsVisited": [
+              "https://retail-website-two.vercel.app/login",
+              "https://retail-website-two.vercel.app/app/dashboard",
+              "https://retail-website-two.vercel.app/app/products"
+            ],
+            "healingDecisions": []
+          },
+          "timestamp": "2026-04-18T17:38:42.280Z"
+        }
+      ],
+      "durationMs": 2200
+    },
+    {
+      "runId": "retail-admin-smoke-017_2026-04-18T17-38-39-985Z",
+      "runStartedAt": "2026-04-18T17:38:38.527Z",
+      "runFinishedAt": "2026-04-18T17:38:39.985Z",
+      "totalEvents": 1,
+      "selectorHeals": 0,
+      "flowHeals": 0,
+      "failures": 0,
+      "healRejections": 0,
+      "testsCompleted": 1,
+      "testId": "retail-admin-smoke-017",
+      "totalSteps": 9,
+      "totalSelectorRecoveries": 0,
+      "totalFlowRecoveries": 0,
+      "urlsVisited": [
+        "https://retail-website-two.vercel.app/login",
+        "https://retail-website-two.vercel.app/app/dashboard",
+        "https://retail-website-two.vercel.app/app/admin"
+      ],
+      "events": [
+        {
+          "type": "test_completed",
+          "testId": "retail-admin-smoke-017",
+          "stepId": null,
+          "payload": {
+            "testId": "retail-admin-smoke-017",
+            "startedAt": "2026-04-18T17:38:38.527Z",
+            "totalSteps": 9,
+            "totalSelectorRecoveries": 0,
+            "totalFlowRecoveries": 0,
+            "urlsVisited": [
+              "https://retail-website-two.vercel.app/login",
+              "https://retail-website-two.vercel.app/app/dashboard",
+              "https://retail-website-two.vercel.app/app/admin"
+            ],
+            "healingDecisions": []
+          },
+          "timestamp": "2026-04-18T17:38:39.984Z"
+        }
+      ],
+      "durationMs": 1458
+    },
+    {
+      "runId": "retail-admin-smoke-016_2026-04-18T17-38-38-431Z",
+      "runStartedAt": "2026-04-18T17:38:36.993Z",
+      "runFinishedAt": "2026-04-18T17:38:38.431Z",
+      "totalEvents": 1,
+      "selectorHeals": 0,
+      "flowHeals": 0,
+      "failures": 0,
+      "healRejections": 0,
+      "testsCompleted": 1,
+      "testId": "retail-admin-smoke-016",
+      "totalSteps": 8,
+      "totalSelectorRecoveries": 0,
+      "totalFlowRecoveries": 0,
+      "urlsVisited": [
+        "https://retail-website-two.vercel.app/login",
+        "https://retail-website-two.vercel.app/app/dashboard"
+      ],
+      "events": [
+        {
+          "type": "test_completed",
+          "testId": "retail-admin-smoke-016",
+          "stepId": null,
+          "payload": {
+            "testId": "retail-admin-smoke-016",
+            "startedAt": "2026-04-18T17:38:36.993Z",
+            "totalSteps": 8,
+            "totalSelectorRecoveries": 0,
+            "totalFlowRecoveries": 0,
+            "urlsVisited": [
+              "https://retail-website-two.vercel.app/login",
+              "https://retail-website-two.vercel.app/app/dashboard"
+            ],
+            "healingDecisions": []
+          },
+          "timestamp": "2026-04-18T17:38:38.431Z"
+        }
+      ],
+      "durationMs": 1438
+    },
+    {
+      "runId": "retail-customer-smoke-015_2026-04-18T17-38-36-900Z",
+      "runStartedAt": "2026-04-18T17:38:34.647Z",
+      "runFinishedAt": "2026-04-18T17:38:36.900Z",
+      "totalEvents": 1,
+      "selectorHeals": 0,
+      "flowHeals": 0,
+      "failures": 0,
+      "healRejections": 0,
+      "testsCompleted": 1,
+      "testId": "retail-customer-smoke-015",
+      "totalSteps": 11,
+      "totalSelectorRecoveries": 0,
+      "totalFlowRecoveries": 0,
+      "urlsVisited": [
+        "https://retail-website-two.vercel.app/login",
+        "https://retail-website-two.vercel.app/app/dashboard",
+        "https://retail-website-two.vercel.app/app/products",
+        "https://retail-website-two.vercel.app/app/cart"
+      ],
+      "events": [
+        {
+          "type": "test_completed",
+          "testId": "retail-customer-smoke-015",
+          "stepId": null,
+          "payload": {
+            "testId": "retail-customer-smoke-015",
+            "startedAt": "2026-04-18T17:38:34.647Z",
+            "totalSteps": 11,
+            "totalSelectorRecoveries": 0,
+            "totalFlowRecoveries": 0,
+            "urlsVisited": [
+              "https://retail-website-two.vercel.app/login",
+              "https://retail-website-two.vercel.app/app/dashboard",
+              "https://retail-website-two.vercel.app/app/products",
+              "https://retail-website-two.vercel.app/app/cart"
+            ],
+            "healingDecisions": []
+          },
+          "timestamp": "2026-04-18T17:38:36.900Z"
+        }
+      ],
+      "durationMs": 2253
+    },
+    {
+      "runId": "retail-customer-smoke-014_2026-04-18T17-38-34-548Z",
+      "runStartedAt": "2026-04-18T17:38:30.575Z",
+      "runFinishedAt": "2026-04-18T17:38:34.548Z",
+      "totalEvents": 1,
+      "selectorHeals": 0,
+      "flowHeals": 0,
+      "failures": 0,
+      "healRejections": 0,
+      "testsCompleted": 1,
+      "testId": "retail-customer-smoke-014",
+      "totalSteps": 20,
+      "totalSelectorRecoveries": 0,
+      "totalFlowRecoveries": 0,
+      "urlsVisited": [
+        "https://retail-website-two.vercel.app/login",
+        "https://retail-website-two.vercel.app/app/dashboard",
+        "https://retail-website-two.vercel.app/app/settings",
+        "https://retail-website-two.vercel.app/app/products",
+        "https://retail-website-two.vercel.app/app/cart",
+        "https://retail-website-two.vercel.app/app/checkout"
+      ],
+      "events": [
+        {
+          "type": "test_completed",
+          "testId": "retail-customer-smoke-014",
+          "stepId": null,
+          "payload": {
+            "testId": "retail-customer-smoke-014",
+            "startedAt": "2026-04-18T17:38:30.575Z",
+            "totalSteps": 20,
+            "totalSelectorRecoveries": 0,
+            "totalFlowRecoveries": 0,
+            "urlsVisited": [
+              "https://retail-website-two.vercel.app/login",
+              "https://retail-website-two.vercel.app/app/dashboard",
+              "https://retail-website-two.vercel.app/app/settings",
+              "https://retail-website-two.vercel.app/app/products",
+              "https://retail-website-two.vercel.app/app/cart",
+              "https://retail-website-two.vercel.app/app/checkout"
+            ],
+            "healingDecisions": []
+          },
+          "timestamp": "2026-04-18T17:38:34.548Z"
+        }
+      ],
+      "durationMs": 3973
+    },
+    {
+      "runId": "retail-customer-smoke-013_2026-04-18T17-38-30-459Z",
+      "runStartedAt": "2026-04-18T17:38:27.990Z",
+      "runFinishedAt": "2026-04-18T17:38:30.459Z",
+      "totalEvents": 1,
+      "selectorHeals": 0,
+      "flowHeals": 0,
+      "failures": 0,
+      "healRejections": 0,
+      "testsCompleted": 1,
+      "testId": "retail-customer-smoke-013",
+      "totalSteps": 10,
+      "totalSelectorRecoveries": 0,
+      "totalFlowRecoveries": 0,
+      "urlsVisited": [
+        "https://retail-website-two.vercel.app/login",
+        "https://retail-website-two.vercel.app/app/dashboard",
+        "https://retail-website-two.vercel.app/app/settings",
+        "https://retail-website-two.vercel.app/app/products"
+      ],
+      "events": [
+        {
+          "type": "test_completed",
+          "testId": "retail-customer-smoke-013",
+          "stepId": null,
+          "payload": {
+            "testId": "retail-customer-smoke-013",
+            "startedAt": "2026-04-18T17:38:27.990Z",
+            "totalSteps": 10,
+            "totalSelectorRecoveries": 0,
+            "totalFlowRecoveries": 0,
+            "urlsVisited": [
+              "https://retail-website-two.vercel.app/login",
+              "https://retail-website-two.vercel.app/app/dashboard",
+              "https://retail-website-two.vercel.app/app/settings",
+              "https://retail-website-two.vercel.app/app/products"
+            ],
+            "healingDecisions": []
+          },
+          "timestamp": "2026-04-18T17:38:30.458Z"
+        }
+      ],
+      "durationMs": 2469
+    },
+    {
+      "runId": "retail-customer-smoke-012_2026-04-18T17-38-27-905Z",
+      "runStartedAt": "2026-04-18T17:38:26.290Z",
+      "runFinishedAt": "2026-04-18T17:38:27.905Z",
+      "totalEvents": 1,
+      "selectorHeals": 0,
+      "flowHeals": 0,
+      "failures": 0,
+      "healRejections": 0,
+      "testsCompleted": 1,
+      "testId": "retail-customer-smoke-012",
+      "totalSteps": 8,
+      "totalSelectorRecoveries": 0,
+      "totalFlowRecoveries": 0,
+      "urlsVisited": [
+        "https://retail-website-two.vercel.app/login",
+        "https://retail-website-two.vercel.app/app/dashboard",
+        "https://retail-website-two.vercel.app/app/settings"
+      ],
+      "events": [
+        {
+          "type": "test_completed",
+          "testId": "retail-customer-smoke-012",
+          "stepId": null,
+          "payload": {
+            "testId": "retail-customer-smoke-012",
+            "startedAt": "2026-04-18T17:38:26.290Z",
+            "totalSteps": 8,
+            "totalSelectorRecoveries": 0,
+            "totalFlowRecoveries": 0,
+            "urlsVisited": [
+              "https://retail-website-two.vercel.app/login",
+              "https://retail-website-two.vercel.app/app/dashboard",
+              "https://retail-website-two.vercel.app/app/settings"
+            ],
+            "healingDecisions": []
+          },
+          "timestamp": "2026-04-18T17:38:27.905Z"
+        }
+      ],
+      "durationMs": 1615
+    },
+    {
+      "runId": "retail-customer-smoke-011_2026-04-18T17-38-26-192Z",
+      "runStartedAt": "2026-04-18T17:38:22.493Z",
+      "runFinishedAt": "2026-04-18T17:38:26.192Z",
+      "totalEvents": 1,
+      "selectorHeals": 0,
+      "flowHeals": 0,
+      "failures": 0,
+      "healRejections": 0,
+      "testsCompleted": 1,
+      "testId": "retail-customer-smoke-011",
+      "totalSteps": 18,
+      "totalSelectorRecoveries": 0,
+      "totalFlowRecoveries": 0,
+      "urlsVisited": [
+        "https://retail-website-two.vercel.app/login",
+        "https://retail-website-two.vercel.app/app/dashboard",
+        "https://retail-website-two.vercel.app/app/products",
+        "https://retail-website-two.vercel.app/app/cart",
+        "https://retail-website-two.vercel.app/app/checkout"
+      ],
+      "events": [
+        {
+          "type": "test_completed",
+          "testId": "retail-customer-smoke-011",
+          "stepId": null,
+          "payload": {
+            "testId": "retail-customer-smoke-011",
+            "startedAt": "2026-04-18T17:38:22.493Z",
+            "totalSteps": 18,
+            "totalSelectorRecoveries": 0,
+            "totalFlowRecoveries": 0,
+            "urlsVisited": [
+              "https://retail-website-two.vercel.app/login",
+              "https://retail-website-two.vercel.app/app/dashboard",
+              "https://retail-website-two.vercel.app/app/products",
+              "https://retail-website-two.vercel.app/app/cart",
+              "https://retail-website-two.vercel.app/app/checkout"
+            ],
+            "healingDecisions": []
+          },
+          "timestamp": "2026-04-18T17:38:26.192Z"
+        }
+      ],
+      "durationMs": 3699
+    },
+    {
+      "runId": "retail-customer-smoke-010_2026-04-18T17-38-22-401Z",
+      "runStartedAt": "2026-04-18T17:38:20.087Z",
+      "runFinishedAt": "2026-04-18T17:38:22.401Z",
+      "totalEvents": 1,
+      "selectorHeals": 0,
+      "flowHeals": 0,
+      "failures": 0,
+      "healRejections": 0,
+      "testsCompleted": 1,
+      "testId": "retail-customer-smoke-010",
+      "totalSteps": 11,
+      "totalSelectorRecoveries": 0,
+      "totalFlowRecoveries": 0,
+      "urlsVisited": [
+        "https://retail-website-two.vercel.app/login",
+        "https://retail-website-two.vercel.app/app/dashboard",
+        "https://retail-website-two.vercel.app/app/products",
+        "https://retail-website-two.vercel.app/app/cart"
+      ],
+      "events": [
+        {
+          "type": "test_completed",
+          "testId": "retail-customer-smoke-010",
+          "stepId": null,
+          "payload": {
+            "testId": "retail-customer-smoke-010",
+            "startedAt": "2026-04-18T17:38:20.087Z",
+            "totalSteps": 11,
+            "totalSelectorRecoveries": 0,
+            "totalFlowRecoveries": 0,
+            "urlsVisited": [
+              "https://retail-website-two.vercel.app/login",
+              "https://retail-website-two.vercel.app/app/dashboard",
+              "https://retail-website-two.vercel.app/app/products",
+              "https://retail-website-two.vercel.app/app/cart"
+            ],
+            "healingDecisions": []
+          },
+          "timestamp": "2026-04-18T17:38:22.401Z"
+        }
+      ],
+      "durationMs": 2314
+    },
+    {
+      "runId": "retail-customer-smoke-009_2026-04-18T17-38-19-960Z",
+      "runStartedAt": "2026-04-18T17:38:17.518Z",
+      "runFinishedAt": "2026-04-18T17:38:19.960Z",
+      "totalEvents": 1,
+      "selectorHeals": 0,
+      "flowHeals": 0,
+      "failures": 0,
+      "healRejections": 0,
+      "testsCompleted": 1,
+      "testId": "retail-customer-smoke-009",
+      "totalSteps": 8,
+      "totalSelectorRecoveries": 0,
+      "totalFlowRecoveries": 0,
+      "urlsVisited": [
+        "https://retail-website-two.vercel.app/login",
+        "https://retail-website-two.vercel.app/app/dashboard",
+        "https://retail-website-two.vercel.app/app/products"
+      ],
+      "events": [
+        {
+          "type": "test_completed",
+          "testId": "retail-customer-smoke-009",
+          "stepId": null,
+          "payload": {
+            "testId": "retail-customer-smoke-009",
+            "startedAt": "2026-04-18T17:38:17.518Z",
+            "totalSteps": 8,
+            "totalSelectorRecoveries": 0,
+            "totalFlowRecoveries": 0,
+            "urlsVisited": [
+              "https://retail-website-two.vercel.app/login",
+              "https://retail-website-two.vercel.app/app/dashboard",
+              "https://retail-website-two.vercel.app/app/products"
+            ],
+            "healingDecisions": []
+          },
+          "timestamp": "2026-04-18T17:38:19.960Z"
+        }
+      ],
+      "durationMs": 2442
+    },
+    {
+      "runId": "retail-customer-smoke-008_2026-04-18T17-38-17-373Z",
+      "runStartedAt": "2026-04-18T17:37:25.856Z",
+      "runFinishedAt": "2026-04-18T17:38:17.373Z",
+      "totalEvents": 4,
+      "selectorHeals": 1,
+      "flowHeals": 0,
+      "failures": 1,
+      "healRejections": 0,
+      "testsCompleted": 1,
+      "testId": "retail-customer-smoke-008",
+      "totalSteps": 9,
+      "totalSelectorRecoveries": 1,
+      "totalFlowRecoveries": 0,
+      "urlsVisited": [
+        "https://retail-website-two.vercel.app/login",
+        "https://retail-website-two.vercel.app/app/dashboard",
+        "https://retail-website-two.vercel.app/app/products"
+      ],
+      "events": [
+        {
+          "type": "step_failed",
+          "testId": "retail-customer-smoke-008",
+          "stepId": "retail-customer-smoke-008-step-8-assert",
+          "payload": {
+            "action": "assert",
+            "selector": "page.locator('input.rw-input[class*=\"q-\"]')",
+            "error": "locator.waitFor: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('input.rw-input[class*=\"q-\"]') to be visible\u001b[22m\n"
+          },
+          "timestamp": "2026-04-18T17:38:13.748Z"
+        },
+        {
+          "type": "selector_recovery_invoked",
+          "testId": "retail-customer-smoke-008",
+          "stepId": "retail-customer-smoke-008-step-8-assert",
+          "payload": {
+            "action": "assert",
+            "originalSelector": "page.locator('input.rw-input[class*=\"q-\"]')",
+            "error": "locator.waitFor: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('input.rw-input[class*=\"q-\"]') to be visible\u001b[22m\n"
+          },
+          "timestamp": "2026-04-18T17:38:13.827Z"
+        },
+        {
+          "type": "selector_recovery_applied",
+          "testId": "retail-customer-smoke-008",
+          "stepId": "retail-customer-smoke-008-step-8-assert",
+          "payload": {
+            "originalSelector": "page.locator('input.rw-input[class*=\"q-\"]')",
+            "healedSelector": "getByRole('textbox', { name: 'Search products, categories…' })",
+            "confidence": 0.95,
+            "source": "google"
+          },
+          "timestamp": "2026-04-18T17:38:17.295Z"
+        },
+        {
+          "type": "test_completed",
+          "testId": "retail-customer-smoke-008",
+          "stepId": null,
+          "payload": {
+            "testId": "retail-customer-smoke-008",
+            "startedAt": "2026-04-18T17:37:25.856Z",
+            "totalSteps": 9,
+            "totalSelectorRecoveries": 1,
+            "totalFlowRecoveries": 0,
+            "urlsVisited": [
+              "https://retail-website-two.vercel.app/login",
+              "https://retail-website-two.vercel.app/app/dashboard",
+              "https://retail-website-two.vercel.app/app/products"
+            ],
+            "healingDecisions": [
+              {
+                "stepId": "retail-customer-smoke-008-step-8-assert",
+                "type": "selector_recovery",
+                "decision": "apply",
+                "reason": "High confidence (1.00) – auto-heal allowed",
+                "confidence": 1,
+                "recommendedSelector": "getByRole('textbox', { name: 'Search products, categories…' })",
+                "source": "google",
+                "timestamp": "2026-04-18T17:38:17.288Z"
+              }
+            ]
+          },
+          "timestamp": "2026-04-18T17:38:17.373Z"
+        }
+      ],
+      "durationMs": 51517
+    },
+    {
+      "runId": "retail-customer-smoke-007_2026-04-18T17-37-25-775Z",
+      "runStartedAt": "2026-04-18T17:37:24.306Z",
+      "runFinishedAt": "2026-04-18T17:37:25.775Z",
+      "totalEvents": 1,
+      "selectorHeals": 0,
+      "flowHeals": 0,
+      "failures": 0,
+      "healRejections": 0,
+      "testsCompleted": 1,
+      "testId": "retail-customer-smoke-007",
+      "totalSteps": 10,
+      "totalSelectorRecoveries": 0,
+      "totalFlowRecoveries": 0,
+      "urlsVisited": [
+        "https://retail-website-two.vercel.app/login",
+        "https://retail-website-two.vercel.app/app/dashboard",
+        "https://retail-website-two.vercel.app/app/products",
+        "https://retail-website-two.vercel.app/app/dashboard"
+      ],
+      "events": [
+        {
+          "type": "test_completed",
+          "testId": "retail-customer-smoke-007",
+          "stepId": null,
+          "payload": {
+            "testId": "retail-customer-smoke-007",
+            "startedAt": "2026-04-18T17:37:24.306Z",
+            "totalSteps": 10,
+            "totalSelectorRecoveries": 0,
+            "totalFlowRecoveries": 0,
+            "urlsVisited": [
+              "https://retail-website-two.vercel.app/login",
+              "https://retail-website-two.vercel.app/app/dashboard",
+              "https://retail-website-two.vercel.app/app/products",
+              "https://retail-website-two.vercel.app/app/dashboard"
+            ],
+            "healingDecisions": []
+          },
+          "timestamp": "2026-04-18T17:37:25.775Z"
+        }
+      ],
+      "durationMs": 1469
+    },
+    {
+      "runId": "retail-customer-smoke-006_2026-04-18T17-37-24-227Z",
+      "runStartedAt": "2026-04-18T17:37:22.797Z",
+      "runFinishedAt": "2026-04-18T17:37:24.227Z",
+      "totalEvents": 1,
+      "selectorHeals": 0,
+      "flowHeals": 0,
+      "failures": 0,
+      "healRejections": 0,
+      "testsCompleted": 1,
+      "testId": "retail-customer-smoke-006",
+      "totalSteps": 7,
+      "totalSelectorRecoveries": 0,
+      "totalFlowRecoveries": 0,
+      "urlsVisited": [
+        "https://retail-website-two.vercel.app/app/products",
+        "https://retail-website-two.vercel.app/login",
+        "https://retail-website-two.vercel.app/app/products"
+      ],
+      "events": [
+        {
+          "type": "test_completed",
+          "testId": "retail-customer-smoke-006",
+          "stepId": null,
+          "payload": {
+            "testId": "retail-customer-smoke-006",
+            "startedAt": "2026-04-18T17:37:22.797Z",
+            "totalSteps": 7,
+            "totalSelectorRecoveries": 0,
+            "totalFlowRecoveries": 0,
+            "urlsVisited": [
+              "https://retail-website-two.vercel.app/app/products",
+              "https://retail-website-two.vercel.app/login",
+              "https://retail-website-two.vercel.app/app/products"
+            ],
+            "healingDecisions": []
+          },
+          "timestamp": "2026-04-18T17:37:24.226Z"
+        }
+      ],
+      "durationMs": 1430
+    },
+    {
+      "runId": "retail-customer-smoke-005_2026-04-18T17-37-22-705Z",
+      "runStartedAt": "2026-04-18T17:37:21.295Z",
+      "runFinishedAt": "2026-04-18T17:37:22.705Z",
+      "totalEvents": 1,
+      "selectorHeals": 0,
+      "flowHeals": 0,
+      "failures": 0,
+      "healRejections": 0,
+      "testsCompleted": 1,
+      "testId": "retail-customer-smoke-005",
+      "totalSteps": 7,
+      "totalSelectorRecoveries": 0,
+      "totalFlowRecoveries": 0,
+      "urlsVisited": [
+        "https://retail-website-two.vercel.app/app/dashboard",
+        "https://retail-website-two.vercel.app/login",
+        "https://retail-website-two.vercel.app/app/dashboard"
+      ],
+      "events": [
+        {
+          "type": "test_completed",
+          "testId": "retail-customer-smoke-005",
+          "stepId": null,
+          "payload": {
+            "testId": "retail-customer-smoke-005",
+            "startedAt": "2026-04-18T17:37:21.295Z",
+            "totalSteps": 7,
+            "totalSelectorRecoveries": 0,
+            "totalFlowRecoveries": 0,
+            "urlsVisited": [
+              "https://retail-website-two.vercel.app/app/dashboard",
+              "https://retail-website-two.vercel.app/login",
+              "https://retail-website-two.vercel.app/app/dashboard"
+            ],
+            "healingDecisions": []
+          },
+          "timestamp": "2026-04-18T17:37:22.705Z"
+        }
+      ],
+      "durationMs": 1410
+    },
+    {
+      "runId": "retail-customer-smoke-004_2026-04-18T17-37-21-205Z",
+      "runStartedAt": "2026-04-18T17:37:19.656Z",
+      "runFinishedAt": "2026-04-18T17:37:21.205Z",
+      "totalEvents": 1,
+      "selectorHeals": 0,
+      "flowHeals": 0,
+      "failures": 0,
+      "healRejections": 0,
+      "testsCompleted": 1,
+      "testId": "retail-customer-smoke-004",
+      "totalSteps": 9,
+      "totalSelectorRecoveries": 0,
+      "totalFlowRecoveries": 0,
+      "urlsVisited": [
+        "https://retail-website-two.vercel.app/login",
+        "https://retail-website-two.vercel.app/app/dashboard",
+        "https://retail-website-two.vercel.app/app/settings"
+      ],
+      "events": [
+        {
+          "type": "test_completed",
+          "testId": "retail-customer-smoke-004",
+          "stepId": null,
+          "payload": {
+            "testId": "retail-customer-smoke-004",
+            "startedAt": "2026-04-18T17:37:19.656Z",
+            "totalSteps": 9,
+            "totalSelectorRecoveries": 0,
+            "totalFlowRecoveries": 0,
+            "urlsVisited": [
+              "https://retail-website-two.vercel.app/login",
+              "https://retail-website-two.vercel.app/app/dashboard",
+              "https://retail-website-two.vercel.app/app/settings"
+            ],
+            "healingDecisions": []
+          },
+          "timestamp": "2026-04-18T17:37:21.205Z"
+        }
+      ],
+      "durationMs": 1549
+    },
+    {
+      "runId": "retail-customer-smoke-003_2026-04-18T17-37-19-566Z",
+      "runStartedAt": "2026-04-18T17:37:18.157Z",
+      "runFinishedAt": "2026-04-18T17:37:19.567Z",
+      "totalEvents": 1,
+      "selectorHeals": 0,
+      "flowHeals": 0,
+      "failures": 0,
+      "healRejections": 0,
+      "testsCompleted": 1,
+      "testId": "retail-customer-smoke-003",
+      "totalSteps": 8,
+      "totalSelectorRecoveries": 0,
+      "totalFlowRecoveries": 0,
+      "urlsVisited": [
+        "https://retail-website-two.vercel.app/login",
+        "https://retail-website-two.vercel.app/app/dashboard",
+        "https://retail-website-two.vercel.app/app/cart"
+      ],
+      "events": [
+        {
+          "type": "test_completed",
+          "testId": "retail-customer-smoke-003",
+          "stepId": null,
+          "payload": {
+            "testId": "retail-customer-smoke-003",
+            "startedAt": "2026-04-18T17:37:18.157Z",
+            "totalSteps": 8,
+            "totalSelectorRecoveries": 0,
+            "totalFlowRecoveries": 0,
+            "urlsVisited": [
+              "https://retail-website-two.vercel.app/login",
+              "https://retail-website-two.vercel.app/app/dashboard",
+              "https://retail-website-two.vercel.app/app/cart"
+            ],
+            "healingDecisions": []
+          },
+          "timestamp": "2026-04-18T17:37:19.566Z"
+        }
+      ],
+      "durationMs": 1410
+    },
+    {
+      "runId": "retail-customer-smoke-002_2026-04-18T17-37-18-056Z",
+      "runStartedAt": "2026-04-18T17:37:15.755Z",
+      "runFinishedAt": "2026-04-18T17:37:18.056Z",
+      "totalEvents": 1,
+      "selectorHeals": 0,
+      "flowHeals": 0,
+      "failures": 0,
+      "healRejections": 0,
+      "testsCompleted": 1,
+      "testId": "retail-customer-smoke-002",
+      "totalSteps": 9,
+      "totalSelectorRecoveries": 0,
+      "totalFlowRecoveries": 0,
+      "urlsVisited": [
+        "https://retail-website-two.vercel.app/login",
+        "https://retail-website-two.vercel.app/app/dashboard",
+        "https://retail-website-two.vercel.app/app/products"
+      ],
+      "events": [
+        {
+          "type": "test_completed",
+          "testId": "retail-customer-smoke-002",
+          "stepId": null,
+          "payload": {
+            "testId": "retail-customer-smoke-002",
+            "startedAt": "2026-04-18T17:37:15.755Z",
+            "totalSteps": 9,
+            "totalSelectorRecoveries": 0,
+            "totalFlowRecoveries": 0,
+            "urlsVisited": [
+              "https://retail-website-two.vercel.app/login",
+              "https://retail-website-two.vercel.app/app/dashboard",
+              "https://retail-website-two.vercel.app/app/products"
+            ],
+            "healingDecisions": []
+          },
+          "timestamp": "2026-04-18T17:37:18.056Z"
+        }
+      ],
+      "durationMs": 2301
+    },
+    {
+      "runId": "retail-customer-smoke-001_2026-04-18T17-37-15-633Z",
+      "runStartedAt": "2026-04-18T17:37:12.788Z",
+      "runFinishedAt": "2026-04-18T17:37:15.633Z",
+      "totalEvents": 1,
+      "selectorHeals": 0,
+      "flowHeals": 0,
+      "failures": 0,
+      "healRejections": 0,
+      "testsCompleted": 1,
+      "testId": "retail-customer-smoke-001",
+      "totalSteps": 8,
+      "totalSelectorRecoveries": 0,
+      "totalFlowRecoveries": 0,
+      "urlsVisited": [
+        "https://retail-website-two.vercel.app/login",
+        "https://retail-website-two.vercel.app/app/dashboard"
+      ],
+      "events": [
+        {
+          "type": "test_completed",
+          "testId": "retail-customer-smoke-001",
+          "stepId": null,
+          "payload": {
+            "testId": "retail-customer-smoke-001",
+            "startedAt": "2026-04-18T17:37:12.788Z",
+            "totalSteps": 8,
+            "totalSelectorRecoveries": 0,
+            "totalFlowRecoveries": 0,
+            "urlsVisited": [
+              "https://retail-website-two.vercel.app/login",
+              "https://retail-website-two.vercel.app/app/dashboard"
+            ],
+            "healingDecisions": []
+          },
+          "timestamp": "2026-04-18T17:37:15.632Z"
+        }
+      ],
+      "durationMs": 2845
+    }
+  ],
+  "memory": {}
+}

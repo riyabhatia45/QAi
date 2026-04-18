@@ -1,1 +1,20 @@
-[]
+[
+  {
+    "runId": "24610138625",
+    "runNumber": "5",
+    "workflowName": "CI Self-Healing Test Suite",
+    "repository": "riyabhatia45/QAi",
+    "branch": "main",
+    "commitSha": "2852636b903902e5072730a82f969a45f4fd4aa9",
+    "event": "push",
+    "generatedAt": "2026-04-18T17:47:20.101Z",
+    "totalRuns": 35,
+    "totalTestsCompleted": 35,
+    "totalSelectorHeals": 11,
+    "totalFlowHeals": 0,
+    "totalFailures": 11,
+    "estimatedTimeSaved": "5.5",
+    "healSuccessRate": "50.0",
+    "file": "runs/24610138625.json"
+  }
+]
