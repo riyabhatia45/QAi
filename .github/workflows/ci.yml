@@ -118,12 +118,12 @@ jobs:
       - name: Install Playwright browsers
         run: npx playwright install chromium --with-deps
       - name: Run retail flow tests
-        run: npm run test:retail:p0 -- --reporter=json,list
+        run: npm run test:retail:showcase -- --reporter=json,list
         continue-on-error: true
       - name: Merge test videos into one suite video
         if: always()
         run: |
-          node src/tools/merge-playwright-videos.js --input test-results/playwright-artifacts --output test-results/run-videos/retail-p0-suite-ci.webm || true
+          node src/tools/merge-playwright-videos.js --input test-results/playwright-artifacts --output test-results/run-videos/retail-showcase-suite-ci.webm || true
       - name: List suite video output
         if: always()
         run: |
