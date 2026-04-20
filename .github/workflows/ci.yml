@@ -117,15 +117,22 @@ jobs:
         run: npm ci --prefer-offline
       - name: Install Playwright browsers
         run: npx playwright install chromium --with-deps
+      - name: Start virtual display for suite recording
+        run: |
+          Xvfb :99 -screen 0 1920x1080x24 >/tmp/xvfb.log 2>&1 &
+          echo "DISPLAY=:99" >> $GITHUB_ENV
       - name: Run retail flow tests
-        run: npm run test:retail -- --reporter=json,list
+        run: node src/tools/record-playwright-run.js --output-name retail-p0-suite-ci -- npm run test:retail:p0:headed -- --reporter=json,list
         continue-on-error: true
       - name: Upload artifacts
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: healing-retail-${{ github.run_number }}
-          path: test-results/healing-artifacts/
+          path: |
+            test-results/healing-artifacts/
+            test-results/playwright-artifacts/
+            test-results/
           retention-days: 14
           if-no-files-found: warn
 

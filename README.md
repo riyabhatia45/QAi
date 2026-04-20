@@ -105,6 +105,8 @@ After running tests, you can view the standard Playwright report:
 npm run report
 ```
 
+Playwright execution artifacts such as videos, screenshots, and traces are stored under `test-results/playwright-artifacts/`. By default, videos are retained for failed tests, and the CI workflow uploads them as downloadable artifacts.
+
 To regenerate the static dashboard payload that GitHub Pages reads:
 ```bash
 npm run dashboard:data

@@ -13,6 +13,10 @@
     "test:data-healing": "npx playwright test tests/e2e/data-driven-healing.spec.js",
     "test:showcase": "npx playwright test tests/e2e/showcase-scenarios.spec.js --headed",
     "test:retail": "npx playwright test tests/e2e/retail-role-flows.spec.js tests/e2e/retail-flow-coverage.spec.js tests/e2e/retail-flow-healing.spec.js",
+    "test:retail:p0": "npx playwright test tests/e2e/retail-p0-healing.spec.js",
+    "test:retail:p0:headed": "npx playwright test tests/e2e/retail-p0-healing.spec.js --headed",
+    "test:retail:p0:single-video": "node src/tools/record-retail-p0-run.js",
+    "test:retail:single-video": "node src/tools/record-playwright-run.js --output-name retail-p0-suite -- npm run test:retail:p0:headed",
     "test:retail:headed": "npx playwright test tests/e2e/retail-role-flows.spec.js tests/e2e/retail-flow-coverage.spec.js tests/e2e/retail-flow-healing.spec.js --headed",
     "test:retail:record": "cross-env RETAIL_STEP_DELAY_MS=1500 npx playwright test tests/e2e/retail-role-flows.spec.js tests/e2e/retail-flow-coverage.spec.js tests/e2e/retail-flow-healing.spec.js --headed",
     "test:fixture": "npx playwright test tests/e2e/local-login-fixture.spec.js",
@@ -32,6 +36,7 @@
   "license": "ISC",
   "description": "Agentic Playwright Framework with AI-powered self-healing selectors and flow recovery",
   "devDependencies": {
+    "@ffmpeg-installer/ffmpeg": "^1.1.0",
     "@playwright/test": "^1.58.2",
     "@types/node": "^25.5.0"
   },
