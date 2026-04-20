@@ -117,20 +117,20 @@ jobs:
         run: npm ci --prefer-offline
       - name: Install Playwright browsers
         run: npx playwright install chromium --with-deps
-      - name: Start virtual display for suite recording
-        run: |
-          Xvfb :99 -screen 0 1920x1080x24 >/tmp/xvfb.log 2>&1 &
-          echo "DISPLAY=:99" >> $GITHUB_ENV
       - name: Run retail flow tests
-        run: node src/tools/record-playwright-run.js --output-name retail-p0-suite-ci -- npm run test:retail:p0:headed -- --reporter=json,list
+        run: npm run test:retail:p0 -- --reporter=json,list
         continue-on-error: true
+      - name: Merge test videos into one suite video
+        if: always()
+        run: |
+          node src/tools/merge-playwright-videos.js --input test-results/playwright-artifacts --output test-results/run-videos/retail-p0-suite-ci.webm || true
       - name: List suite video output
         if: always()
         run: |
           echo "Listing run video directory"
           ls -R test-results/run-videos || true
-          echo "Listing top-level test-results contents"
-          ls -R test-results || true
+          echo "Listing Playwright artifact directory"
+          ls -R test-results/playwright-artifacts || true
       - name: Upload artifacts
         if: always()
         uses: actions/upload-artifact@v4

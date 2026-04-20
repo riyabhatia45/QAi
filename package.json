@@ -24,7 +24,8 @@
     "sync-heals": "node src/tools/sync-to-source.js",
     "dashboard": "node dashboard/server.js",
     "dashboard:data": "node src/tools/generate-dashboard-data.js",
-    "dashboard:history": "node src/tools/persist-dashboard-history.js"
+    "dashboard:history": "node src/tools/persist-dashboard-history.js",
+    "video:merge": "node src/tools/merge-playwright-videos.js"
   },
   "keywords": [
     "playwright",
