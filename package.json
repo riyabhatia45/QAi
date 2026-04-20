@@ -18,7 +18,7 @@
     "test:retail:p0": "npx playwright test tests/e2e/retail-p0-healing.spec.js",
     "test:retail:p0:headed": "npx playwright test tests/e2e/retail-p0-healing.spec.js --headed",
     "test:retail:p0:single-video": "node src/tools/record-retail-p0-run.js",
-    "test:retail:single-video": "node src/tools/record-playwright-run.js --output-name retail-showcase-suite -- npm run test:retail:showcase:headed",
+    "test:retail:single-video": "cross-env DEMO_MODE=true node src/tools/record-playwright-run.js --output-name retail-showcase-suite -- npm run test:retail:showcase:headed",
     "test:retail:headed": "npx playwright test tests/e2e/retail-role-flows.spec.js tests/e2e/retail-flow-coverage.spec.js tests/e2e/retail-flow-healing.spec.js --headed",
     "test:retail:record": "cross-env RETAIL_STEP_DELAY_MS=1500 npx playwright test tests/e2e/retail-role-flows.spec.js tests/e2e/retail-flow-coverage.spec.js tests/e2e/retail-flow-healing.spec.js --headed",
     "test:fixture": "npx playwright test tests/e2e/local-login-fixture.spec.js",
