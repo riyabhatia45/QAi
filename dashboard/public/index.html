@@ -190,6 +190,11 @@ function initRunVideo(data){
   const videoPath=data?.latestRunVideo||'videos/latest-run.webm';
   const video=document.getElementById('run-video');
   if(!video)return;
+  // Resolve the full URL so we can compare against the current src
+  const resolvedUrl=new URL(videoPath,window.location.href).href;
+  // Skip re-initialization if the video already points to the same source
+  // This prevents the 10-second polling from resetting a playing video
+  if(video.src===resolvedUrl){return}
   const badge=document.getElementById('video-run-badge');
   const infoRow=document.getElementById('video-info-row');
   const runNum=data?.workflow?.runNumber;
