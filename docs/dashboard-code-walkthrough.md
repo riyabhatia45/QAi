@@ -180,7 +180,7 @@ The UI is organized into 4 tabs:
 2. `Git Activity`
 3. `Healing Runs`
 4. `Selector Memory`
-5. "vIDEO"
+5. `VIDEO`
 Main UI blocks:
 
 - Top bar (branch + live status + last update time)
