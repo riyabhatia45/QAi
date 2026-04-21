@@ -1,5 +1,24 @@
 [
   {
+    "runId": "24702723055",
+    "runNumber": "17",
+    "workflowName": "CI Self-Healing Test Suite",
+    "repository": "riyabhatia45/QAi",
+    "branch": "main",
+    "commitSha": "7b5957bc43fd207b193e81f1e2f37d09a58cb2fc",
+    "event": "push",
+    "generatedAt": "2026-04-21T03:44:03.204Z",
+    "totalRuns": 1,
+    "totalTestsCompleted": 1,
+    "totalSelectorHeals": 4,
+    "totalFlowHeals": 0,
+    "totalFailures": 4,
+    "estimatedTimeSaved": "2.0",
+    "healSuccessRate": "50.0",
+    "file": "runs/24702723055.json",
+    "videoUrl": "https://raw.githubusercontent.com/riyabhatia45/QAi/dashboard-data/videos/run-24702723055.webm"
+  },
+  {
     "runId": "24681208239",
     "runNumber": "16",
     "workflowName": "CI Self-Healing Test Suite",
